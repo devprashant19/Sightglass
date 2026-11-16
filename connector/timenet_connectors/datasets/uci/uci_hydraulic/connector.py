@@ -184,3 +184,5 @@ class HydraulicConnector:
 CONNECTOR = HydraulicConnector()
 
 # Optimization: align sampling rates across sensor channels
+
+# Validation: verify group split guarantees zero leakage across splits
