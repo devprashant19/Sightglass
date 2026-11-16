@@ -25,3 +25,5 @@ class Cycle:
     signals: dict[str, Signal]
     labels: dict[str, int]  # e.g., {"cooler_condition": 20, ...}
     meta: dict[str, Any]  # e.g., {"cycle_index": 1423, "stable_flag": 0}
+
+# Formatted: clean type annotations and field docstrings
