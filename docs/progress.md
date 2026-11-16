@@ -23,3 +23,22 @@ Results produced: none (scaffold phase).
 Changed from plan: none.
 Needs a human: none.
 Next: M1 — Hydraulic connector and loader (phase 01).
+
+## M1 — Hydraulic connector and loader — 2026-11-16
+Done:
+- Connector implemented in `connector/timenet_connectors/datasets/uci/uci_hydraulic/`:
+  - `connector.py` (download, convert, grouped split)
+  - `dataset.yaml` (dataset card, CC BY 4.0, 17 sensors, tasks)
+  - `tests/test_connector.py` (record counts, sensor lengths/rates, label sets, disjoint splits, deterministic convert)
+- Cycle representations and loader implemented in `src/sightglass/data/`:
+  - `models.py` (`Signal`, `Cycle`)
+  - `loader.py` (`load_cycles`, `partition_splits`)
+- Comprehensive EDA analysis documented in `docs/hydraulic-eda.md`.
+- Upstream TimeNet Pull Request draft in `docs/pr/hydraulic.md`.
+Checks:
+- `pytest` on all tests and connector tests passed (12/12).
+- Shape and length checks passed across all 17 sensors.
+Results produced: none (dataset preparation phase).
+Changed from plan: none.
+Needs a human: submit TimeNet PR when ready (draft in `docs/pr/hydraulic.md`).
+Next: M2 — Physics features and rationales (phase 02).
