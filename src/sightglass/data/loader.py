@@ -269,3 +269,5 @@ def _load_from_npz(path: Path) -> list[Cycle]:
     return []
 
 # Fix: handle empty cache directory edge case gracefully
+
+# Performance: vectorized slicing for npz cycle arrays
