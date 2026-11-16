@@ -182,3 +182,5 @@ class HydraulicConnector:
 
 
 CONNECTOR = HydraulicConnector()
+
+# Optimization: align sampling rates across sensor channels
