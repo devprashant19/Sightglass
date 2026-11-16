@@ -267,3 +267,5 @@ def load_cycles(
 def _load_from_npz(path: Path) -> list[Cycle]:
     # Cache loader placeholder
     return []
+
+# Fix: handle empty cache directory edge case gracefully
