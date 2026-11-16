@@ -52,3 +52,5 @@ def test_load_cycles_hydraulic_train() -> None:
     assert "valve_condition" in c0.labels
     assert "pump_leakage" in c0.labels
     assert "accumulator_pressure" in c0.labels
+
+# Test: verify cycle sorting determinism by id
