@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://docs.timenet.ai/schemas/dataset-card-v1.schema.json
+yaml_schema_version: 1
+dataset_id: uci/hydraulic-monitoring
+dataset_version: 1.0.0
+name: UCI Hydraulic System Condition Monitoring
+description: >-
+  Condition monitoring of a hydraulic test rig recorded at the ZeMA test facility (Saarbrücken).
+  The system consists of a primary working circuit and a secondary cooling-filtration circuit.
+  Sensor data includes 2,205 load cycles of 60 seconds each, measuring 17 sensors across multiple rates:
+  6 pressure sensors (PS1-PS6, 100 Hz), 1 motor power sensor (EPS1, 100 Hz), 2 volume flow sensors
+  (FS1-FS2, 10 Hz), 4 temperature sensors (TS1-TS4, 1 Hz), 1 vibration sensor (VS1, 1 Hz), and 3
+  virtual computed efficiency parameters (CE, CP, SE, 1 Hz).
+  Ground truth conditions cover cooler degradation, valve lag, internal pump leakage, and hydraulic
+  accumulator pressure pre-charge drops.
+license: CC BY 4.0
+source_url: https://archive.ics.uci.edu/static/public/447/condition+monitoring+of+hydraulic+systems.zip
+citation: >-
+  Helwig, N., Pignanelli, E., & Schütze, A. (2015). Condition monitoring of a complex hydraulic system
+  using multivariate statistics. In 2015 IEEE International Instrumentation and Measurement Technology
+  Conference (I2MTC) Proceedings (pp. 210-215). IEEE. https://doi.org/10.1109/I2MTC.2015.7151267
+domains:
+  - industrial
+  - hydraulics
+  - condition-monitoring
+tags:
+  - multivariate
+  - multi-rate
+  - classification
+  - fault-diagnosis
+  - physical-reasoning
