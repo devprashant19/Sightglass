@@ -141,3 +141,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Refactor: add detailed progress reporting and verification pass
