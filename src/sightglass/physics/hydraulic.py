@@ -235,3 +235,5 @@ class HydraulicExtractor:
                 )
 
         return features
+
+# Feature: HealthyReference train-split calibration and z-score bounds
