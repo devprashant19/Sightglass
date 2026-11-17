@@ -66,3 +66,5 @@ def test_healthy_reference_fitting() -> None:
     assert pytest.approx(ref.pct_diff(test_feat), rel=1e-2) == 25.7
 
 # Test: HealthyReference tolerance bands and bounds validation
+
+# Test: physical anomaly thresholds against healthy baseline
