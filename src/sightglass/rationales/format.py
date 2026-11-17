@@ -61,3 +61,5 @@ def format_evidence_clause(
     return clause
 
 # Fix: eliminate ambiguous clause formatting in cooling efficiency claims
+
+# Normalization: enforce numerical token normalization for LM targets
