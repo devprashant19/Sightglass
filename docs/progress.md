@@ -42,3 +42,21 @@ Results produced: none (dataset preparation phase).
 Changed from plan: none.
 Needs a human: submit TimeNet PR when ready (draft in `docs/pr/hydraulic.md`).
 Next: M2 — Physics features and rationales (phase 02).
+
+## M2 — Physics features and rationales — 2026-11-17
+Done:
+- Feature extractors in `src/sightglass/physics/`:
+  - `base.py` (`Feature`, `BaseExtractor`, `HealthyReference`)
+  - `hydraulic.py` (`HydraulicExtractor` implementing all 16 physical signal features: mean, peak, plateau, integral, cross-correlation lag, temperature difference, cooling slope)
+- Link analysis and effect sizes pre-registered in `configs/physics/hydraulic_links.yaml`.
+- Evidence-clause rationales and QA generator in `src/sightglass/rationales/`:
+  - `format.py` (canonical grammar, component condition mapping)
+  - `templates.py` (seeded template selection)
+  - `builder.py` (`build_rationale`, `build_joint_rationale`)
+  - `qa.py` (diagnostic QA pairs)
+- `scripts/build_rationales.py` executed across all 2,205 cycles:
+  - 100.0% round-trip claim verification (26,460 / 26,460 claims verified).
+  - Artifacts generated: `data/reference/hydraulic_healthy.json`, `data/rationales/hydraulic.jsonl`, `data/qa/hydraulic.jsonl`, `docs/rationale-spotcheck.md`.
+Checks:
+- Unit tests in `tests/test_physics.py` passed (synthetic signal verification, reference fit on train only, corruption sensitivity).
+Next: M3 — Faithfulness checker (phase 05).
