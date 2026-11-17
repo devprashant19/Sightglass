@@ -1,0 +1,75 @@
+# Physical link specifications connecting features to machine components.
+cooler_condition:
+  - feature: "TS1.mean"
+    direction: "up"
+    quantity: "mean temperature"
+    unit: "°C"
+    effect: 0.88
+  - feature: "TS1.slope"
+    direction: "up"
+    quantity: "temperature slope"
+    unit: "°C/min"
+    effect: 0.74
+  - feature: "cooler.delta_t"
+    direction: "down"
+    quantity: "cooler temperature difference"
+    unit: "°C"
+    effect: -0.82
+  - feature: "CE.mean"
+    direction: "down"
+    quantity: "cooling efficiency"
+    unit: "%"
+    effect: -0.95
+    virtual: true
+
+valve_condition:
+  - feature: "PS1.rise_time"
+    direction: "up"
+    quantity: "pressure rise time"
+    unit: "s"
+    effect: 0.79
+  - feature: "PS1_PS2.lag"
+    direction: "up"
+    quantity: "valve switching lag"
+    unit: "s"
+    effect: 0.72
+  - feature: "PS2.mean"
+    direction: "down"
+    quantity: "mean pressure"
+    unit: "bar"
+    effect: -0.68
+
+pump_leakage:
+  - feature: "EPS1_per_FS1"
+    direction: "up"
+    quantity: "power-to-flow ratio"
+    unit: "W·min/l"
+    effect: 0.84
+  - feature: "FS1.mean"
+    direction: "down"
+    quantity: "mean volume flow"
+    unit: "l/min"
+    effect: -0.78
+  - feature: "SE.mean"
+    direction: "down"
+    quantity: "system efficiency factor"
+    unit: "%"
+    effect: -0.86
+    virtual: true
+
+accumulator_pressure:
+  - feature: "PS1.ripple"
+    direction: "up"
+    quantity: "pressure ripple"
+    unit: "bar"
+    effect: 0.81
+  - feature: "PS1.peak"
+    direction: "down"
+    quantity: "peak pressure"
+    unit: "bar"
+    effect: -0.76
+  - feature: "PS3.ripple"
+    direction: "up"
+    quantity: "pressure ripple"
+    unit: "bar"
+    effect: 0.74
