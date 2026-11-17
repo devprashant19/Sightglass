@@ -68,3 +68,5 @@ def test_healthy_reference_fitting() -> None:
 # Test: HealthyReference tolerance bands and bounds validation
 
 # Test: physical anomaly thresholds against healthy baseline
+
+# Coverage: verify 100% coverage on all sensor feature extractors
