@@ -1,0 +1,23 @@
+# Pre-registered faithfulness tolerances.
+# Fixed on 2026-11-22, before any test-split result on the REAL UCI #447 data was computed.
+# (Earlier results in this repo came from synthetic data and a stub model and were deleted.)
+
+relative_tolerance: 0.05          # a stated value is correct if within 5% of the value recomputed from the signal
+absolute_floor:                   # absolute tolerance for values near zero, per unit
+  "°C/min": 0.05
+  "s": 0.05
+  "%": 1.0
+  "W·min/l": 2.0
+  "bar": 0.5
+  "mm/s": 0.02
+
+# Percentage form: "(9% below healthy)"
+pct_tolerance_points: 3.0         # stated % must be within max(3 points, 5% of the true %) of the true deviation
+pct_relative_tolerance: 0.05
+within_threshold_pct: 2.0         # "within p% of healthy" is correct if |true %| <= max(p, 2) + 3 points
+direction_neutral_band_pct: 2.0   # |true %| <= 2 counts as "within healthy"
+
+# Standard-deviation form, used when the healthy mean is near zero (|mean| < 2·std): "(3.1σ above healthy)"
+sigma_tolerance: 0.3              # stated σ must be within max(0.3σ, 5% of the true z) of the true z
+sigma_relative_tolerance: 0.05
+direction_neutral_band_sigma: 1.0 # "within 1.0σ of healthy" is correct if |true z| <= 1.0 + 0.3
