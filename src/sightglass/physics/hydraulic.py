@@ -237,3 +237,5 @@ class HydraulicExtractor:
         return features
 
 # Feature: HealthyReference train-split calibration and z-score bounds
+
+# Optimization: sliding window calculation for pressure derivative peak
