@@ -1,0 +1,26 @@
+# configs/baselines/hydraulic.yaml
+dataset: hydraulic
+split: grouped
+seed: 0
+seeds: [0, 1, 2]
+
+baselines:
+  - name: B0_majority
+    type: majority
+  - name: B1_lightgbm
+    type: lightgbm
+    drop_virtual: false
+  - name: B1_lightgbm_no_virtual
+    type: lightgbm
+    drop_virtual: true
+  - name: B2_minirocket
+    type: minirocket
+  - name: B3_cnn1d
+    type: cnn1d
+    epochs: 5
+    batch_size: 16
+  - name: B4_tokenized_llm
+    type: tokenized_llm
+  - name: B5_gpt4o
+    type: gpt4o_plots
+    sample_size: 200
