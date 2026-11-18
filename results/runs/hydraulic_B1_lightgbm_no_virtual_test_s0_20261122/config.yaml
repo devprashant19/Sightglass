@@ -1,0 +1,4 @@
+name: B1_lightgbm_no_virtual
+drop_virtual: false
+seed: 0
+extra: {}
