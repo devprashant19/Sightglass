@@ -1,0 +1,15 @@
+# Pre-registered Faithfulness Tolerances
+# Fixed prior to evaluating model test results to prevent post-hoc bias.
+
+relative_tolerance: 0.05          # Claimed value is verified if within 5% of signal-computed value
+absolute_floor:                   # Floor tolerance for values near zero
+  "°C/min": 0.05
+  "s": 0.05
+  "%": 1.0
+  "W·min/l": 2.0
+  "bar": 0.5
+  "mm/s": 0.02
+
+pct_tolerance_points: 3.0         # e.g., "9% below healthy" verifies if true delta is within [6%, 12%]
+within_threshold_pct: 2.0         # "within p% of healthy" verified if |true pct| <= max(p, 2.0) + tolerance
+direction_neutral_band_pct: 2.0   # |true pct| <= 2.0% counts as neutral/within healthy baseline
