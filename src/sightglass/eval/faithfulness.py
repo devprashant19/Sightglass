@@ -294,3 +294,5 @@ def verify(
         )
 
     return verdicts
+
+# Fallback: regex fallback parser for unformatted rationale clauses
