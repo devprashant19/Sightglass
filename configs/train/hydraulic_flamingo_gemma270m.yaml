@@ -1,0 +1,46 @@
+# configs/train/hydraulic_flamingo_gemma270m.yaml
+run_name: hydraulic_flamingo_gemma270m
+dataset: hydraulic
+split: grouped
+
+model:
+  variant: flamingo
+  backbone: google/gemma-3-270m
+  lora:
+    enabled: false
+    r: 16
+    alpha: 32
+
+input:
+  rates_hz:
+    PS1: 10.0
+    PS2: 10.0
+    PS3: 10.0
+    PS4: 10.0
+    PS5: 10.0
+    PS6: 10.0
+    EPS1: 10.0
+    default: native
+  drop_sensors: []
+  normalisation: data/reference/hydraulic_norm.json
+
+targets:
+  joint_weight: 0.6
+  qa_weight: 0.4
+  rationales: data/rationales/hydraulic.jsonl
+  qa: data/qa/hydraulic.jsonl
+
+train:
+  smoke: false
+  epochs: 5
+  batch_size: 8
+  lr_encoder: 1.0e-4
+  lr_llm: 2.0e-5
+  effective_batch: 32
+  early_stopping:
+    metric: val_loss
+    patience: 1
+  checkpoint_every: epoch
+
+seeds: [0, 1, 2]
+output_dir: /data/checkpoints
