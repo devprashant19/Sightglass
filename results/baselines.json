@@ -1,0 +1,116 @@
+{
+  "dataset": "hydraulic",
+  "split": "grouped",
+  "generated_by": "scripts/run_baselines.py",
+  "git_sha": "8e83c83cad72c31afbb71855042b1a3db6856dc3",
+  "baselines": {
+    "B0_majority": {
+      "seeds": [
+        0
+      ],
+      "test": {
+        "macro_f1": {
+          "cooler_condition": 0.12429378531073447,
+          "valve_condition": 0.09322033898305085,
+          "pump_leakage": 0.1890547263681592,
+          "accumulator_pressure": 0.13636363636363635,
+          "mean": 0.1357331217563952
+        },
+        "joint_exact_match": 0.0
+      },
+      "test_mean_f1_avg": 0.1357331217563952,
+      "test_mean_f1_std": 0.0,
+      "test_joint_em_avg": 0.0
+    },
+    "B1_lightgbm": {
+      "seeds": [
+        0
+      ],
+      "test": {
+        "macro_f1": {
+          "cooler_condition": 1.0,
+          "valve_condition": 1.0,
+          "pump_leakage": 1.0,
+          "accumulator_pressure": 1.0,
+          "mean": 1.0
+        },
+        "joint_exact_match": 1.0
+      },
+      "test_mean_f1_avg": 1.0,
+      "test_mean_f1_std": 0.0,
+      "test_joint_em_avg": 1.0
+    },
+    "B1_lightgbm_no_virtual": {
+      "seeds": [
+        0
+      ],
+      "test": {
+        "macro_f1": {
+          "cooler_condition": 1.0,
+          "valve_condition": 1.0,
+          "pump_leakage": 1.0,
+          "accumulator_pressure": 1.0,
+          "mean": 1.0
+        },
+        "joint_exact_match": 1.0
+      },
+      "test_mean_f1_avg": 1.0,
+      "test_mean_f1_std": 0.0,
+      "test_joint_em_avg": 1.0
+    },
+    "B2_minirocket": {
+      "seeds": [
+        0
+      ],
+      "test": {
+        "macro_f1": {
+          "cooler_condition": 0.6317460317460317,
+          "valve_condition": 0.284233295440192,
+          "pump_leakage": 0.713069937716921,
+          "accumulator_pressure": 0.46178861788617886,
+          "mean": 0.5227094706973309
+        },
+        "joint_exact_match": 0.08333333333333333
+      },
+      "test_mean_f1_avg": 0.5227094706973309,
+      "test_mean_f1_std": 0.0,
+      "test_joint_em_avg": 0.08333333333333333
+    },
+    "B3_cnn1d": {
+      "seeds": [
+        0
+      ],
+      "test": {
+        "macro_f1": {
+          "cooler_condition": 1.0,
+          "valve_condition": 0.1815686274509804,
+          "pump_leakage": 0.12164502164502163,
+          "accumulator_pressure": 0.5302197802197802,
+          "mean": 0.4583583573289456
+        },
+        "joint_exact_match": 0.0
+      },
+      "test_mean_f1_avg": 0.4583583573289456,
+      "test_mean_f1_std": 0.0,
+      "test_joint_em_avg": 0.0
+    },
+    "B4_tokenized_llm": {
+      "seeds": [
+        0
+      ],
+      "test": {
+        "macro_f1": {
+          "cooler_condition": 0.12429378531073447,
+          "valve_condition": 0.09322033898305085,
+          "pump_leakage": 0.1890547263681592,
+          "accumulator_pressure": 0.13636363636363635,
+          "mean": 0.1357331217563952
+        },
+        "joint_exact_match": 0.0
+      },
+      "test_mean_f1_avg": 0.1357331217563952,
+      "test_mean_f1_std": 0.0,
+      "test_joint_em_avg": 0.0
+    }
+  }
+}
