@@ -1,0 +1,4 @@
+name: B3_cnn1d
+drop_virtual: false
+seed: 0
+extra: {}
