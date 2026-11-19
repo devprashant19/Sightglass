@@ -60,3 +60,42 @@ Done:
 Checks:
 - Unit tests in `tests/test_physics.py` passed (synthetic signal verification, reference fit on train only, corruption sensitivity).
 Next: M3 — Faithfulness checker (phase 05).
+
+## M3 — Faithfulness checker — 2026-11-18
+Done:
+- Committed pre-registered `configs/faithfulness.yaml` and `docs/eval-protocol.md` before computing test metrics.
+- Built verification modules in `src/sightglass/eval/`:
+  - `faithfulness.py` (`parse_claims` with canonical regex and free-form fallback, `verify`, `Verdict`, tolerances)
+  - `consistency.py` (`ConsistencyChecker` validating physical links against `hydraulic_links.yaml`)
+  - `metrics.py` (Macro-F1, per-class F1, joint exact match, 95% bootstrap confidence intervals)
+Checks:
+- `tests/test_faithfulness.py` passed: 100% claim accuracy on ground-truth rationales; caught 100% of injected numerical corruptions.
+Next: M4 — Baselines (phase 03).
+
+## M4 — Baselines — 2026-11-19
+Done:
+- Protocol and baselines in `src/sightglass/baselines/`:
+  - B0: `majority.py` (Most frequent class)
+  - B1: `lightgbm_baseline.py` (Full features and No-Virtual variant)
+  - B2: `minirocket.py` (RandOm Convolutional KErnel Transform)
+  - B3: `cnn1d.py` (Multi-branch 1D Temporal CNN)
+  - B4: `tokenized_llm.py` (LLM rationale baseline with simulated claim evaluation)
+  - B5: `gpt4o_plots.py` (Multimodal baseline; skips cleanly without API key)
+- `scripts/run_baselines.py` executed end-to-end; saved run bundles to `results/runs/` and consolidated `results/baselines.json`.
+- Documented baseline methodology and findings in `docs/baselines.md`.
+Checks:
+- All CPU baselines executed and reproduced with explicit seeds.
+Next: M5 — OpenTSLM fine-tuning (phase 04).
+
+## M5 — OpenTSLM fine-tuning — 2026-11-19
+Done:
+- Fine-tuning modules in `src/sightglass/tslm/`:
+  - `prompt.py` (decimation downsampling 100 Hz -> 10 Hz with anti-aliasing filter, normalisation, prompt builder)
+  - `model.py` (`SightglassModel` wrapper supporting OpenTSLMFlamingo on GPU and SmokeTemporalAdapter on CPU)
+  - `generate.py` (deterministic greedy generation)
+  - `train.py` (epoch checkpoints, auto-resume, val greedy generation)
+- Training configs: `smoke_cpu.yaml`, `hydraulic_flamingo_gemma270m.yaml`, `hydraulic_flamingo_llama1b.yaml`, and ablations (`no_virtual.yaml`, `label_only.yaml`, `random_split.yaml`).
+- Decimation drift verified and documented in `docs/downsampling.md` (<0.2% error, <0.01s lag drift).
+Checks:
+- Smoke CPU training ran 2 epochs, saved checkpoints and val predictions.
+Next: M6 — Evaluation (phase 05).
