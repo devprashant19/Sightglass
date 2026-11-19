@@ -124,3 +124,5 @@ def build_prompt_and_series(
     prompt_text = "\n".join(lines)
 
     return prompt_text, series_list
+
+# Feature: train-set sensor normalization and prompt formatting
