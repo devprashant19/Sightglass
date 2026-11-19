@@ -1,0 +1,32 @@
+# Pooled multi-machine OpenTSLM Flamingo training config
+run_name: "pooled_flamingo_llama1b"
+backbone: "meta-llama/Llama-3.2-1B-Instruct"
+architecture: "OpenTSLMFlamingo"
+
+datasets:
+  hydraulic:
+    weight: 0.45
+    sensors: 17
+    rate_hz: 10.0
+    split: "grouped"
+  hust_bearing:
+    weight: 0.25
+    sensors: 1
+    rate_hz: 51200.0
+    split: "leave_one_condition_out"
+  care_wind:
+    weight: 0.30
+    sensors: 4
+    rate_hz: 0.0016667
+    split: "turbine_held_out"
+
+temperature_scaling_exponent: 0.5
+epochs: 3
+batch_size: 4
+gradient_accumulation_steps: 4
+lr_encoder: 1.0e-4
+lr_llm: 2.0e-5
+weight_decay: 0.01
+seed: 42
+checkpoint_every_epochs: 1
+save_dir: "checkpoints/pooled_flamingo_llama1b"
