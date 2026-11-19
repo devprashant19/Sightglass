@@ -1,0 +1,28 @@
+# configs/train/ablations/random_split.yaml
+run_name: ablation_random_split
+dataset: hydraulic
+split: random
+
+model:
+  variant: flamingo
+  backbone: google/gemma-3-270m
+
+input:
+  rates_hz:
+    PS1: 10.0
+    PS2: 10.0
+    EPS1: 10.0
+    default: native
+  drop_sensors: []
+  normalisation: data/reference/hydraulic_norm.json
+
+train:
+  smoke: true
+  epochs: 3
+  batch_size: 8
+  lr_encoder: 1.0e-4
+  lr_llm: 2.0e-5
+  effective_batch: 16
+
+seeds: [0]
+output_dir: checkpoints
