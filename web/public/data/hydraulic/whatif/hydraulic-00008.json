@@ -1,0 +1,104 @@
+{
+  "cycle_id": "hydraulic-00008",
+  "mock": false,
+  "grid": [
+    {
+      "perturbation_type": "reduce_flow",
+      "amount": 0.0,
+      "unit": "%",
+      "cycle_id": "hydraulic-00008_perturbed_reduce_flow_0",
+      "predicted_pump_leakage": 0
+    },
+    {
+      "perturbation_type": "reduce_flow",
+      "amount": -5.0,
+      "unit": "%",
+      "cycle_id": "hydraulic-00008_perturbed_reduce_flow_-5",
+      "predicted_pump_leakage": 0
+    },
+    {
+      "perturbation_type": "reduce_flow",
+      "amount": -10.0,
+      "unit": "%",
+      "cycle_id": "hydraulic-00008_perturbed_reduce_flow_-10",
+      "predicted_pump_leakage": 1
+    },
+    {
+      "perturbation_type": "reduce_flow",
+      "amount": -15.0,
+      "unit": "%",
+      "cycle_id": "hydraulic-00008_perturbed_reduce_flow_-15",
+      "predicted_pump_leakage": 1
+    },
+    {
+      "perturbation_type": "reduce_flow",
+      "amount": -20.0,
+      "unit": "%",
+      "cycle_id": "hydraulic-00008_perturbed_reduce_flow_-20",
+      "predicted_pump_leakage": 2
+    },
+    {
+      "perturbation_type": "raise_temperature",
+      "amount": 0.0,
+      "unit": "\u00b0C",
+      "cycle_id": "hydraulic-00008_perturbed_raise_temperature_0",
+      "predicted_cooler_condition": 100
+    },
+    {
+      "perturbation_type": "raise_temperature",
+      "amount": 2.0,
+      "unit": "\u00b0C",
+      "cycle_id": "hydraulic-00008_perturbed_raise_temperature_2",
+      "predicted_cooler_condition": 100
+    },
+    {
+      "perturbation_type": "raise_temperature",
+      "amount": 4.0,
+      "unit": "\u00b0C",
+      "cycle_id": "hydraulic-00008_perturbed_raise_temperature_4",
+      "predicted_cooler_condition": 20
+    },
+    {
+      "perturbation_type": "raise_temperature",
+      "amount": 6.0,
+      "unit": "\u00b0C",
+      "cycle_id": "hydraulic-00008_perturbed_raise_temperature_6",
+      "predicted_cooler_condition": 20
+    },
+    {
+      "perturbation_type": "raise_temperature",
+      "amount": 8.0,
+      "unit": "\u00b0C",
+      "cycle_id": "hydraulic-00008_perturbed_raise_temperature_8",
+      "predicted_cooler_condition": 3
+    },
+    {
+      "perturbation_type": "add_ripple",
+      "amount": 0.0,
+      "unit": "% std",
+      "cycle_id": "hydraulic-00008_perturbed_add_ripple_0",
+      "predicted_accumulator_pressure": 130
+    },
+    {
+      "perturbation_type": "add_ripple",
+      "amount": 25.0,
+      "unit": "% std",
+      "cycle_id": "hydraulic-00008_perturbed_add_ripple_25",
+      "predicted_accumulator_pressure": 115
+    },
+    {
+      "perturbation_type": "add_ripple",
+      "amount": 50.0,
+      "unit": "% std",
+      "cycle_id": "hydraulic-00008_perturbed_add_ripple_50",
+      "predicted_accumulator_pressure": 115
+    },
+    {
+      "perturbation_type": "add_ripple",
+      "amount": 100.0,
+      "unit": "% std",
+      "cycle_id": "hydraulic-00008_perturbed_add_ripple_100",
+      "predicted_accumulator_pressure": 100
+    }
+  ]
+}
