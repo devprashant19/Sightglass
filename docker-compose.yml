@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  sightglass-api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile.cpu
+    ports:
+      - "8000:8000"
+    environment:
+      - SIGHTGLASS_DEVICE=cpu
+      - SIGHTGLASS_ALLOWED_ORIGIN=http://localhost:5173
+    volumes:
+      - ./data:/app/data
+      - ./checkpoints:/app/checkpoints
