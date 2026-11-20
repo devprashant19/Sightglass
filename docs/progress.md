@@ -99,3 +99,31 @@ Done:
 Checks:
 - Smoke CPU training ran 2 epochs, saved checkpoints and val predictions.
 Next: M6 — Evaluation (phase 05).
+
+## M6 — Evaluation — 2026-11-20
+Done:
+- Evaluation engine in `scripts/evaluate.py`:
+  - Evaluated all baseline and model runs.
+  - Generated `results/eval_<run_id>.json`, `results/faithfulness_<run_id>.json`.
+  - Generated `results/failures.json` (top 20 categorized diagnostic errors).
+  - Generated `results/summary.json` (headline stats for dashboard).
+- Created `scripts/make_readme_table.py` to produce markdown tables directly from results files.
+Checks:
+- Verified all JSON shapes and bootstrap CI intervals.
+Next: M7 — Static export and live inference API (phases 06 & 07).
+
+## M7 — Static export and live inference API — 2026-11-20
+Done:
+- Export pipeline in `src/sightglass/export/`:
+  - `schema.py` (Pydantic schema definitions, exported to `web/src/schema/`)
+  - `perturb.py` (What-If counterfactual physical perturbation engine)
+- `scripts/export_site_data.py`:
+  - Exported real cycle slices to `web/public/data/` (manifest.json, cycle_*.json, whatif_*.json)
+  - Exported mock dataset to `web/public/data-mock/` with `"mock": true` flag for UI banner testing.
+- FastAPI live service in `api/main.py`:
+  - Endpoints: `GET /health`, `GET /cycles/{id}`, `POST /diagnose`, `POST /diagnose/perturb`
+  - Inline claim verification and faithfulness checking on every generated rationale.
+- Containerization: `api/Dockerfile.cpu`, `api/Dockerfile.gpu`, `docker-compose.yml`, `scripts/deploy_api.sh`.
+Checks:
+- `tests/test_api.py` passed (3/3: health check, cycle retrieval, diagnosis with live claim verification).
+Next: M8 — Dashboard web app (phase 07).
