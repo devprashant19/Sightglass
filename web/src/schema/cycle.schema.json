@@ -1,0 +1,249 @@
+{
+  "$defs": {
+    "ClaimExport": {
+      "properties": {
+        "span": {
+          "description": "Character offsets [start, end] in rationale text",
+          "items": {
+            "type": "integer"
+          },
+          "title": "Span",
+          "type": "array"
+        },
+        "component": {
+          "title": "Component",
+          "type": "string"
+        },
+        "sensor": {
+          "title": "Sensor",
+          "type": "string"
+        },
+        "feature": {
+          "title": "Feature",
+          "type": "string"
+        },
+        "stated": {
+          "$ref": "#/$defs/StatedClaim"
+        },
+        "true": {
+          "$ref": "#/$defs/TrueFeature"
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "wrong_value",
+            "wrong_direction",
+            "unknown_sensor",
+            "unknown_quantity",
+            "unit_mismatch"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "window": {
+          "description": "Temporal window [start_s, end_s]",
+          "items": {
+            "type": "number"
+          },
+          "title": "Window",
+          "type": "array"
+        }
+      },
+      "required": [
+        "span",
+        "component",
+        "sensor",
+        "feature",
+        "stated",
+        "true",
+        "status",
+        "window"
+      ],
+      "title": "ClaimExport",
+      "type": "object"
+    },
+    "PredictionExport": {
+      "properties": {
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "labels": {
+          "additionalProperties": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Labels",
+          "type": "object"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/ClaimExport"
+          },
+          "title": "Claims",
+          "type": "array"
+        }
+      },
+      "required": [
+        "model",
+        "labels",
+        "rationale",
+        "claims"
+      ],
+      "title": "PredictionExport",
+      "type": "object"
+    },
+    "SignalDisplay": {
+      "properties": {
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        },
+        "rate_hz": {
+          "title": "Rate Hz",
+          "type": "number"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "unit",
+        "rate_hz",
+        "source",
+        "values"
+      ],
+      "title": "SignalDisplay",
+      "type": "object"
+    },
+    "StatedClaim": {
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "above",
+            "below",
+            "within"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "pct": {
+          "title": "Pct",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "direction",
+        "pct"
+      ],
+      "title": "StatedClaim",
+      "type": "object"
+    },
+    "TrueFeature": {
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "pct": {
+          "title": "Pct",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "pct"
+      ],
+      "title": "TrueFeature",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "dataset": {
+      "title": "Dataset",
+      "type": "string"
+    },
+    "meta": {
+      "additionalProperties": true,
+      "title": "Meta",
+      "type": "object"
+    },
+    "true_labels": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "True Labels",
+      "type": "object"
+    },
+    "signals": {
+      "additionalProperties": {
+        "$ref": "#/$defs/SignalDisplay"
+      },
+      "title": "Signals",
+      "type": "object"
+    },
+    "prediction": {
+      "$ref": "#/$defs/PredictionExport"
+    },
+    "baselines": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "default": {},
+      "title": "Baselines",
+      "type": "object"
+    },
+    "features": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "default": {},
+      "title": "Features",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "dataset",
+    "meta",
+    "true_labels",
+    "signals",
+    "prediction"
+  ],
+  "title": "CycleExport",
+  "type": "object"
+}
