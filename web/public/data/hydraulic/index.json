@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "mock": false,
+  "cycles": [
+    {
+      "id": "hydraulic-00001",
+      "cycle_index": 1,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 20,
+        "valve_condition": 73,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "predicted_labels": {
+        "cooler_condition": 20,
+        "valve_condition": 73,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "verified_claims": 1,
+      "total_claims": 7,
+      "is_faithful": false
+    },
+    {
+      "id": "hydraulic-00002",
+      "cycle_index": 2,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 100,
+        "valve_condition": 73,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "predicted_labels": {
+        "cooler_condition": 100,
+        "valve_condition": 73,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "verified_claims": 1,
+      "total_claims": 6,
+      "is_faithful": false
+    },
+    {
+      "id": "hydraulic-00008",
+      "cycle_index": 8,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 100,
+        "valve_condition": 90,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "predicted_labels": {
+        "cooler_condition": 100,
+        "valve_condition": 90,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "verified_claims": 1,
+      "total_claims": 6,
+      "is_faithful": false
+    },
+    {
+      "id": "hydraulic-00013",
+      "cycle_index": 13,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 20,
+        "valve_condition": 73,
+        "pump_leakage": 1,
+        "accumulator_pressure": 90
+      },
+      "predicted_labels": {
+        "cooler_condition": 20,
+        "valve_condition": 73,
+        "pump_leakage": 1,
+        "accumulator_pressure": 90
+      },
+      "verified_claims": 1,
+      "total_claims": 8,
+      "is_faithful": false
+    },
+    {
+      "id": "hydraulic-00033",
+      "cycle_index": 33,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 3,
+        "valve_condition": 100,
+        "pump_leakage": 2,
+        "accumulator_pressure": 90
+      },
+      "predicted_labels": {
+        "cooler_condition": 3,
+        "valve_condition": 100,
+        "pump_leakage": 2,
+        "accumulator_pressure": 90
+      },
+      "verified_claims": 2,
+      "total_claims": 7,
+      "is_faithful": false
+    },
+    {
+      "id": "hydraulic-00036",
+      "cycle_index": 36,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 3,
+        "valve_condition": 73,
+        "pump_leakage": 0,
+        "accumulator_pressure": 100
+      },
+      "predicted_labels": {
+        "cooler_condition": 3,
+        "valve_condition": 73,
+        "pump_leakage": 0,
+        "accumulator_pressure": 100
+      },
+      "verified_claims": 1,
+      "total_claims": 7,
+      "is_faithful": false
+    },
+    {
+      "id": "hydraulic-00048",
+      "cycle_index": 48,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 3,
+        "valve_condition": 73,
+        "pump_leakage": 1,
+        "accumulator_pressure": 100
+      },
+      "predicted_labels": {
+        "cooler_condition": 3,
+        "valve_condition": 73,
+        "pump_leakage": 1,
+        "accumulator_pressure": 100
+      },
+      "verified_claims": 1,
+      "total_claims": 8,
+      "is_faithful": false
+    }
+  ]
+}

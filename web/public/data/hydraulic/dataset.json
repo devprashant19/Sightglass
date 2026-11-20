@@ -1,0 +1,20 @@
+{
+  "id": "uci_hydraulic",
+  "name": "UCI Hydraulic Test Rig (#447)",
+  "license": "CC BY 4.0",
+  "n_records": 2205,
+  "n_sensors": 17,
+  "rates": {
+    "PS1-PS6, EPS1": "100 Hz",
+    "FS1-FS2": "10 Hz",
+    "TS1-TS4, VS1, CE, CP, SE": "1 Hz"
+  },
+  "tasks": [
+    "cooler_condition",
+    "valve_condition",
+    "pump_leakage",
+    "accumulator_pressure"
+  ],
+  "pr_link": "https://github.com/OpenTSLM/TimeNet/pull/123",
+  "load_snippet": "from sightglass.data import load_cycles\ncycles = load_cycles('hydraulic', split='test')"
+}
