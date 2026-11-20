@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "mock": true,
+  "cycles": [
+    {
+      "id": "hydraulic-00008",
+      "cycle_index": 8,
+      "stable_flag": 0,
+      "true_labels": {
+        "cooler_condition": 100,
+        "valve_condition": 90,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "predicted_labels": {
+        "cooler_condition": 100,
+        "valve_condition": 90,
+        "pump_leakage": 0,
+        "accumulator_pressure": 90
+      },
+      "verified_claims": 1,
+      "total_claims": 6,
+      "is_faithful": false
+    }
+  ]
+}
