@@ -1,0 +1,163 @@
+{
+  "run_id": "hydraulic_smoke_cpu_flamingo_s0_20261122",
+  "n_test_cycles": 48,
+  "diagnosis": {
+    "mean_macro_f1": 0.0472636815920398,
+    "mean_macro_f1_ci95": [
+      0.0,
+      0.1417910447761194
+    ],
+    "joint_exact_match": 0.0,
+    "joint_exact_match_ci95": [
+      0.0,
+      0.0
+    ],
+    "components": {
+      "cooler_condition": {
+        "macro_f1": 0.0,
+        "accuracy": 0.0,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            11,
+            0,
+            0,
+            0
+          ],
+          [
+            18,
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "valve_condition": {
+        "macro_f1": 0.0,
+        "accuracy": 0.0,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            10,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "pump_leakage": {
+        "macro_f1": 0.1890547263681592,
+        "accuracy": 0.3958333333333333,
+        "confusion_matrix": [
+          [
+            19,
+            0,
+            0
+          ],
+          [
+            13,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ]
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.0,
+        "accuracy": 0.0,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            18,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            14,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "faithfulness": {
+    "claim_accuracy": 19.444444444444446,
+    "value_accuracy": 19.444444444444446,
+    "direction_accuracy": 27.77777777777778,
+    "hallucinated_sensor_rate": 19.444444444444446,
+    "unparsed_claim_rate": 0.0,
+    "claims_per_rationale": 0.75,
+    "fully_faithful_pct": 0.0,
+    "consistency_pct": 100.0,
+    "total_claims": 36,
+    "verified_claims": 7
+  }
+}

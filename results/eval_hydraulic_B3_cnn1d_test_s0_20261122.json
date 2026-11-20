@@ -1,0 +1,132 @@
+{
+  "run_id": "hydraulic_B3_cnn1d_test_s0_20261122",
+  "n_test_cycles": 48,
+  "diagnosis": {
+    "mean_macro_f1": 0.4583583573289456,
+    "mean_macro_f1_ci95": [
+      0.151606824548001,
+      0.7953921568627451
+    ],
+    "joint_exact_match": 0.0,
+    "joint_exact_match_ci95": [
+      0.0,
+      0.0
+    ],
+    "components": {
+      "cooler_condition": {
+        "macro_f1": 1.0,
+        "accuracy": 1.0,
+        "confusion_matrix": [
+          [
+            11,
+            0,
+            0
+          ],
+          [
+            0,
+            18,
+            0
+          ],
+          [
+            0,
+            0,
+            19
+          ]
+        ]
+      },
+      "valve_condition": {
+        "macro_f1": 0.1815686274509804,
+        "accuracy": 0.20833333333333334,
+        "confusion_matrix": [
+          [
+            3,
+            4,
+            6,
+            3
+          ],
+          [
+            0,
+            6,
+            5,
+            0
+          ],
+          [
+            4,
+            6,
+            0,
+            1
+          ],
+          [
+            2,
+            7,
+            0,
+            1
+          ]
+        ]
+      },
+      "pump_leakage": {
+        "macro_f1": 0.12164502164502163,
+        "accuracy": 0.14583333333333334,
+        "confusion_matrix": [
+          [
+            3,
+            2,
+            14
+          ],
+          [
+            12,
+            0,
+            1
+          ],
+          [
+            10,
+            2,
+            4
+          ]
+        ]
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.5302197802197802,
+        "accuracy": 0.5833333333333334,
+        "confusion_matrix": [
+          [
+            18,
+            0,
+            0,
+            0
+          ],
+          [
+            14,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            2,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            6
+          ]
+        ]
+      }
+    }
+  },
+  "faithfulness": {
+    "claim_accuracy": 0.0,
+    "value_accuracy": 0.0,
+    "direction_accuracy": 0.0,
+    "hallucinated_sensor_rate": 0.0,
+    "unparsed_claim_rate": 0.0,
+    "claims_per_rationale": 0.0,
+    "fully_faithful_pct": 0.0,
+    "consistency_pct": 0.0,
+    "total_claims": 0,
+    "verified_claims": 0
+  }
+}

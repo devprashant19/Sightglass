@@ -1,0 +1,132 @@
+{
+  "run_id": "hydraulic_B4_tokenized_llm_test_s0_20261122",
+  "n_test_cycles": 48,
+  "diagnosis": {
+    "mean_macro_f1": 0.1357331217563952,
+    "mean_macro_f1_ci95": [
+      0.10875706214689265,
+      0.17286449110380303
+    ],
+    "joint_exact_match": 0.0,
+    "joint_exact_match_ci95": [
+      0.0,
+      0.0
+    ],
+    "components": {
+      "cooler_condition": {
+        "macro_f1": 0.12429378531073447,
+        "accuracy": 0.22916666666666666,
+        "confusion_matrix": [
+          [
+            11,
+            0,
+            0
+          ],
+          [
+            18,
+            0,
+            0
+          ],
+          [
+            19,
+            0,
+            0
+          ]
+        ]
+      },
+      "valve_condition": {
+        "macro_f1": 0.09322033898305085,
+        "accuracy": 0.22916666666666666,
+        "confusion_matrix": [
+          [
+            0,
+            16,
+            0,
+            0
+          ],
+          [
+            0,
+            11,
+            0,
+            0
+          ],
+          [
+            0,
+            11,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            0
+          ]
+        ]
+      },
+      "pump_leakage": {
+        "macro_f1": 0.1890547263681592,
+        "accuracy": 0.3958333333333333,
+        "confusion_matrix": [
+          [
+            19,
+            0,
+            0
+          ],
+          [
+            13,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ]
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.13636363636363635,
+        "accuracy": 0.375,
+        "confusion_matrix": [
+          [
+            18,
+            0,
+            0,
+            0
+          ],
+          [
+            14,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "faithfulness": {
+    "claim_accuracy": 9.895833333333332,
+    "value_accuracy": 9.895833333333332,
+    "direction_accuracy": 26.5625,
+    "hallucinated_sensor_rate": 0.0,
+    "unparsed_claim_rate": 0.0,
+    "claims_per_rationale": 4.0,
+    "fully_faithful_pct": 0.0,
+    "consistency_pct": 100.0,
+    "total_claims": 192,
+    "verified_claims": 19
+  }
+}
