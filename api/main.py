@@ -179,3 +179,5 @@ def diagnose_perturb(req: PerturbRequest) -> dict[str, Any]:
     }
 
 # Middleware: CORS and structured error handling for frontend
+
+# Format: strict Pydantic model response annotations
