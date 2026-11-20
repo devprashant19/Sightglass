@@ -1,0 +1,634 @@
+[
+  {
+    "cycle_id": "hydraulic-00006",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "rationale": "Cooler: full efficiency. Evidence: TS1 mean temperature 46.2 \u00b0C (within 1% of healthy).\nValve: optimal. Evidence: PS1 pressure rise time 0.25 s (within 2% of healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.1 l/min (within 1% of healthy).\nAccumulator: optimal. Evidence: PS1 pressure ripple 1.2 bar (within 1% of healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 46.2,
+        "unit": "\u00b0C",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "within",
+        "pct": 2.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 1.2,
+        "unit": "bar",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00014",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "rationale": "Cooler: full efficiency. Evidence: TS1 mean temperature 46.2 \u00b0C (within 1% of healthy).\nValve: optimal. Evidence: PS1 pressure rise time 0.25 s (within 2% of healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.1 l/min (within 1% of healthy).\nAccumulator: optimal. Evidence: PS1 pressure ripple 1.2 bar (within 1% of healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 46.2,
+        "unit": "\u00b0C",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "within",
+        "pct": 2.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "FS1",
+        "quantity": "mean volume flow",
+        "value": 8.1,
+        "unit": "l/min",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 1.2,
+        "unit": "bar",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00019",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "rationale": "Cooler: full efficiency. Evidence: TS1 mean temperature 46.2 \u00b0C (within 1% of healthy).\nValve: optimal. Evidence: PS1 pressure rise time 0.25 s (within 2% of healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.1 l/min (within 1% of healthy).\nAccumulator: optimal. Evidence: PS1 pressure ripple 1.2 bar (within 1% of healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 46.2,
+        "unit": "\u00b0C",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "within",
+        "pct": 2.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "FS1",
+        "quantity": "mean volume flow",
+        "value": 8.1,
+        "unit": "l/min",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 1.2,
+        "unit": "bar",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00022",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "rationale": "Cooler: full efficiency. Evidence: TS1 mean temperature 46.2 \u00b0C (within 1% of healthy).\nValve: optimal. Evidence: PS1 pressure rise time 0.25 s (within 2% of healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.1 l/min (within 1% of healthy).\nAccumulator: optimal. Evidence: PS1 pressure ripple 1.2 bar (within 1% of healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 46.2,
+        "unit": "\u00b0C",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "within",
+        "pct": 2.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "FS1",
+        "quantity": "mean volume flow",
+        "value": 8.1,
+        "unit": "l/min",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 1.2,
+        "unit": "bar",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "rationale": "Cooler: full efficiency. Evidence: TS1 mean temperature 46.2 \u00b0C (within 1% of healthy).\nValve: optimal. Evidence: PS1 pressure rise time 0.25 s (within 2% of healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.1 l/min (within 1% of healthy).\nAccumulator: optimal. Evidence: PS1 pressure ripple 1.2 bar (within 1% of healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 46.2,
+        "unit": "\u00b0C",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "within",
+        "pct": 2.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "FS1",
+        "quantity": "mean volume flow",
+        "value": 8.1,
+        "unit": "l/min",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 1.2,
+        "unit": "bar",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 0,
+      "valve_condition": 0,
+      "pump_leakage": 0,
+      "accumulator_pressure": 0
+    },
+    "rationale": "Cooler: close to total failure. Evidence: TS1 mean temperature 54.2 \u00b0C (18% above healthy); CE cooling efficiency 32.5 % (66% below healthy).\nValve: small lag. Evidence: PS1 pressure rise time 0.65 s (30% above healthy); PS1_PS2 valve switching lag 0.25 s (25% above healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.2 l/min (within 1% of healthy).\nAccumulator: severely reduced. Evidence: PS1 pressure ripple 6.2 bar (120% above healthy); PS1 peak pressure 178 bar (12% below healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 54.2,
+        "unit": "\u00b0C",
+        "direction": "above",
+        "pct": 18.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "CE",
+        "quantity": "cooling efficiency",
+        "value": 32.5,
+        "unit": "%",
+        "direction": "below",
+        "pct": 66.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.65,
+        "unit": "s",
+        "direction": "above",
+        "pct": 30.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1_PS2",
+        "quantity": "valve switching lag",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "above",
+        "pct": 25.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 6.2,
+        "unit": "bar",
+        "direction": "above",
+        "pct": 120.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "peak pressure",
+        "value": 178.0,
+        "unit": "bar",
+        "direction": "below",
+        "pct": 12.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 0,
+      "valve_condition": 0,
+      "pump_leakage": 0,
+      "accumulator_pressure": 0
+    },
+    "rationale": "Cooler: close to total failure. Evidence: TS1 mean temperature 54.2 \u00b0C (18% above healthy); CE cooling efficiency 32.5 % (66% below healthy).\nValve: small lag. Evidence: PS1 pressure rise time 0.65 s (30% above healthy); PS1_PS2 valve switching lag 0.25 s (25% above healthy).\nPump leakage: severe leakage. Evidence: EPS1_per_FS1 power-to-flow ratio 540 W\u00b7min/l (80% above healthy); FS1 mean volume flow 4.5 l/min (45% below healthy).\nAccumulator: severely reduced. Evidence: PS1 pressure ripple 6.2 bar (120% above healthy); PS1 peak pressure 178 bar (12% below healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 54.2,
+        "unit": "\u00b0C",
+        "direction": "above",
+        "pct": 18.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "CE",
+        "quantity": "cooling efficiency",
+        "value": 32.5,
+        "unit": "%",
+        "direction": "below",
+        "pct": 66.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.65,
+        "unit": "s",
+        "direction": "above",
+        "pct": 30.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1_PS2",
+        "quantity": "valve switching lag",
+        "value": 0.25,
+        "unit": "s",
+        "direction": "above",
+        "pct": 25.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 6.2,
+        "unit": "bar",
+        "direction": "above",
+        "pct": 120.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "peak pressure",
+        "value": 178.0,
+        "unit": "bar",
+        "direction": "below",
+        "pct": 12.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 0,
+      "valve_condition": 0,
+      "pump_leakage": 0,
+      "accumulator_pressure": 0
+    },
+    "rationale": "Cooler: reduced efficiency. Evidence: TS1 mean temperature 50.8 \u00b0C (11% above healthy); CE cooling efficiency 62.0 % (35% below healthy).\nValve: severe lag. Evidence: PS1 pressure rise time 1.25 s (150% above healthy); PS1_PS2 valve switching lag 0.42 s (110% above healthy).\nPump leakage: weak leakage. Evidence: EPS1_per_FS1 power-to-flow ratio 380 W\u00b7min/l (27% above healthy); FS1 mean volume flow 6.8 l/min (17% below healthy).\nAccumulator: severely reduced. Evidence: PS1 pressure ripple 6.2 bar (120% above healthy); PS1 peak pressure 178 bar (12% below healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 50.8,
+        "unit": "\u00b0C",
+        "direction": "above",
+        "pct": 11.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "CE",
+        "quantity": "cooling efficiency",
+        "value": 62.0,
+        "unit": "%",
+        "direction": "below",
+        "pct": 35.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 1.25,
+        "unit": "s",
+        "direction": "above",
+        "pct": 150.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1_PS2",
+        "quantity": "valve switching lag",
+        "value": 0.42,
+        "unit": "s",
+        "direction": "above",
+        "pct": 110.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "FS1",
+        "quantity": "mean volume flow",
+        "value": 6.8,
+        "unit": "l/min",
+        "direction": "below",
+        "pct": 17.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 6.2,
+        "unit": "bar",
+        "direction": "above",
+        "pct": 120.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "peak pressure",
+        "value": 178.0,
+        "unit": "bar",
+        "direction": "below",
+        "pct": 12.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 0,
+      "valve_condition": 0,
+      "pump_leakage": 0,
+      "accumulator_pressure": 0
+    },
+    "rationale": "Cooler: reduced efficiency. Evidence: TS1 mean temperature 50.8 \u00b0C (11% above healthy); CE cooling efficiency 62.0 % (35% below healthy).\nValve: optimal. Evidence: PS1 pressure rise time 0.50 s (within 1% of healthy).\nPump leakage: weak leakage. Evidence: EPS1_per_FS1 power-to-flow ratio 380 W\u00b7min/l (27% above healthy); FS1 mean volume flow 6.8 l/min (17% below healthy).\nAccumulator: severely reduced. Evidence: PS1 pressure ripple 6.2 bar (120% above healthy); PS1 peak pressure 178 bar (12% below healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 50.8,
+        "unit": "\u00b0C",
+        "direction": "above",
+        "pct": 11.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "CE",
+        "quantity": "cooling efficiency",
+        "value": 62.0,
+        "unit": "%",
+        "direction": "below",
+        "pct": 35.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 0.5,
+        "unit": "s",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "FS1",
+        "quantity": "mean volume flow",
+        "value": 6.8,
+        "unit": "l/min",
+        "direction": "below",
+        "pct": 17.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 6.2,
+        "unit": "bar",
+        "direction": "above",
+        "pct": 120.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "peak pressure",
+        "value": 178.0,
+        "unit": "bar",
+        "direction": "below",
+        "pct": 12.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "tag": "wrong_component",
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 0,
+      "valve_condition": 0,
+      "pump_leakage": 0,
+      "accumulator_pressure": 0
+    },
+    "rationale": "Cooler: full efficiency. Evidence: TS1 mean temperature 45.8 \u00b0C (within 1% of healthy).\nValve: severe lag. Evidence: PS1 pressure rise time 1.25 s (150% above healthy); PS1_PS2 valve switching lag 0.42 s (110% above healthy).\nPump leakage: no leakage. Evidence: FS1 mean volume flow 8.2 l/min (within 1% of healthy).\nAccumulator: slightly reduced. Evidence: PS1 pressure ripple 4.1 bar (46% above healthy); PS1 peak pressure 188 bar (7% below healthy).",
+    "claims": [
+      {
+        "sensor": "TS1",
+        "quantity": "mean temperature",
+        "value": 45.8,
+        "unit": "\u00b0C",
+        "direction": "within",
+        "pct": 1.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure rise time",
+        "value": 1.25,
+        "unit": "s",
+        "direction": "above",
+        "pct": 150.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1_PS2",
+        "quantity": "valve switching lag",
+        "value": 0.42,
+        "unit": "s",
+        "direction": "above",
+        "pct": 110.0,
+        "status": "wrong_value"
+      },
+      {
+        "sensor": "PS1",
+        "quantity": "pressure ripple",
+        "value": 4.1,
+        "unit": "bar",
+        "direction": "above",
+        "pct": 46.0,
+        "status": "wrong_value"
+      }
+    ],
+    "analysis": "TODO(human): Complete detailed failure breakdown during review."
+  }
+]
