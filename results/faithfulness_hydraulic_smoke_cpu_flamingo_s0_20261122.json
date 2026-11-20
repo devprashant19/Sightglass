@@ -1,0 +1,290 @@
+[
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "TS1",
+    "quantity": "mean temperature",
+    "stated_value": 54.2,
+    "true_value": 66.64977264404297,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "CE",
+    "quantity": "cooling efficiency",
+    "stated_value": 32.5,
+    "true_value": 2.940507650375366,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "PS1",
+    "quantity": "pressure rise time",
+    "stated_value": 0.65,
+    "true_value": 6.03,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "PS1_PS2",
+    "quantity": "valve switching lag",
+    "stated_value": 0.25,
+    "true_value": 0.0,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "FS1",
+    "quantity": "mean volume flow",
+    "stated_value": 8.2,
+    "true_value": 8.188916206359863,
+    "status": "verified"
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "PS1",
+    "quantity": "pressure ripple",
+    "stated_value": 6.2,
+    "true_value": 11.781631469726562,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00006",
+    "sensor": "PS1",
+    "quantity": "peak pressure",
+    "stated_value": 178.0,
+    "true_value": 196.64967346191406,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "TS1",
+    "quantity": "mean temperature",
+    "stated_value": 54.2,
+    "true_value": 66.68633270263672,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "CE",
+    "quantity": "cooling efficiency",
+    "stated_value": 32.5,
+    "true_value": 2.910875082015991,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "PS1",
+    "quantity": "pressure rise time",
+    "stated_value": 0.65,
+    "true_value": 6.03,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "PS1_PS2",
+    "quantity": "valve switching lag",
+    "stated_value": 0.25,
+    "true_value": 0.0,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "EPS1_per_FS1",
+    "quantity": "power-to-flow ratio",
+    "stated_value": 540.0,
+    "true_value": 534.2021054910557,
+    "status": "verified"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "FS1",
+    "quantity": "mean volume flow",
+    "stated_value": 4.5,
+    "true_value": 4.5106201171875,
+    "status": "verified"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "PS1",
+    "quantity": "pressure ripple",
+    "stated_value": 6.2,
+    "true_value": 11.781657218933105,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00030",
+    "sensor": "PS1",
+    "quantity": "peak pressure",
+    "stated_value": 178.0,
+    "true_value": 196.57241821289062,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "TS1",
+    "quantity": "mean temperature",
+    "stated_value": 50.8,
+    "true_value": 61.994022369384766,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "CE",
+    "quantity": "cooling efficiency",
+    "stated_value": 62.0,
+    "true_value": 19.14272689819336,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "PS1",
+    "quantity": "pressure rise time",
+    "stated_value": 1.25,
+    "true_value": 6.44,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "PS1_PS2",
+    "quantity": "valve switching lag",
+    "stated_value": 0.42,
+    "true_value": 0.0,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "EPS1_per_FS1",
+    "quantity": "power-to-flow ratio",
+    "stated_value": 380.0,
+    "true_value": 376.79026013358714,
+    "status": "verified"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "FS1",
+    "quantity": "mean volume flow",
+    "stated_value": 6.8,
+    "true_value": 6.400084495544434,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "PS1",
+    "quantity": "pressure ripple",
+    "stated_value": 6.2,
+    "true_value": 11.975272178649902,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00049",
+    "sensor": "PS1",
+    "quantity": "peak pressure",
+    "stated_value": 178.0,
+    "true_value": 195.4477996826172,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "TS1",
+    "quantity": "mean temperature",
+    "stated_value": 50.8,
+    "true_value": 62.00349426269531,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "CE",
+    "quantity": "cooling efficiency",
+    "stated_value": 62.0,
+    "true_value": 18.53046226501465,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "PS1",
+    "quantity": "pressure rise time",
+    "stated_value": 0.5,
+    "true_value": 5.64,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "EPS1_per_FS1",
+    "quantity": "power-to-flow ratio",
+    "stated_value": 380.0,
+    "true_value": 370.86118786479597,
+    "status": "verified"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "FS1",
+    "quantity": "mean volume flow",
+    "stated_value": 6.8,
+    "true_value": 6.470557689666748,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "PS1",
+    "quantity": "pressure ripple",
+    "stated_value": 6.2,
+    "true_value": 11.21429443359375,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00058",
+    "sensor": "PS1",
+    "quantity": "peak pressure",
+    "stated_value": 178.0,
+    "true_value": 195.32717895507812,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "sensor": "TS1",
+    "quantity": "mean temperature",
+    "stated_value": 45.8,
+    "true_value": 40.00052261352539,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "sensor": "PS1",
+    "quantity": "pressure rise time",
+    "stated_value": 1.25,
+    "true_value": 6.42,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "sensor": "PS1_PS2",
+    "quantity": "valve switching lag",
+    "stated_value": 0.42,
+    "true_value": 0.0,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "sensor": "FS1",
+    "quantity": "mean volume flow",
+    "stated_value": 8.2,
+    "true_value": 8.182537078857422,
+    "status": "verified"
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "sensor": "PS1",
+    "quantity": "pressure ripple",
+    "stated_value": 4.1,
+    "true_value": 11.679574966430664,
+    "status": "wrong_value"
+  },
+  {
+    "cycle_id": "hydraulic-00074",
+    "sensor": "PS1",
+    "quantity": "peak pressure",
+    "stated_value": 188.0,
+    "true_value": 193.5297393798828,
+    "status": "verified"
+  }
+]
