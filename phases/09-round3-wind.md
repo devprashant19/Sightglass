@@ -32,7 +32,7 @@
 
 - [ ] Sliding windows, for example 3 days of history, stepped every 6 hours **(tune on train)**.
 - [ ] A window is positive if a labelled fault starts within the warning horizon (for example 14 days) after the window ends; negative if it's inside a normal period with no event in the horizon; windows during an event are excluded.
-- [ ] Record horizon and window length in `configs/data/wind.yaml` before test.
+- [ ] Record horizon and window length in `configs/data/wind.yaml` before test. <!-- check-docs: ignore -->
 
 ## 4. Physics module (`src/sightglass/physics/wind.py`) — normal-behaviour models
 

@@ -139,7 +139,7 @@ This comparison — Sightglass vs the tokenized LLM vs GPT-4o on plots — is th
 
 ### Manual audit
 
-- [ ] Hand-check 100 randomly chosen Sightglass claims against the plots and the extractor output. Record agreement with the automatic verdict in `docs/faithfulness-audit.md`. If agreement is under 95 %, fix the checker before reporting anything.
+- [ ] Hand-check 100 randomly chosen Sightglass claims against the plots and the extractor output. Record agreement with the automatic verdict in `docs/faithfulness-audit.md`. If agreement is under 95 %, fix the checker before reporting anything. <!-- check-docs: ignore -->
 
 ---
 

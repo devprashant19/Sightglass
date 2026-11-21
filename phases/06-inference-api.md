@@ -74,10 +74,10 @@ web/public/data/
 }
 ```
 
-- [ ] Signals for display: 100 Hz sensors at 10 Hz, others native. About 5,000 numbers per cycle, roughly 40 KB as JSON; with ~330 test cycles that's ~13 MB in total, fine for static hosting. Round display values to 4 significant figures.
+- [ ] Signals for display: 100 Hz sensors at 10 Hz, others native. About 5,000 numbers per cycle, roughly 40 KB as JSON; with ~330 test cycles that's ~13 MB in total, fine for static hosting. Round display values to 4 significant figures. <!-- check-docs: ignore -->
 - [ ] `claims[].span` are character offsets into `rationale`, so the UI can highlight the exact text.
 - [ ] `claims[].window` is the time range the feature uses, so the UI can shade the right part of the chart.
-- [ ] Validate every output file against a JSON Schema (`web/src/schema/*.json`, generated from pydantic models in `src/sightglass/export/schema.py`). Export fails if validation fails.
+- [ ] Validate every output file against a JSON Schema (`web/src/schema/*.json`, generated from pydantic models in `src/sightglass/export/schema.py`). Export fails if validation fails. <!-- check-docs: ignore -->
 
 ### What-if grid
 
@@ -116,7 +116,7 @@ FastAPI, one process, model loaded once at start-up.
 
 ### Packaging
 
-- [ ] `api/Dockerfile`: CUDA base image for GPU, a slim CPU variant for Gemma-270M.
+- [ ] `api/Dockerfile`: CUDA base image for GPU, a slim CPU variant for Gemma-270M. <!-- check-docs: ignore -->
 - [ ] `docker compose up` runs it locally with a mounted checkpoint.
 - [ ] `scripts/deploy_api.sh` starts the Nebius VM, pulls the image, runs it behind Caddy with HTTPS, and prints the URL.
 

@@ -19,7 +19,7 @@ Per the research notes, each round's submission needs the TimeNet PR, a pitch or
 - [ ] 2–3 minute demo video.
 - [ ] Model card: data, training, metrics, intended use, out-of-scope use, limitations, licences. Optionally weights on Hugging Face.
 - [ ] X and LinkedIn post links.
-- [ ] Submit at least 12 hours before the deadline; keep a copy of every answer in `docs/submissions/round-N.md`.
+- [ ] Submit at least 12 hours before the deadline; keep a copy of every answer in `docs/submissions/round-N.md`. <!-- check-docs: ignore -->
 
 ## 2. README structure
 

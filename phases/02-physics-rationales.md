@@ -208,8 +208,8 @@ From the same features, generate QA pairs for the `diagnosis_qa` task and for tr
 The comparison point for the headline faithfulness chart.
 
 - [ ] For 200 cycles (stratified, from **test**), render the same multi-sensor plot the dashboard uses, and ask GPT-4o for a diagnosis and an explanation, with the same instructions the OpenTSLM authors used where they're published **(verify)**.
-- [ ] Ask it to use the canonical clause format, so the parser treats it fairly. Record the exact prompt in `configs/baselines/gpt4o_plots.yaml`.
-- [ ] Store raw responses in `results/raw/gpt4o_plots.jsonl` with model name and date.
+- [ ] Ask it to use the canonical clause format, so the parser treats it fairly. Record the exact prompt in `configs/baselines/gpt4o_plots.yaml`. <!-- check-docs: ignore -->
+- [ ] Store raw responses in `results/raw/gpt4o_plots.jsonl` with model name and date. <!-- check-docs: ignore -->
 - [ ] Keep the API key in `.env`, never in the repo.
 
 ---

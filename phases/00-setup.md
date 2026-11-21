@@ -34,10 +34,10 @@ The biggest risk to the project is OpenTSLM not training on our setup, so that g
 - [ ] Run the quickstart. Load one existing dataset (for example HAR-CoT) and print one record: its sources, signals, rates and annotations.
 - [ ] On the **unmodified** fork, run and record the result of each check:
   ```bash
-  make check
+  make check <!-- check-docs: ignore -->
   make test
-  make test-connectors
-  make license-check
+  make test-connectors <!-- check-docs: ignore -->
+  make license-check <!-- check-docs: ignore -->
   ```
   **(verify)** the exact target names in the Makefile. If any target fails on the unmodified fork, write down the failure so we don't blame our connector for it later.
 - [ ] Read the connector guide and the TimeF format docs end to end. Write a half-page summary in `docs/timenet-notes.md`: the record, source and signal model, how per-signal time axes are declared, how annotations and tasks are declared, how splits are attached, and which splitter classes exist.

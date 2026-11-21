@@ -30,7 +30,7 @@ TimeNet's own paper suggests that training on pooled data improves results. This
 | Cross-machine confusion | Does the model ever cite hydraulic sensors for a bearing, or similar? (counted as hallucinated sensors) |
 
 - [ ] 3 seeds for the pooled Llama-1B run; CIs as in Phase 5.
-- [ ] `results/pooled.json` with one row per (model, dataset) pair.
+- [ ] `results/pooled.json` with one row per (model, dataset) pair. <!-- check-docs: ignore -->
 
 ## 3. Dashboard: cross-machine page (`#/cross-machine`)
 

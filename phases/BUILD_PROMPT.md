@@ -1,6 +1,6 @@
 # Build prompt — Sightglass, complete project
 
-Paste everything below the line into a coding agent (for example Claude Code) started in an empty folder that will become the `sightglass` repo. Copy the `phases/` folder into that repo first, so the agent can read it.
+Paste everything below the line into a coding agent started in an empty folder that will become the `sightglass` repo. Copy the `phases/` folder into that repo first, so the agent can read it.
 
 ---
 
@@ -89,7 +89,7 @@ Build this **before** any model output exists, against M2's rationales.
 - **Check:** `make eval` reruns every evaluation from saved predictions without a GPU; every file in the outputs table of phase 05 exists for every run that has predictions; missing runs are listed, not faked.
 
 ### M7 — Export and API (phase 06)
-- `export/schema.py` (pydantic models → JSON Schemas in `web/src/schema/`), `export/site.py`, `export/perturb.py`, `scripts/export_site_data.py`.
+- `export/schema.py` (pydantic models → JSON Schemas in `web/src/schema/`), `export/site.py`, `export/perturb.py`, `scripts/export_site_data.py`. <!-- check-docs: ignore -->
 - Hand-built mock export in `web/public/data-mock/` with `"mock": true`, matching the schema exactly, so M8 can start in parallel.
 - `api/` FastAPI app with the four endpoints, validation, inference-time faithfulness, rate limit, CORS, env config, Dockerfiles (GPU and CPU), `docker-compose.yml`, `scripts/deploy_api.sh`.
 - **Check:** export validates against the schemas; `rationale[span[0]:span[1]]` contains the cited sensor for every claim; API tests pass with a stub model; `/diagnose` on a stored cycle gives the same claims as the export.
@@ -99,7 +99,7 @@ Build this **before** any model output exists, against M2's rationales.
 - All nine pages. Build the explorer first and to the spec in phase 07 section 4 (synced sensor charts, healthy bands, `ClaimChip` hover/tap highlighting the sensor and time window, ✓/✗ icons with text, reveal true label, shareable URLs, keyboard navigation, phone layout).
 - Mock-data banner (rule 2). Light and dark mode. Open Graph tags.
 - CI check that blocks hard-coded numeric literals in JSX text outside an allow-list.
-- **Check:** Vitest and Playwright tests from phase 07 pass at 1280×800 and 390×844; Lighthouse performance ≥ 85 and accessibility ≥ 95 on home and explorer; `pnpm build` output deploys as static files (write `docs/deploy-web.md` for Vercel and GitHub Pages).
+- **Check:** Vitest and Playwright tests from phase 07 pass at 1280×800 and 390×844; Lighthouse performance ≥ 85 and accessibility ≥ 95 on home and explorer; `pnpm build` output deploys as static files (write `docs/deploy-web.md` for Vercel and GitHub Pages). <!-- check-docs: ignore -->
 
 ### M9 — Round 1 docs and launch kit (phase 11)
 - README following phase 11's structure, with the results table generated from `results/` (or "pending run" cells).
@@ -107,7 +107,7 @@ Build this **before** any model output exists, against M2's rationales.
 - **Check:** the round-1 definition-of-done list in `phases/README.md` is copied into `docs/progress.md` with each item marked done, blocked (with reason) or needs a human.
 
 ### M10 — Round 2: HUST bearings (phase 08)
-Start only after M1–M9 pass. Add `connector/.../hust_bearing/`, `data/windowing.py`, `physics/bearing.py` (fault-frequency formulas, envelope spectrum, kurtosis, crest factor), new clause forms in the rationale grammar and parser, leave-one-condition-out evaluation, window- and recording-level metrics, and the bearing explorer page with fault-frequency markers.
+Start only after M1–M9 pass. Add `connector/.../hust_bearing/`, `data/windowing.py`, `physics/bearing.py` (fault-frequency formulas, envelope spectrum, kurtosis, crest factor), new clause forms in the rationale grammar and parser, leave-one-condition-out evaluation, window- and recording-level metrics, and the bearing explorer page with fault-frequency markers. <!-- check-docs: ignore -->
 - **Check:** synthetic-impulse test finds BPFO; splits are grouped by recording; the parser and verifier handle order-match claims; bearing page renders from mock and real exports.
 
 ### M11 — Round 3: CARE wind turbines (phase 09)
@@ -115,7 +115,7 @@ Start only after M10. Before any connector work, write the ShareAlike question a
 - **Check:** normal-behaviour residuals on held-out normal periods are centred near zero; splits are by turbine or event; lead-time metric has unit tests on hand-made event timelines.
 
 ### M12 — Pooled model (phase 10)
-Pooled training config with temperature-scaled task sampling, pooled-vs-single evaluation, leave-one-dataset-out ablation config, `results/pooled.json`, cross-machine page, final README and model card, `v1.0` tag.
+Pooled training config with temperature-scaled task sampling, pooled-vs-single evaluation, leave-one-dataset-out ablation config, `results/pooled.json`, cross-machine page, final README and model card, `v1.0` tag. <!-- check-docs: ignore -->
 
 ## 5. Coding standards
 

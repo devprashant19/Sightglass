@@ -162,7 +162,7 @@ Fill in every field the template requires **(verify the schema)**, including:
 - tasks and the split method, with the reason taken from the EDA,
 - known limitations: single test rig, lab conditions, artificially set fault levels, virtual sensors derived from physical ones, unstable cycles near condition changes.
 
-### `tests/test_connector.py`
+### `tests/test_connector.py` <!-- check-docs: ignore -->
 
 - [ ] Record count is exactly 2,205.
 - [ ] Every signal has the expected length and rate for its sensor.

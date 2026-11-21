@@ -160,7 +160,7 @@ After each full run, read 20 val outputs by hand:
 - [ ] Do the evidence clauses follow the canonical grammar?
 - [ ] Are the cited sensors ones that actually exist and are linked to that component?
 - [ ] Are the numbers in a plausible range for that sensor?
-- [ ] Record findings in `docs/training-log.md`, one entry per run.
+- [ ] Record findings in `docs/training-log.md`, one entry per run. <!-- check-docs: ignore -->
 
 ---
 
@@ -168,7 +168,7 @@ After each full run, read 20 val outputs by hand:
 
 - [ ] A Llama-1B checkpoint (3 seeds) with logged training curves, reproducible from one command and one config.
 - [ ] Gemma-270M ablation checkpoints for every ablation in the table.
-- [ ] `docs/training-log.md` with settings, VRAM, time, cost and sanity-check notes for each run.
+- [ ] `docs/training-log.md` with settings, VRAM, time, cost and sanity-check notes for each run. <!-- check-docs: ignore -->
 
 ## Risks in this phase
 

@@ -36,6 +36,8 @@ Cross-cutting material (principles, architecture, repo layout, conventions, time
 
 [BUILD_PROMPT.md](BUILD_PROMPT.md) is a ready-to-paste prompt for a coding agent to build the whole project from these files, milestone by milestone.
 
+> **This is the original plan, kept for the record.** It describes what was intended, including a merged pull request, a trained TSLM, three machines and files that were never created. What exists is described in the [README](../README.md) and [ARCHITECTURE.md](../ARCHITECTURE.md). Lines in the phase files that name planned files carry a hidden `check-docs: ignore` comment for that reason.
+
 > **Verify before coding.** TimeNet and OpenTSLM API names, paths and make targets in this plan come from research notes and may have changed. Check every one against the current docs and source before writing code that depends on it. Places that need this are marked **(verify)**.
 
 ---
@@ -73,7 +75,7 @@ Data flows one way, from raw sensor files to the dashboard. Every stage writes f
 ```mermaid
 flowchart LR
     RAW[Raw files<br/>UCI zip] --> CONN[TimeNet connector<br/>download + convert]
-    CONN --> BUILD[(TimeNet build<br/>manifest, control.duckdb,<br/>Parquet shards, splits)]
+    CONN --> BUILD[("TimeNet build<br/>manifest, control.duckdb,<br/>Parquet shards, splits")]
     BUILD --> PHYS[Physics extractors<br/>features + healthy reference]
     PHYS --> RAT[Rationale builder<br/>text + structured claims]
     BUILD --> BASE[Baselines<br/>majority, GBM, MiniRocket,<br/>1D-CNN, token-LLM, GPT-4o]
@@ -82,7 +84,7 @@ flowchart LR
     BASE --> EVAL[Evaluation<br/>macro-F1, faithfulness,<br/>leakage checks]
     TSLM --> EVAL
     PHYS --> EVAL
-    EVAL --> RES[(results/*.json)]
+    EVAL --> RES[("results/*.json")]
     RES --> EXP[Static export]
     TSLM --> API[FastAPI live mode]
     EXP --> WEB[Dashboard<br/>Vite + React]
