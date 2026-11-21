@@ -1,0 +1,272 @@
+{
+  "generated_by": "scripts/evaluate.py",
+  "git_sha": "ed1955c13a67bce154afe3a78c9dd4a3ddb38127",
+  "synthetic": false,
+  "dataset": {
+    "cycles": 2205,
+    "sensors": 17,
+    "samples_per_cycle": 43680,
+    "components": 4,
+    "unique_conditions": 144,
+    "train": 1543,
+    "val": 333,
+    "test": 329,
+    "healthy_all_four": 21,
+    "healthy_reference_n": {
+      "PS1.mean": 79,
+      "PS1.peak": 79,
+      "PS1.ripple": 79,
+      "PS1.rise_time": 79,
+      "PS2.mean": 79,
+      "PS2.peak": 79,
+      "PS2.ripple": 270,
+      "PS2.rise_time": 249,
+      "PS3.mean": 79,
+      "PS3.peak": 79,
+      "PS3.ripple": 79,
+      "PS3.rise_time": 79,
+      "PS4.mean": 79,
+      "PS4.peak": 79,
+      "PS4.ripple": 79,
+      "PS4.rise_time": 79,
+      "PS5.mean": 79,
+      "PS5.peak": 79,
+      "PS5.ripple": 79,
+      "PS5.rise_time": 79,
+      "PS6.mean": 79,
+      "PS6.peak": 79,
+      "PS6.ripple": 79,
+      "PS6.rise_time": 79,
+      "PS1_PS2.lag": 249,
+      "FS1.mean": 349,
+      "FS2.mean": 79,
+      "EPS1.mean": 79,
+      "EPS1_per_FS1": 349,
+      "TS1.mean": 339,
+      "TS1.slope": 339,
+      "TS2.mean": 339,
+      "TS2.slope": 79,
+      "TS3.mean": 339,
+      "TS3.slope": 79,
+      "TS4.mean": 339,
+      "TS4.slope": 79,
+      "cooler.delta_t": 79,
+      "VS1.mean": 79,
+      "VS1.peak": 79,
+      "CE.mean": 339,
+      "CP.mean": 339,
+      "SE.mean": 349
+    }
+  },
+  "engine": {
+    "model": "LightGBM on physics features + Sightglass rationale engine",
+    "mean_macro_f1": 0.9589281395907495,
+    "mean_macro_f1_ci95": [
+      0.9477869776393756,
+      0.9700032483882403
+    ],
+    "joint_exact_match": 0.8419452887537994,
+    "joint_exact_match_ci95": [
+      0.7993920972644377,
+      0.8844984802431611
+    ],
+    "per_component": {
+      "cooler_condition": {
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      "valve_condition": {
+        "macro_f1": 0.9965094965094965,
+        "accuracy": 0.9969604863221885
+      },
+      "pump_leakage": {
+        "macro_f1": 0.9692363361972869,
+        "accuracy": 0.9726443768996961
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.8699667256562146,
+        "accuracy": 0.8723404255319149
+      }
+    },
+    "claim_accuracy": 100.0,
+    "value_accuracy": 100.0,
+    "direction_accuracy": 100.0,
+    "fully_faithful_pct": 100.0,
+    "consistency_pct": 63.67781155015197,
+    "claims_per_rationale": 8.270516717325227,
+    "total_claims": 2721,
+    "verified_claims": 2721,
+    "hallucinated_sensor_rate": 0.0,
+    "consistency_per_component": {
+      "cooler_condition": 96.04863221884499,
+      "valve_condition": 69.90881458966565,
+      "pump_leakage": 48.632218844984806,
+      "accumulator_pressure": 40.121580547112465
+    },
+    "n_test_cycles": 329,
+    "note": "Claims are computed from the signal by the rationale engine, so near-100% claim accuracy is expected by construction; it shows the checker and the engine agree, not that a language model is faithful."
+  },
+  "checker": {
+    "roundtrip_pct": 100.0,
+    "roundtrip_claims": 17883,
+    "n_rationales": 2205,
+    "corruption_caught_pct": 100.0,
+    "n_corrupted": 1000,
+    "direction_flip_caught_pct": 100.0,
+    "n_direction_flipped": 529,
+    "tolerance_rel": 0.05
+  },
+  "tslm": {
+    "status": "pending",
+    "reason": "OpenTSLM-Flamingo fine-tuning needs a GPU with about 20 GB for Llama-3.2 1B; it has not been run. Its outputs will go through the same checker."
+  },
+  "gpt4o": {
+    "status": "not_run",
+    "reason": "OPENAI_API_KEY is not set, so the GPT-4o baseline was not run."
+  },
+  "baselines": [
+    {
+      "id": "B0_majority",
+      "label": "Majority class",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0
+      ],
+      "run_ids": [
+        "hydraulic_B0_majority_grouped-test_s0_20261122"
+      ],
+      "mean_macro_f1": 0.1488872132612468,
+      "mean_macro_f1_std": 0.0,
+      "joint_exact_match": 0.06382978723404255,
+      "per_component": {
+        "cooler_condition": 0.18355359765051393,
+        "valve_condition": 0.1408296943231441,
+        "pump_leakage": 0.17043740573152336,
+        "accumulator_pressure": 0.10072815533980582
+      },
+      "seconds": 0.1
+    },
+    {
+      "id": "B1_lightgbm",
+      "label": "Physics features + LightGBM",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "run_ids": [
+        "hydraulic_B1_lightgbm_grouped-test_s0_20261122",
+        "hydraulic_B1_lightgbm_grouped-test_s1_20261122",
+        "hydraulic_B1_lightgbm_grouped-test_s2_20261122"
+      ],
+      "mean_macro_f1": 0.9589281395907495,
+      "mean_macro_f1_std": 0.0,
+      "joint_exact_match": 0.8419452887537994,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 0.9965094965094966,
+        "pump_leakage": 0.9692363361972869,
+        "accumulator_pressure": 0.8699667256562146
+      },
+      "seconds": 27.166666666666668
+    },
+    {
+      "id": "B2_minirocket",
+      "label": "MiniRocket + ridge",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "run_ids": [
+        "hydraulic_B2_minirocket_grouped-test_s0_20261122",
+        "hydraulic_B2_minirocket_grouped-test_s1_20261122",
+        "hydraulic_B2_minirocket_grouped-test_s2_20261122"
+      ],
+      "mean_macro_f1": 0.9670629370958331,
+      "mean_macro_f1_std": 0.0015102519342299623,
+      "joint_exact_match": 0.8693009118541033,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 1.0,
+        "pump_leakage": 0.9934262242935678,
+        "accumulator_pressure": 0.8748255240897649
+      },
+      "seconds": 32.13333333333333
+    },
+    {
+      "id": "B3_cnn1d",
+      "label": "1D-CNN",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "run_ids": [
+        "hydraulic_B3_cnn1d_grouped-test_s0_20261122",
+        "hydraulic_B3_cnn1d_grouped-test_s1_20261122",
+        "hydraulic_B3_cnn1d_grouped-test_s2_20261122"
+      ],
+      "mean_macro_f1": 0.8410158306939929,
+      "mean_macro_f1_std": 0.022498111078290545,
+      "joint_exact_match": 0.42958459979736574,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 0.9685859316280837,
+        "pump_leakage": 0.9292950920363601,
+        "accumulator_pressure": 0.4661822991115278
+      },
+      "seconds": 59.76666666666667
+    },
+    {
+      "id": "B4_tokenized_llm",
+      "label": "Tokenized-text LLM",
+      "explains": true,
+      "status": "not_run",
+      "reason": "needs GPU LLM fine-tune (LoRA on the TSLM backbone); not run."
+    },
+    {
+      "id": "B5_gpt4o",
+      "label": "GPT-4o on plots",
+      "explains": true,
+      "status": "not_run",
+      "reason": "OPENAI_API_KEY is not set, so the GPT-4o baseline was not run."
+    }
+  ],
+  "ablations": [
+    {
+      "id": "no_virtual",
+      "label": "B1 without virtual sensors (CE, CP, SE)",
+      "run_id": "hydraulic_B1_lightgbm_no_virtual_grouped-test_s0_20261122",
+      "mean_macro_f1": 0.9608652394956112,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 0.9965094965094965,
+        "pump_leakage": 0.9683344347347811,
+        "accumulator_pressure": 0.8786170267381676
+      },
+      "delta_mean_macro_f1": 0.0019370999048616833
+    },
+    {
+      "id": "random_split",
+      "label": "B1 on a random split instead of the grouped split",
+      "run_id": "hydraulic_B1_lightgbm_random-test_s0_20261122",
+      "mean_macro_f1": 0.9975886709299768,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 1.0,
+        "pump_leakage": 1.0,
+        "accumulator_pressure": 0.9903546837199073
+      },
+      "delta_mean_macro_f1": 0.03866053133922731,
+      "note": "A positive delta means random splits make the task look easier."
+    }
+  ]
+}
