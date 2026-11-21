@@ -1,0 +1,235 @@
+{
+  "model": "LightGBM on physics features + Sightglass rationale engine",
+  "git_sha": "ed1955c13a67bce154afe3a78c9dd4a3ddb38127",
+  "seed": 0,
+  "synthetic": false,
+  "best_params": {
+    "cooler_condition": {
+      "num_leaves": 15,
+      "n_estimators": 100,
+      "learning_rate": 0.05,
+      "val_macro_f1": 0.987395515173293
+    },
+    "valve_condition": {
+      "num_leaves": 15,
+      "n_estimators": 100,
+      "learning_rate": 0.05,
+      "val_macro_f1": 1.0
+    },
+    "pump_leakage": {
+      "num_leaves": 15,
+      "n_estimators": 100,
+      "learning_rate": 0.1,
+      "val_macro_f1": 1.0
+    },
+    "accumulator_pressure": {
+      "num_leaves": 31,
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "val_macro_f1": 0.8512466897428946
+    }
+  },
+  "n_features": 43,
+  "healthy_reference": {
+    "n_train_cycles": 1543,
+    "n_per_feature": {
+      "PS1.mean": 79,
+      "PS1.peak": 79,
+      "PS1.ripple": 79,
+      "PS1.rise_time": 79,
+      "PS2.mean": 79,
+      "PS2.peak": 79,
+      "PS2.ripple": 270,
+      "PS2.rise_time": 249,
+      "PS3.mean": 79,
+      "PS3.peak": 79,
+      "PS3.ripple": 79,
+      "PS3.rise_time": 79,
+      "PS4.mean": 79,
+      "PS4.peak": 79,
+      "PS4.ripple": 79,
+      "PS4.rise_time": 79,
+      "PS5.mean": 79,
+      "PS5.peak": 79,
+      "PS5.ripple": 79,
+      "PS5.rise_time": 79,
+      "PS6.mean": 79,
+      "PS6.peak": 79,
+      "PS6.ripple": 79,
+      "PS6.rise_time": 79,
+      "PS1_PS2.lag": 249,
+      "FS1.mean": 349,
+      "FS2.mean": 79,
+      "EPS1.mean": 79,
+      "EPS1_per_FS1": 349,
+      "TS1.mean": 339,
+      "TS1.slope": 339,
+      "TS2.mean": 339,
+      "TS2.slope": 79,
+      "TS3.mean": 339,
+      "TS3.slope": 79,
+      "TS4.mean": 339,
+      "TS4.slope": 79,
+      "cooler.delta_t": 79,
+      "VS1.mean": 79,
+      "VS1.peak": 79,
+      "CE.mean": 339,
+      "CP.mean": 339,
+      "SE.mean": 349
+    },
+    "basis": {
+      "PS1.mean": [
+        "any 3 of 4"
+      ],
+      "PS1.peak": [
+        "any 3 of 4"
+      ],
+      "PS1.ripple": [
+        "any 3 of 4"
+      ],
+      "PS1.rise_time": [
+        "any 3 of 4"
+      ],
+      "PS2.mean": [
+        "any 3 of 4"
+      ],
+      "PS2.peak": [
+        "any 3 of 4"
+      ],
+      "PS2.ripple": [
+        "accumulator_pressure"
+      ],
+      "PS2.rise_time": [
+        "valve_condition"
+      ],
+      "PS3.mean": [
+        "any 3 of 4"
+      ],
+      "PS3.peak": [
+        "any 3 of 4"
+      ],
+      "PS3.ripple": [
+        "any 3 of 4"
+      ],
+      "PS3.rise_time": [
+        "any 3 of 4"
+      ],
+      "PS4.mean": [
+        "any 3 of 4"
+      ],
+      "PS4.peak": [
+        "any 3 of 4"
+      ],
+      "PS4.ripple": [
+        "any 3 of 4"
+      ],
+      "PS4.rise_time": [
+        "any 3 of 4"
+      ],
+      "PS5.mean": [
+        "any 3 of 4"
+      ],
+      "PS5.peak": [
+        "any 3 of 4"
+      ],
+      "PS5.ripple": [
+        "any 3 of 4"
+      ],
+      "PS5.rise_time": [
+        "any 3 of 4"
+      ],
+      "PS6.mean": [
+        "any 3 of 4"
+      ],
+      "PS6.peak": [
+        "any 3 of 4"
+      ],
+      "PS6.ripple": [
+        "any 3 of 4"
+      ],
+      "PS6.rise_time": [
+        "any 3 of 4"
+      ],
+      "PS1_PS2.lag": [
+        "valve_condition"
+      ],
+      "FS1.mean": [
+        "pump_leakage"
+      ],
+      "FS2.mean": [
+        "any 3 of 4"
+      ],
+      "EPS1.mean": [
+        "any 3 of 4"
+      ],
+      "EPS1_per_FS1": [
+        "pump_leakage"
+      ],
+      "TS1.mean": [
+        "cooler_condition"
+      ],
+      "TS1.slope": [
+        "cooler_condition"
+      ],
+      "TS2.mean": [
+        "cooler_condition"
+      ],
+      "TS2.slope": [
+        "any 3 of 4"
+      ],
+      "TS3.mean": [
+        "cooler_condition"
+      ],
+      "TS3.slope": [
+        "any 3 of 4"
+      ],
+      "TS4.mean": [
+        "cooler_condition"
+      ],
+      "TS4.slope": [
+        "any 3 of 4"
+      ],
+      "cooler.delta_t": [
+        "any 3 of 4"
+      ],
+      "VS1.mean": [
+        "any 3 of 4"
+      ],
+      "VS1.peak": [
+        "any 3 of 4"
+      ],
+      "CE.mean": [
+        "cooler_condition"
+      ],
+      "CP.mean": [
+        "cooler_condition"
+      ],
+      "SE.mean": [
+        "pump_leakage"
+      ]
+    }
+  },
+  "kept_links": {
+    "cooler_condition": [
+      "TS4.mean",
+      "CE.mean",
+      "CP.mean",
+      "TS1.mean",
+      "TS3.mean",
+      "TS2.mean",
+      "TS1.slope"
+    ],
+    "valve_condition": [
+      "PS2.rise_time",
+      "PS1_PS2.lag"
+    ],
+    "pump_leakage": [
+      "FS1.mean",
+      "SE.mean",
+      "EPS1_per_FS1"
+    ],
+    "accumulator_pressure": [
+      "PS2.ripple"
+    ]
+  }
+}
