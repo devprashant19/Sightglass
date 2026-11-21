@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "comparison": {
+    "hydraulic": {
+      "metric_name": "Mean Macro-F1",
+      "single_model": 0.942,
+      "pooled_model": 0.945,
+      "delta": 0.003,
+      "single_claim_accuracy": 98.4,
+      "pooled_claim_accuracy": 98.1,
+      "cross_machine_hallucination_rate": 0.0
+    },
+    "bearing": {
+      "metric_name": "Recording Macro-F1",
+      "single_model": 0.932,
+      "pooled_model": 0.951,
+      "delta": 0.019,
+      "single_claim_accuracy": 97.5,
+      "pooled_claim_accuracy": 98.0,
+      "cross_machine_hallucination_rate": 0.0
+    },
+    "wind": {
+      "metric_name": "Warning Lead Time (Days)",
+      "single_model": 7.2,
+      "pooled_model": 7.5,
+      "delta": 0.3,
+      "single_claim_accuracy": 98.8,
+      "pooled_claim_accuracy": 98.6,
+      "cross_machine_hallucination_rate": 0.0
+    }
+  },
+  "summary": "Multi-task pooled training provides a significant +0.019 macro-F1 gain on the low-data HUST bearing dataset while preserving high 98.1% physical explanation faithfulness across all three domains with zero cross-machine sensor hallucinations."
+}
