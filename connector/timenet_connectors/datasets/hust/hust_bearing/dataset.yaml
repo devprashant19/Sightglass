@@ -1,0 +1,54 @@
+name: hust_bearing
+version: 1.0.0
+description: >
+  Huazhong University of Science and Technology (HUST) high-frequency bearing vibration dataset.
+  99 continuous recordings across 6 defect types, 5 bearing geometries, and 3 rotational load conditions.
+homepage: https://data.mendeley.com/datasets/cbv7jyx4p9/1
+license: CC BY 4.0
+data_format: timef_v1
+
+signals:
+  - name: VIB
+    rate_hz: 51200.0
+    unit: m/s^2
+    source: accelerometer
+    description: High-frequency acceleration measured near the bearing housing.
+
+bearing_geometries:
+  ER16K:
+    pitch_diameter_mm: 38.52
+    ball_diameter_mm: 7.94
+    n_balls: 9
+    contact_angle_deg: 0.0
+    source: Rexnord ER16K Engineering Specification Sheet
+  6205_2RS:
+    pitch_diameter_mm: 39.04
+    ball_diameter_mm: 7.94
+    n_balls: 9
+    contact_angle_deg: 0.0
+    source: SKF 6205 Deep Groove Ball Bearing Catalogue
+  6207_2RS:
+    pitch_diameter_mm: 53.50
+    ball_diameter_mm: 11.11
+    n_balls: 9
+    contact_angle_deg: 0.0
+    source: SKF 6207 Bearing Engineering Datasheet
+
+tasks:
+  - name: defect_type
+    type: classification
+    target: defect_type
+    num_classes: 6
+    classes:
+      - healthy
+      - inner_race
+      - outer_race
+      - ball
+      - cage
+      - combined
+
+splits:
+  default: leave_one_condition_out
+  strategies:
+    - leave_one_condition_out
+    - grouped_recording
