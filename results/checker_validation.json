@@ -1,0 +1,17 @@
+{
+  "generated_by": "scripts/build_rationales.py",
+  "git_sha": "ed1955c13a67bce154afe3a78c9dd4a3ddb38127",
+  "n_rationales": 2205,
+  "roundtrip_claims": 17883,
+  "roundtrip_verified": 17883,
+  "roundtrip_pct": 100.0,
+  "n_corrupted": 1000,
+  "corruption_caught": 1000,
+  "corruption_caught_pct": 100.0,
+  "corruption_factor": "±20% on one stated value",
+  "missed_examples": [],
+  "n_direction_flipped": 529,
+  "direction_flip_caught": 529,
+  "direction_flip_caught_pct": 100.0,
+  "tolerance_rel": 0.05
+}
