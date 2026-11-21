@@ -1,0 +1,3 @@
+baseline: B1_lightgbm_no_virtual
+seed: 0
+split: grouped
