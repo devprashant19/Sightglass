@@ -1,0 +1,11 @@
+{
+  "base": "http://localhost:4300",
+  "width": 1440,
+  "height": 900,
+  "shots": [
+    { "name": "hero", "path": "/", "wait": 5000 },
+    { "name": "diagnosis", "path": "/?cycle=hydraulic-00253&run", "wait": 6000, "scrollTo": "#explore-run", "offset": -90 },
+    { "name": "whatif", "path": "/", "wait": 4000, "scrollTo": "#whatif" },
+    { "name": "results", "path": "/", "wait": 4000, "scrollTo": "#results" }
+  ]
+}
