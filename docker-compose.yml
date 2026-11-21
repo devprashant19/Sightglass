@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   sightglass-api:
     build:
@@ -8,8 +6,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - SIGHTGLASS_DEVICE=cpu
-      - SIGHTGLASS_ALLOWED_ORIGIN=http://localhost:5173
+      - SIGHTGLASS_ALLOWED_ORIGIN=http://localhost:5173,http://127.0.0.1:5173
     volumes:
-      - ./data:/app/data
-      - ./checkpoints:/app/checkpoints
+      # data/build/hydraulic (make data) and data/models/engine.pkl (scripts/train_engine.py)
+      - ./data:/app/data:ro

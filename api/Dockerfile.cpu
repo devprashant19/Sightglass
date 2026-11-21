@@ -1,14 +1,25 @@
-FROM python:3.11-slim
+# Live inference API on CPU. The image holds the code and the exported site data; the
+# dataset build and the trained engine come from the host, mounted at /app/data:
+#   make data && python scripts/train_engine.py      # once, on the host
+#   docker compose up --build
+FROM python:3.12-slim
 
 WORKDIR /app
-COPY pyproject.toml README.md /app/
-RUN pip install --no-cache-dir uv && uv venv && uv pip install -e ".[dev]"
+RUN pip install --no-cache-dir uv
 
-COPY src/ /app/src/
-COPY configs/ /app/configs/
-COPY api/ /app/api/
+# Exact versions behind the committed results. torch is left out: the API never uses it
+# (only the training loop and the 1D-CNN baseline do), and it is several GB on Linux.
+COPY requirements-lock.txt ./
+RUN grep -v '^torch==' requirements-lock.txt > /tmp/api-lock.txt \
+    && uv venv /app/.venv \
+    && uv pip sync --python /app/.venv/bin/python /tmp/api-lock.txt
 
-ENV SIGHTGLASS_DEVICE=cpu
+COPY pyproject.toml README.md ./
+COPY src/ src/
+COPY api/ api/
+COPY configs/ configs/
+COPY web/public/data/ web/public/data/
+RUN uv pip install --python /app/.venv/bin/python --no-deps -e .
+
 EXPOSE 8000
-
-CMD ["uv", "run", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["/app/.venv/bin/uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-# scripts/deploy_api.sh
-# Deployment script for live inference API
-
+# Start the live inference API on this machine, from the environment `make setup` created.
+# Needs the data build (make data) and the trained engine (python scripts/train_engine.py).
 set -euo pipefail
 
-echo "=== Deploying Sightglass Inference API ==="
-
 PORT=${SIGHTGLASS_PORT:-8000}
-DEVICE=${SIGHTGLASS_DEVICE:-cpu}
+PYTHON=${PYTHON:-.venv/bin/python}
+[ -x "$PYTHON" ] || PYTHON=.venv/Scripts/python.exe
 
-echo "Starting Uvicorn server on port ${PORT} with device ${DEVICE}..."
-uv run uvicorn api.main:app --host 0.0.0.0 --port "${PORT}"
+echo "Starting the Sightglass API on 0.0.0.0:${PORT}"
+exec "$PYTHON" -m uvicorn api.main:app --host 0.0.0.0 --port "${PORT}"
