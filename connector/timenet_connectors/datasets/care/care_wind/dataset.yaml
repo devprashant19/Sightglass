@@ -1,0 +1,61 @@
+name: care_wind
+version: 1.0.0
+description: >
+  CARE Offshore Wind Turbine SCADA Telemetry Dataset.
+  Multi-megawatt turbine 10-minute SCADA measurements with timestamped fault events and normal periods.
+homepage: https://github.com/OpenTSLM/TimeNet
+license: CC BY-SA 4.0
+data_format: timef_v1
+
+signals:
+  - name: active_power_kw
+    rate_hz: 0.0016667
+    unit: kW
+    source: scada_grid
+    description: 10-minute average active power output.
+  - name: wind_speed_ms
+    rate_hz: 0.0016667
+    unit: m/s
+    source: anemometer
+    description: Nacelle anemometer 10-minute average wind speed.
+  - name: ambient_temp_c
+    rate_hz: 0.0016667
+    unit: °C
+    source: ambient
+    description: External ambient temperature.
+  - name: gearbox_bearing_temp_c
+    rate_hz: 0.0016667
+    unit: °C
+    source: gearbox
+    description: High-speed stage bearing temperature.
+  - name: generator_temp_c
+    rate_hz: 0.0016667
+    unit: °C
+    source: generator
+    description: Generator winding temperature.
+  - name: rotor_speed_rpm
+    rate_hz: 0.0016667
+    unit: rpm
+    source: rotor
+    description: Low-speed rotor shaft rotational speed.
+
+tasks:
+  - name: early_warning
+    type: binary_classification
+    target: has_upcoming_fault
+    horizon_days: 14
+  - name: fault_component
+    type: classification
+    target: target_component
+    classes:
+      - normal
+      - gearbox
+      - generator
+      - main_bearing
+      - transformer
+
+splits:
+  default: turbine_held_out
+  strategies:
+    - turbine_held_out
+    - event_held_out
