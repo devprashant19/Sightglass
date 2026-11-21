@@ -150,7 +150,7 @@ Done:
 - FastAPI live service in `api/main.py`:
   - Endpoints: `GET /health`, `GET /cycles/{id}`, `POST /diagnose`, `POST /diagnose/perturb`
   - Inline claim verification and faithfulness checking on every generated rationale.
-- Containerization: `api/Dockerfile.cpu`, `api/Dockerfile.gpu`, `docker-compose.yml`, `scripts/deploy_api.sh`.
+- Containerization: `api/Dockerfile.cpu`, `docker-compose.yml`, `scripts/deploy_api.sh`. A GPU Dockerfile was later removed, because the API has no GPU path; the CPU one was rewritten to install the pinned versions.
 Checks:
 - `tests/test_api.py` passed (3/3: health check, cycle retrieval, diagnosis with live claim verification).
 Next: M8 — Dashboard web app (phase 07).
