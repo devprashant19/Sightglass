@@ -46,14 +46,13 @@ export function Nav() {
 
 function HealthPill() {
   const { health, healthState, manifest, summary, loadError, mock } = useStore();
-  const sha = manifest?.git_sha ? manifest.git_sha.slice(0, 7) : '';
   const n = summary?.dataset.cycles;
   const text = loadError
     ? `Data unavailable: ${loadError}`
     : healthState === 'checking' ? 'Checking the inference service…'
-    : healthState === 'live' ? `Live engine ready · ${int(health?.cycles ?? n ?? null)} cycles · ${health?.git_sha?.slice(0, 7) ?? sha}`
+    : healthState === 'live' ? `Live engine ready · ${int(health?.cycles ?? n ?? null)} test cycles`
     : mock ? 'Mock export · not real results'
-    : manifest ? `Precomputed export · ${manifest.source?.name.split(' ').slice(0, 2).join(' ') ?? 'UCI'} · ${n != null ? int(n) : ''} cycles · ${sha}`
+    : manifest ? `Precomputed export · ${manifest.source?.name.split(' ').slice(0, 2).join(' ') ?? 'UCI'} · ${n != null ? int(n) : ''} cycles`
     : 'Loading the export…';
   const dot = loadError ? 'bad' : healthState === 'live' ? 'ok' : mock ? 'warn' : manifest ? 'ok' : '';
   return (

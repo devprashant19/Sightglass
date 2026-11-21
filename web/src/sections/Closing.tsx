@@ -235,7 +235,7 @@ export function Footer() {
           </nav>
         </div>
         <div className="foot-legal t-small" id="page-end">
-          <span>Code MIT · UCI hydraulic data CC BY 4.0 (Helwig, Pignanelli, Schütze){manifest?.git_sha ? ` · build ${manifest.git_sha.slice(0, 7)}` : ''}</span>
+          <span>Code MIT · UCI hydraulic data CC BY 4.0 (Helwig, Pignanelli, Schütze){manifest?.source?.sha256 ? ` · data SHA-256 ${manifest.source.sha256.slice(0, 12)}…` : ''}</span>
           <span>Every number on this page is read from the exported results; nothing is typed by hand.</span>
         </div>
       </div></div>
