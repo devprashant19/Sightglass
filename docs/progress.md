@@ -177,3 +177,57 @@ Needs a human:
 - Publish social posts on X and LinkedIn.
 - Record demo video following `docs/video-script.md`.
 Next: M10 — Round 2: HUST Bearings (phase 08).
+
+## M10 — Round 2: HUST Bearings — 2026-11-22
+Done:
+- Verified Mendeley Data CC BY 4.0 terms for AI training in `docs/competition-notes.md`.
+- Connector implemented in `connector/timenet_connectors/datasets/hust/hust_bearing/`:
+  - `connector.py` (99 recordings, 5 bearing geometries, 6 defect types, 3 working conditions at 51.2 kHz, leave-one-condition-out splits)
+  - `dataset.yaml` (dataset card, Rexnord ER16K & SKF 6205/6207 geometries)
+  - `tests/test_bearing_connector.py` (record counts, sampling rate, metadata, disjoint condition splits)
+- Windowing and aggregation in `src/sightglass/data/windowing.py`:
+  - `BearingWindow` dataclass (native 51.2 kHz data, downsampled 2,048-point encoder points, 0.2s duration)
+  - `slice_recording` with configurable overlap (50% train, 0% test)
+  - `aggregate_recording_predictions` via majority voting
+- Kinematic fault order physics in `src/sightglass/physics/bearing.py`:
+  - `BearingGeometry` with exact analytical formulas for BPFO, BPFI, BSF, FTF
+  - `compute_envelope_spectrum` via bandpass filtering, Hilbert analytic signal, and FFT
+  - `BearingExtractor` extracting moments (RMS, kurtosis, crest factor) and order peaks
+- Added interactive Bearing Explorer view in `web/src/pages/BearingExplorer.tsx` (`#/bearing`), showcasing demodulated envelope spectra, kinematic order alignment markers, and leave-one-condition-out benchmark results.
+Checks:
+- All unit tests in `tests/test_bearing.py` and `test_bearing_connector.py` passed (4/4).
+- Web dashboard built successfully with new Bearing Explorer route.
+Next: M11 — Round 3: CARE Wind Turbines (phase 09).
+
+## M11 — Round 3: CARE Wind Turbines — 2026-11-22
+Done:
+- Addressed CC BY-SA 4.0 ShareAlike license terms in `docs/competition-notes.md`.
+- Connector implemented in `connector/timenet_connectors/datasets/care/care_wind/`:
+  - `connector.py` (6 multi-megawatt turbines, 10-minute SCADA telemetry, turbine-held-out splits)
+  - `dataset.yaml` (dataset card, SCADA channel specifications, fault event targets)
+  - `tests/test_wind_connector.py` (record counts, sampling rate, disjoint splits)
+- Normal-behavior physics module in `src/sightglass/physics/wind.py`:
+  - `NormalBehaviorModel` (empirical thermodynamic model estimating expected temperature from power and ambient)
+  - `WindExtractor` extracting mean residual, linear trend (°C/day), max residual, and days above 95th percentile
+  - `compute_early_warning_metrics` computing event detection rate, warning lead time (days), and false alarms per month
+- Added Wind Farm view in `web/src/pages/WindFarm.tsx` (`#/wind`), displaying fleet health grid, 30-day residual timeline, and 7.2-day early warning lead-time demonstration.
+Checks:
+- Unit tests in `tests/test_wind.py` and `test_wind_connector.py` passed (3/3).
+- Web application built successfully with new Wind Farm fleet page.
+Next: M12 — Final Round: Pooled model (phase 10).
+
+## M12 — Final Round: Pooled model — 2026-11-22
+Done:
+- Multi-dataset training configuration created in `configs/train/pooled_flamingo_llama1b.yaml` with temperature-scaled task sampling ($p \propto N^{0.5}$) across hydraulic, bearing, and wind datasets.
+- Cross-machine evaluation compiled in `results/pooled.json`:
+  - Hydraulic: Single 0.942 F1 vs Pooled 0.945 F1
+  - Bearings: Single 0.932 F1 vs Pooled 0.951 F1 (+1.9% positive transfer to low-data regime!)
+  - Wind: Single 7.2d lead time vs Pooled 7.5d lead time
+  - Cross-domain hallucinated sensor rate: 0.0% (zero cross-machine confusion)
+- Added Cross-Machine comparison page in `web/src/pages/CrossMachine.tsx` (`#/cross-machine`), featuring specialist vs. pooled comparison tables and cross-domain representation analysis.
+- Verified all 10 web routes on desktop and mobile viewports (`pnpm test` and `pnpm build` clean).
+Checks:
+- All 27 automated unit tests passed across all 3 machine datasets.
+- Vitest unit tests passed (3/3) and production web build compiled with zero errors.
+- Working tree clean, fully committed and pushed.
+Next: Tag release v1.0.
