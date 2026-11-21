@@ -52,5 +52,8 @@ def test_rejects_unknown_cycle_and_bad_input() -> None:
     assert client.post("/api/diagnose", json={"cycle_id": "x"}).status_code == 422
     bad = {"cycle_id": _a_test_id(), "perturbations": [{"type": "flow", "amount": -90}]}
     assert client.post("/api/diagnose", json=bad).status_code == 422
+    # Inside the coarse Field range but outside the temperature limit: only the per-type check refuses it.
+    hot = {"cycle_id": _a_test_id(), "perturbations": [{"type": "temperature", "amount": 40}]}
+    assert client.post("/api/diagnose", json=hot).status_code == 422
     bad2 = {"cycle_id": _a_test_id(), "perturbations": [{"type": "boom", "amount": 1}]}
     assert client.post("/api/diagnose", json=bad2).status_code == 422
