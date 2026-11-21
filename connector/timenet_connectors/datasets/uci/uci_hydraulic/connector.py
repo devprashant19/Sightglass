@@ -251,7 +251,7 @@ def convert(
 
 
 class HydraulicConnector:
-    """TimeNet BaseConnector implementation."""
+    """Download-and-convert connector in the shape of TimeNet's BaseConnector; it does not subclass it."""
 
     name = "uci_hydraulic"
 
