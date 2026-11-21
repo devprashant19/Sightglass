@@ -1,0 +1,32 @@
+{
+  "reference": "B1_lightgbm (grouped split)",
+  "ablations": [
+    {
+      "id": "no_virtual",
+      "label": "B1 without virtual sensors (CE, CP, SE)",
+      "run_id": "hydraulic_B1_lightgbm_no_virtual_grouped-test_s0_20261122",
+      "mean_macro_f1": 0.9608652394956112,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 0.9965094965094965,
+        "pump_leakage": 0.9683344347347811,
+        "accumulator_pressure": 0.8786170267381676
+      },
+      "delta_mean_macro_f1": 0.0019370999048616833
+    },
+    {
+      "id": "random_split",
+      "label": "B1 on a random split instead of the grouped split",
+      "run_id": "hydraulic_B1_lightgbm_random-test_s0_20261122",
+      "mean_macro_f1": 0.9975886709299768,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 1.0,
+        "pump_leakage": 1.0,
+        "accumulator_pressure": 0.9903546837199073
+      },
+      "delta_mean_macro_f1": 0.03866053133922731,
+      "note": "A positive delta means random splits make the task look easier."
+    }
+  ]
+}

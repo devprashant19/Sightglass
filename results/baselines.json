@@ -1,0 +1,124 @@
+{
+  "dataset": "hydraulic",
+  "split": "grouped",
+  "synthetic": false,
+  "generated_by": "scripts/run_baselines.py",
+  "git_sha": "ed1955c13a67bce154afe3a78c9dd4a3ddb38127",
+  "n_test": 329,
+  "baselines": [
+    {
+      "id": "B0_majority",
+      "label": "Majority class",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0
+      ],
+      "run_ids": [
+        "hydraulic_B0_majority_grouped-test_s0_20261122"
+      ],
+      "mean_macro_f1": 0.1488872132612468,
+      "mean_macro_f1_std": 0.0,
+      "joint_exact_match": 0.06382978723404255,
+      "per_component": {
+        "cooler_condition": 0.18355359765051393,
+        "valve_condition": 0.1408296943231441,
+        "pump_leakage": 0.17043740573152336,
+        "accumulator_pressure": 0.10072815533980582
+      },
+      "seconds": 0.1
+    },
+    {
+      "id": "B1_lightgbm",
+      "label": "Physics features + LightGBM",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "run_ids": [
+        "hydraulic_B1_lightgbm_grouped-test_s0_20261122",
+        "hydraulic_B1_lightgbm_grouped-test_s1_20261122",
+        "hydraulic_B1_lightgbm_grouped-test_s2_20261122"
+      ],
+      "mean_macro_f1": 0.9589281395907495,
+      "mean_macro_f1_std": 0.0,
+      "joint_exact_match": 0.8419452887537994,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 0.9965094965094966,
+        "pump_leakage": 0.9692363361972869,
+        "accumulator_pressure": 0.8699667256562146
+      },
+      "seconds": 27.166666666666668
+    },
+    {
+      "id": "B2_minirocket",
+      "label": "MiniRocket + ridge",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "run_ids": [
+        "hydraulic_B2_minirocket_grouped-test_s0_20261122",
+        "hydraulic_B2_minirocket_grouped-test_s1_20261122",
+        "hydraulic_B2_minirocket_grouped-test_s2_20261122"
+      ],
+      "mean_macro_f1": 0.9670629370958331,
+      "mean_macro_f1_std": 0.0015102519342299623,
+      "joint_exact_match": 0.8693009118541033,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 1.0,
+        "pump_leakage": 0.9934262242935678,
+        "accumulator_pressure": 0.8748255240897649
+      },
+      "seconds": 32.13333333333333
+    },
+    {
+      "id": "B3_cnn1d",
+      "label": "1D-CNN",
+      "explains": false,
+      "status": "done",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "run_ids": [
+        "hydraulic_B3_cnn1d_grouped-test_s0_20261122",
+        "hydraulic_B3_cnn1d_grouped-test_s1_20261122",
+        "hydraulic_B3_cnn1d_grouped-test_s2_20261122"
+      ],
+      "mean_macro_f1": 0.8410158306939929,
+      "mean_macro_f1_std": 0.022498111078290545,
+      "joint_exact_match": 0.42958459979736574,
+      "per_component": {
+        "cooler_condition": 1.0,
+        "valve_condition": 0.9685859316280837,
+        "pump_leakage": 0.9292950920363601,
+        "accumulator_pressure": 0.4661822991115278
+      },
+      "seconds": 59.76666666666667
+    },
+    {
+      "id": "B4_tokenized_llm",
+      "label": "Tokenized-text LLM",
+      "explains": true,
+      "status": "not_run",
+      "reason": "needs GPU LLM fine-tune (LoRA on the TSLM backbone); not run."
+    },
+    {
+      "id": "B5_gpt4o",
+      "label": "GPT-4o on plots",
+      "explains": true,
+      "status": "not_run",
+      "reason": "OPENAI_API_KEY is not set, so the GPT-4o baseline was not run."
+    }
+  ]
+}
