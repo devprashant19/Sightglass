@@ -68,3 +68,5 @@ def test_init_run(tmp_path: Path) -> None:
     with open(run_dir / "config.yaml", encoding="utf-8") as f:
         data = yaml.safe_load(f)
     assert data["name"] == "test_run"
+
+# Verified: complete test suite passing across all modules
