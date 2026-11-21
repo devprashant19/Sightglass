@@ -5,7 +5,7 @@ import dataclasses
 from sightglass.data.loader import load_cycles
 from sightglass.engine import fit_reference, load_links
 from sightglass.eval.consistency import ConsistencyChecker
-from sightglass.eval.faithfulness import FaithfulnessConfig, parse_claims, verify
+from sightglass.eval.faithfulness import FaithfulnessConfig, _deviation_ok, parse_claims, verify
 from sightglass.physics.base import Feature, HealthyReference
 from sightglass.physics.hydraulic import HydraulicExtractor
 from sightglass.rationales.builder import build_joint_rationale
@@ -40,6 +40,19 @@ def test_sigma_clause_format() -> None:
     assert format_evidence_clause(
         "TS1", "temperature slope", 0.01, "°C/min", 0.0, z=-0.4, sigma=True
     ).endswith("(within 1.0σ of healthy)")
+
+
+def test_stated_distance_from_healthy_is_checked() -> None:
+    """A claim with the right value but the wrong "N% above healthy" must not verify."""
+    cfg = FaithfulnessConfig.load()
+    (pct,), _ = parse_claims("Evidence: TS1 mean temperature 51.4 °C (60% above healthy).")
+    assert _deviation_ok(pct, 60.0, 5.0, cfg)
+    assert _deviation_ok(pct, 62.0, 5.0, cfg)
+    assert not _deviation_ok(pct, 5.0, 0.5, cfg), "true +5%: a stated 60% is wrong"
+    assert not _deviation_ok(pct, -60.0, -5.0, cfg), "true -60%: wrong side of healthy"
+    (sig,), _ = parse_claims("Evidence: TS1 temperature slope 0.53 °C/min (3.1σ above healthy).")
+    assert _deviation_ok(sig, 0.0, 3.1, cfg)
+    assert not _deviation_ok(sig, 0.0, 0.6, cfg), "true 0.6σ: a stated 3.1σ is wrong"
 
 
 def _setup() -> tuple[list, HydraulicExtractor, HealthyReference, dict, FaithfulnessConfig]:
