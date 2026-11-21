@@ -22,6 +22,8 @@ interface Store {
   cycleId: string | null;
   cycle: Cycle | null;
   cycleError: string | null;
+  /** Set when a ?cycle= link named a cycle that is not in the test set. */
+  linkNotice: string | null;
   selectCycle: (id: string) => Promise<Cycle | null>;
   status: RunStatus;
   result: Prediction | null;
@@ -66,6 +68,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [cycleId, setCycleId] = useState<string | null>(null);
   const [cycle, setCycle] = useState<Cycle | null>(null);
   const [cycleError, setCycleError] = useState<string | null>(null);
+  const [linkNotice, setLinkNotice] = useState<string | null>(null);
   const [status, setStatus] = useState<RunStatus>('idle');
   const [result, setResult] = useState<Prediction | null>(null);
   const [resultFor, setResultFor] = useState<string | null>(null);
@@ -115,7 +118,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!index || cycleId) return;
     const want = new URLSearchParams(location.search).get('cycle');
-    const ok = want && index.cycles.some((c) => c.id === want) ? want : pickDefault(index.cycles);
+    const found = !!want && index.cycles.some((c) => c.id === want);
+    const ok = found ? want : pickDefault(index.cycles);
+    // Say so when a link names a cycle that is not in the held-out test set, instead of silently swapping it.
+    if (want && !found && ok) setLinkNotice(`The link asked for ${want}, which is not one of the held-out test cycles, so cycle ${Number(ok.split('-').pop())} is shown instead.`);
     if (ok) void selectCycle(ok);
   }, [index, cycleId, selectCycle]);
 
@@ -169,7 +175,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const value: Store = {
     manifest, summary, index, dataset, links, results, failures, loadError, health, healthState,
-    cycleId, cycle, cycleError, selectCycle, status, result, resultFor, resultSource, runError, startedAt, run,
+    cycleId, cycle, cycleError, linkNotice, selectCycle, status, result, resultFor, resultSource, runError, startedAt, run,
     consoleOpen, consoleCycle, openConsole, closeConsole, cited, mock,
   };
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

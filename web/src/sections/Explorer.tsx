@@ -233,7 +233,7 @@ function Results({ cycle, p, source }: { cycle: Cycle; p: Prediction; source: 'l
 }
 
 export function Explorer() {
-  const { index, cycleId, cycle, selectCycle, status, run, result, resultFor, resultSource, runError, startedAt, openConsole, cycleError } = useStore();
+  const { index, cycleId, cycle, selectCycle, status, run, result, resultFor, resultSource, runError, startedAt, openConsole, cycleError, linkNotice } = useStore();
   const items = index?.cycles ?? [];
   const presets = useMemo(() => presetsOf(items), [items]);
   const sorted = useMemo(() => [...items].sort((a, b) => a.cycle_index - b.cycle_index), [items]);
@@ -275,6 +275,7 @@ export function Explorer() {
           <Mosaic />
         </div>
         <div className="demo-out" id="explore-run">
+          {linkNotice && <div className="replay-banner" role="note">{linkNotice}</div>}
           {status === 'running' && <RunLog cycle={cycle} startedAt={startedAt} />}
           {status === 'error' && (
             <div className="demo-err" role="alert">
