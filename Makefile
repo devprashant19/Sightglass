@@ -7,7 +7,9 @@ MYPY ?= mypy
 
 setup:
 	@echo "=== Setting up Sightglass environment ==="
-	uv sync --all-extras
+	uv venv --python 3.12
+	uv pip sync requirements-lock.txt
+	uv pip install --no-deps -e .
 
 data:
 	@echo "=== Downloading UCI #447 and building data/build/hydraulic ==="
