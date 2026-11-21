@@ -1,0 +1,39 @@
+run_name: smoke_cpu
+dataset: hydraulic
+split: grouped
+model:
+  variant: flamingo
+  backbone: google/gemma-3-270m
+  lora:
+    enabled: false
+    r: 16
+    alpha: 32
+input:
+  rates_hz:
+    PS1: 10.0
+    PS2: 10.0
+    PS3: 10.0
+    PS4: 10.0
+    PS5: 10.0
+    PS6: 10.0
+    EPS1: 10.0
+    default: native
+  drop_sensors: []
+  normalisation: data/reference/hydraulic_norm.json
+targets:
+  joint_weight: 0.6
+  qa_weight: 0.4
+  rationales: data/rationales/hydraulic.jsonl
+  qa: data/qa/hydraulic.jsonl
+train:
+  smoke: true
+  device: cpu
+  epochs: 2
+  batch_size: 4
+  lr_encoder: 0.0001
+  lr_llm: 2.0e-05
+  effective_batch: 8
+  checkpoint_every: epoch
+seeds:
+- 0
+output_dir: checkpoints

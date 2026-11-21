@@ -1,0 +1,9 @@
+{
+  "smoke": true,
+  "train_loss": [
+    1.0589020252227783,
+    0.9162554144859314
+  ],
+  "n_cycles": 64,
+  "note": "Training-loop smoke test only. Not a model result."
+}
