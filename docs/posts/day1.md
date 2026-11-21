@@ -1,6 +1,8 @@
 # Day 1 Launch Post: Introducing Sightglass
 
-### Platform: X (Twitter)
+*Draft, not published. Written at the start, it describes the plan: the OpenTSLM fine-tune it mentions has not been trained. Edit it to match the README before posting.*
+
+## Platform: X (Twitter)
 Industrial machines don't fail quietly—they scream through thousands of sensor readings every second. 📈
 
 For the @AionicLabs TimeNet Hackathon, we're building **Sightglass**: an explainable Time-Series Language Model (TSLM) that diagnoses industrial machine faults from raw waveforms and audits every explanation directly against physical signals.
@@ -14,7 +16,7 @@ github.com/devprashant19/Sightglass
 
 ---
 
-### Platform: LinkedIn
+## Platform: LinkedIn
 Excited to announce our project for the TimeNet Foundation Model Hackathon: **Sightglass** ⚙️
 
 Most machine learning models in predictive maintenance act as black boxes: an alarm sounds, an amber indicator flashes, but technicians are left guessing whether a pump is leaking or a valve is lagging. Worse, standard generative AI tools hallucinate plausible-sounding explanations that fall apart under engineering review.

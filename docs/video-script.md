@@ -1,55 +1,54 @@
-# Sightglass Video Demo Script (2 Minutes 30 Seconds)
+# Demo video script (about 2 minutes 30 seconds)
 
-**Format:** 1080p, 60fps screen recording with burned-in subtitles.  
-**Tone:** Engineering-first, calm, precise, no AI hype words.
+**Status: not recorded.** Record it against the built site with no API running, so every result on screen says Precomputed, or with `make api` running to show Live. Every number spoken below is from `results/summary.json`; check it again before recording.
 
----
-
-### [0:00 – 0:20] The Problem
-**Visual:** High-pressure industrial hydraulic valve and accumulator schematic. Red warning flag flashes on a factory HMI display.  
-**Narration:**
-> "In an industrial hydraulic plant, an alarm triggers: 'Subsystem anomaly.' But which component failed? Is the valve sticking, is the cooler fouled, or is the main pump leaking internally?
-> Standard anomaly alarms tell you *that* something is wrong, but never *why*. And general-purpose LLMs hallucinate plausible-sounding explanations that don't match the sensor waveforms."
+**Format:** 1080p screen recording with burned-in subtitles.
+**Tone:** engineering-first, calm, precise.
 
 ---
 
-### [0:20 – 0:40] Introducing Sightglass
-**Visual:** Sightglass logo and architecture pipeline diagram (Sensor waveforms -> Anti-aliasing Decimation -> OpenTSLM Flamingo -> Faithful Evidence Generator).  
+## [0:00 – 0:20] The problem
+
+**Visual:** a hydraulic rig schematic with its four parts marked: cooler, valve, pump, accumulator.
 **Narration:**
-> "This is Sightglass: an explainable Time-Series Language Model built for the TimeNet hackathon.
-> Sightglass diagnoses multi-component industrial machinery from raw, multi-rate sensor signals—and justifies every diagnosis with physical evidence clauses verified directly against the underlying time series."
+> "A hydraulic press raises an alarm. Which part is wearing out: the cooler, the valve, the pump or the accumulator? The alarm doesn't say. And if you ask a language model to explain the sensor traces, you get fluent numbers with no way to tell whether they are in the data."
 
 ---
 
-### [0:40 – 1:40] Live Explorer Demo (The Hero Moment)
-**Visual:** Sightglass explorer (pick a test cycle id from `web/public/data/hydraulic/index.json`).  
-**Narration:**
-> "Let's inspect test cycle number 1.
-> On the left, we select our cycle. In the center, our 17 sensors are rendered across synchronized time axes: high-frequency 100 Hz pressure transients, 10 Hz volume flows, and 1 Hz thermodynamic temperatures.
-> On the right, Sightglass generates individual component condition ratings and an evidence rationale."
+## [0:20 – 0:40] What Sightglass is
 
-*(Action on screen: Mouse hovers over claim `[FS1 mean flow dropped to 8.2 l/min]`)*  
+**Visual:** the site's hero, then the "How it works" section.
 **Narration:**
-> "Watch what happens when I hover over this claim: the volume flow sensor chart instantly scrolls into view, the sensor trace thickens, and the exact 60-second measurement window is shaded.
-> The checker recomputed that number from the raw signal and it agrees within the pre-registered 5% tolerance, so it gets a verified tick."
-
-*(Action on screen: Click to cycle `hydraulic-00048` or failure gallery)*  
-**Narration:**
-> "And here is a failure from the gallery (pick a real one from `web/public/data/hydraulic/failures.json` when recording): a wrong accumulator level, shown with the evidence that misled it."
+> "Sightglass reads one 60-second cycle of a test rig's 17 sensors, names the condition of each part, and writes the evidence as numbers. Then a separate checker reads that text back and recomputes every number from the signal. Today the diagnosis is a gradient-boosted model on physics features. The language model the checker was built for has not been trained yet."
 
 ---
 
-### [1:40 – 2:10] Verified Results
-**Visual:** Results section of the dashboard (numbers load from `web/public/data/summary.json`).
+## [0:40 – 1:40] The explorer
+
+**Visual:** open `/?cycle=hydraulic-00253&run`.
 **Narration:**
-> "On 329 held-out cycles from operating conditions the model never saw, the engine reaches 0.959 mean macro-F1. The accumulator is the hard part at 0.870.
-> The checker itself is tested: we planted 1,000 wrong numbers and flipped 529 directions in reference explanations, and it caught all of them.
-> And we show where it falls short: the cited evidence supports the label in 64% of component paragraphs. The language model fine-tune is next."
+> "This is test cycle 253, from operating conditions the model never saw in training. Cooler and valve: correct. Pump: Sightglass says severe leakage; the rig recorded weak. Three of four right."
+
+*(On screen: point at the pump paragraph and its ticked claims.)*
+**Narration:**
+> "And yet all nine numbers in the explanation are ticked. Each one was recomputed from this cycle's signal and agrees within the tolerance fixed before testing. A verified number is not a correct diagnosis, and the page shows you both."
+
+*(On screen: scroll to the what-if lab, choose "Raise temperature", move the slider to +2 °C.)*
+**Narration:**
+> "Here is a healthy cycle. Warm the oil by two degrees, and the accumulator verdict changes. That is a shortcut the model learned from how the rig was tested, and we show it rather than hide it."
 
 ---
 
-### [2:10 – 2:30] Roadmap & Open-Source
-**Visual:** Team and dataset page (`#/dataset`, `#/team`). GitHub repo with PR draft.  
+## [1:40 – 2:10] Results
+
+**Visual:** the Results section.
 **Narration:**
-> "Our UCI Hydraulic connector is packaged for upstream contribution to TimeNet. In upcoming rounds, we are extending Sightglass to high-frequency bearing vibration orders and offshore wind farm telemetry.
-> Explore the live dashboard, inspect the failure gallery, and reproduce our runs at github.com/devprashant19/Sightglass."
+> "On 329 held-out cycles, the engine reaches 0.959 mean macro-F1; the accumulator is the hard part at 0.870. The checker is tested too: we planted 1,000 wrong numbers and flipped 529 directions in reference explanations, and it caught all of them. Where it falls short: the cited evidence supports the label in 64% of component paragraphs."
+
+---
+
+## [2:10 – 2:30] What is open
+
+**Visual:** the repository's README, the "Not verified" list.
+**Narration:**
+> "What has not been done is listed in the README: the language-model fine-tune, the language-model baselines, real bearing and wind data, and the TimeNet pull request. The code, the data connector and every result file are at github.com/devprashant19/Sightglass."

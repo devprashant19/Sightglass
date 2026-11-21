@@ -2,7 +2,7 @@
 
 Do not post until the TSLM run exists or the post says plainly that it does not.
 
-### X
+## X
 Sightglass, round 1 of the TimeNet hackathon: machine-fault diagnosis where every number in the explanation is checked against the signal.
 
 On the real UCI hydraulic rig (329 held-out cycles, grouped split):
@@ -12,7 +12,7 @@ On the real UCI hydraulic rig (329 held-out cycles, grouped split):
 
 Dashboard · repo: github.com/devprashant19/Sightglass
 
-### LinkedIn
+## LinkedIn
 We built Sightglass for round 1 of the TimeNet hackathon. It diagnoses four components of an industrial hydraulic test rig from 17 sensors and writes the evidence for each diagnosis as numbers you can check.
 
 What is real today:
