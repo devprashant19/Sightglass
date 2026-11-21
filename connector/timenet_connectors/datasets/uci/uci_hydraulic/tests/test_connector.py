@@ -80,5 +80,3 @@ def test_connector_deterministic_convert(tmp_path) -> None:
     assert res1 == res2
     assert res1["n_records"] == 2205
     assert res1["n_sensors"] == 17
-
-# Verification: cycle duration consistency across 2205 runs

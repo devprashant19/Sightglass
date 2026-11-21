@@ -241,5 +241,3 @@ def build_joint_rationale(
         claims=all_claims,
         template_id="joint_v1",
     )
-
-# Test: verify claim coordinate rounding matches sensor spec precision

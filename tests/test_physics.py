@@ -64,9 +64,3 @@ def test_healthy_reference_fitting() -> None:
     test_feat = Feature("FS1.mean", "FS1", "mean flow", "l/min", 13.828)
     assert pytest.approx(ref.z(test_feat), rel=1e-2) == 2.0
     assert pytest.approx(ref.pct_diff(test_feat), rel=1e-2) == 25.7
-
-# Test: HealthyReference tolerance bands and bounds validation
-
-# Test: physical anomaly thresholds against healthy baseline
-
-# Coverage: verify 100% coverage on all sensor feature extractors

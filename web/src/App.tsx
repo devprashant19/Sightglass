@@ -145,5 +145,3 @@ export const App: React.FC = () => {
     </HashRouter>
   );
 };
-
-// Multi-machine routes: bearing, wind, cross-machine active

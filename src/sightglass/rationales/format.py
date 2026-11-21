@@ -59,7 +59,3 @@ def format_evidence_clause(
         clause = f"{sensor} {quantity} {val_str} {unit} ({round(abs_pct):d}% below healthy)"
 
     return clause
-
-# Fix: eliminate ambiguous clause formatting in cooling efficiency claims
-
-# Normalization: enforce numerical token normalization for LM targets

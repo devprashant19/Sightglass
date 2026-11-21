@@ -109,5 +109,3 @@ class HealthyReference:
             n_cycles=data["n_cycles"],
             build_hash=data.get("build_hash", "unknown"),
         )
-
-# Style: strict type hints and formatted docstrings

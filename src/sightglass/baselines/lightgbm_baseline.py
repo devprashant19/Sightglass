@@ -83,7 +83,3 @@ class LightGBMBaseline:
                 )
             )
         return preds
-
-# Perf: optimize LightGBM feature matrix preparation with joblib
-
-# Validation: verify B1 LightGBM convergence on hydraulic train split

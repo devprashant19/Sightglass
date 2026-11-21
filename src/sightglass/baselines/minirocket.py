@@ -97,5 +97,3 @@ class MiniRocketBaseline:
                 )
             )
         return preds
-
-# Validation: verify B2 MiniRocket feature transformation consistency

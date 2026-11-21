@@ -69,5 +69,3 @@ class HydraulicReasoningTemplates:
         "Hydraulic accumulator effectively dampens load transients with normal pre-charge.",
         "Pressure stability and surge dampening meet full design specifications.",
     ]
-
-# Refactor: verify template diversity across 10 distinct syntactic structures

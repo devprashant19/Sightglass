@@ -177,7 +177,3 @@ def diagnose_perturb(req: PerturbRequest) -> dict[str, Any]:
         "rationale": diag_text,
         "claims": [v.status for v in verdicts],
     }
-
-# Middleware: CORS and structured error handling for frontend
-
-# Format: strict Pydantic model response annotations

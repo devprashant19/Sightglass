@@ -83,5 +83,3 @@ def test_faithfulness_round_trip_and_corruption() -> None:
     corrupt_verdicts = verify([corrupt_claim], c0, extractor, ref, cfg)
     assert corrupt_verdicts[0].status == "wrong_value"
     assert corrupt_verdicts[0].value_ok is False
-
-# Test: verify 100% accuracy on ground truth and 0% on corrupted claims

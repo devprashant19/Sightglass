@@ -35,5 +35,3 @@ class MajorityBaseline:
                 )
             )
         return preds
-
-# Validation: verify B0 majority baseline prediction shapes

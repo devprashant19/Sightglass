@@ -84,5 +84,3 @@ class SightglassModel:
         checkpoint = torch.load(p, map_location=self.device)
         self.model.load_state_dict(checkpoint["model_state"])
         logger.info(f"Loaded checkpoint from {p} (epoch {checkpoint.get('epoch')})")
-
-# Test: verify smoke CPU model forward pass and loss computation
