@@ -1,6 +1,6 @@
 # TimeNet Architecture & Connector Notes
 
-*Verified against upstream `OpenTSLM/TimeNet` at commit `979a0ae8894f225ecfd04a364678bea49f66bfc1`.*
+*Notes taken while reading upstream `OpenTSLM/TimeNet` at commit `979a0ae8894f225ecfd04a364678bea49f66bfc1`, and not re-checked since. They describe TimeNet, not this repository: the connector here does not yet subclass `BaseConnector` or write a `TimeFDataset`. It writes its own `.npy` build, and none of the upstream `make` targets below has been run against it.*
 
 ## 1. Core Data Model (TimeF)
 TimeNet standardizes diverse time-series formats into the **TimeF** specification:
@@ -21,12 +21,12 @@ Upstream connectors reside in `packages/timenet-connectors/src/timenet_connector
   - `def convert(self, source_files) -> TimeFDataset`: Converts raw tab/csv/binary files into `TimeFDataset` records, signals, and tasks.
 - `dataset.yaml`: Dataset card schema validated with `yaml_schema_version: 1`:
   - `dataset_id`, `dataset_version`, `name`, `description`, `license`, `source_url`, `citation`, `domains`, `tags`.
-- `tests/test_connector.py`: Unit and integration tests verifying record counts, signal lengths, absence of NaNs, valid label sets, and split disjointness.
+- `<dataset>/tests/test_connector.py`: Unit and integration tests verifying record counts, signal lengths, absence of NaNs, valid label sets, and split disjointness.
 
 ## 3. Upstream Makefile Targets
-- `make check`: Runs `schemas-check`, `ruff format .`, `ruff check .`, `ty check .`.
-- `make test`: Runs pytest across core modules (excluding dataset downloads).
-- `make test-unit`: Fast in-memory unit tests.
-- `make test-connectors`: Runs tests for individual dataset connectors in isolated environments.
-- `make license-check`: Verifies no copyleft (GPL/AGPL) dependencies exist.
-- `make build`: Packages `timenet` and `timenet-connectors` wheels.
+- `check` target: Runs `schemas-check`, `ruff format .`, `ruff check .`, `ty check .`.
+- `test` target: Runs pytest across core modules (excluding dataset downloads).
+- `test-unit` target: Fast in-memory unit tests.
+- `test-connectors` target: Runs tests for individual dataset connectors in isolated environments.
+- `license-check` target: Verifies no copyleft (GPL/AGPL) dependencies exist.
+- `build` target: Packages `timenet` and `timenet-connectors` wheels.

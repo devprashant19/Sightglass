@@ -34,7 +34,7 @@ UCI #447 "Condition monitoring of hydraulic systems" (CC BY 4.0; Helwig, Pignane
 
 ## Evaluation (real test split, 329 cycles)
 
-All figures are in `results/summary.json` and `results/eval_engine.json`, written by `scripts/evaluate.py`.
+All figures are in `results/summary.json` and `results/eval_engine.json`, written by `scripts/evaluate.py`. The comparison with the baselines is the [README results table](README.md#results); the method and the failure cases are in [docs/model.md](docs/model.md).
 
 | Metric | Value |
 |---|---|
@@ -44,7 +44,7 @@ All figures are in `results/summary.json` and `results/eval_engine.json`, writte
 | Claims verified against the signal | 2,721 of 2,721 — expected by construction, since the engine computes them from the signal |
 | Label–evidence consistency | 63.7% of component paragraphs (lowest for accumulator and pump) |
 
-Checker validation (`results/checker_validation.json`): 17,883 of 17,883 reference claims verify; 1,000 of 1,000 single-value ±20% corruptions and every direction flip are caught.
+Checker validation (`results/checker_validation.json`): 17,883 of 17,883 reference claims verify; 1,000 of 1,000 single-value ±20% corruptions and 529 of 529 direction flips are caught.
 
 ## Limitations
 
@@ -52,4 +52,5 @@ Checker validation (`results/checker_validation.json`): 17,883 of 17,883 referen
 - Virtual sensors (CE, CP, SE) are derived from other sensors; CE alone separates the cooler classes. Removing them changes B1's mean macro-F1 by +0.002.
 - Accumulator: one physics link survives the stratified check (PS2 ripple); lowest accuracy and consistency.
 - What-if runs show learned shortcuts: warming TS1–TS4 by 2 °C changes the accumulator verdict on healthy cycles.
+- No language model has been evaluated: the TSLM and the two language-model baselines were not run, so nothing here measures how faithful a language model's explanations are.
 - Random splits inflate scores (+0.039 mean macro-F1 for B1); only grouped-split numbers are reported as results.

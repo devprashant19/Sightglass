@@ -22,4 +22,4 @@ The near-constant ~1.1% on means is a gain change from the IIR anti-aliasing fil
 detail. All drifts are below the 5% value tolerance, but a model that copies numbers from its
 10 Hz input would be about 1% off; bin-averaging (used for the dashboard and the CNN/MiniRocket
 inputs) has no such gain error and should replace `decimate` in `tslm/prompt.py` before the
-TSLM run. An earlier version of this file reported drift figures that were not measured.
+TSLM run. That change has not been made yet.

@@ -1,6 +1,6 @@
 # OpenTSLM Architecture & Fine-Tuning Notes
 
-*Verified against upstream `OpenTSLM/OpenTSLM` at commit `2968f4b891baab4307f7e9d0043e87677b593a30`.*
+*Notes taken while reading upstream `OpenTSLM/OpenTSLM` at commit `2968f4b891baab4307f7e9d0043e87677b593a30`. They describe that project, not this one, and have not been re-checked since. Nothing in this repository imports OpenTSLM yet: `src/sightglass/tslm/train.py` raises in its full mode until OpenTSLM's trainer is wired in, and no model below has been fine-tuned here. The memory figures are upstream's, not measured here.*
 
 ## 1. Model Architectures: Flamingo vs Soft-Prompt (SP)
 OpenTSLM integrates raw time series natively into pretrained Large Language Models:

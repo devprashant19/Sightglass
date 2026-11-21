@@ -3,7 +3,7 @@
 **Title:** `Add UCI hydraulic system condition monitoring dataset connector`
 
 ## Summary
-This pull request adds a comprehensive TimeNet dataset connector for the **UCI Hydraulic System Condition Monitoring** dataset (#447). The dataset captures 2,205 60-second machine load cycles monitoring four critical hydraulic subsystems (cooler, directional valve, high-pressure pump, and nitrogen accumulator).
+This pull request adds a TimeNet dataset connector for the **UCI Hydraulic System Condition Monitoring** dataset (#447). The dataset captures 2,205 60-second machine load cycles monitoring four critical hydraulic subsystems (cooler, directional valve, high-pressure pump, and nitrogen accumulator).
 
 ## Dataset Metadata
 - **Source:** [UCI Machine Learning Repository #447](https://archive.ics.uci.edu/dataset/447/condition+monitoring+of+hydraulic+systems)
@@ -29,4 +29,4 @@ The connector maps all 17 sensors to native multi-rate regular time axes without
 - `download()` fetches the UCI zip and verifies SHA-256 `24128aad2ee45eea7e6b63ebbd9992cdf25d0483a2cebefbfc13bc69079af1f2`.
 - `convert()` validates every shape (2,205 × 6,000 / 600 / 60), rejects non-finite values and unexpected label values, and is deterministic (tested on a fixture).
 - Grouped split on real data: 1,543 / 333 / 329 cycles; every class of every component in train.
-- **Not done yet:** porting to TimeNet's connector base class and running TimeNet's `make check`, `make test`, `make test-connectors` and `make license-check` on a fork. The PR has not been opened.
+- **Not done yet:** porting to TimeNet's connector base class and running TimeNet's own make targets (check, test, test-connectors, license-check) on a fork. The PR has not been opened.

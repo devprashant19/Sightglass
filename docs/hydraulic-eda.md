@@ -2,7 +2,7 @@
 
 All numbers below were computed on the real dataset (downloaded 2026-11-22, SHA-256
 `24128aad2ee45eea7e6b63ebbd9992cdf25d0483a2cebefbfc13bc69079af1f2`) by the connector build in
-`data/build/hydraulic/`. An earlier version of this file described synthetic data; it was replaced.
+`data/build/hydraulic/`.
 
 ## Shapes
 

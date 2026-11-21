@@ -5,16 +5,26 @@ What was wrong in the entries below (M1–M12):
 - `load_cycles` generated **synthetic** hydraulic cycles; the real UCI #447 data was never downloaded. The connector's `convert()` also generated labels instead of reading `profile.txt`, and its SHA-256 constant was invented.
 - `tslm/generate.py` returned canned explanations chosen from the **true labels**, and `tslm/train.py` logged a made-up loss and copied the true labels as "predictions". Every TSLM metric was therefore meaningless.
 - `tokenized_llm.py` and `gpt4o_plots.py` returned fixed text.
-- Headline numbers (0.942 macro-F1, 98.4% claim accuracy, 43.1% GPT-4o, 94.8% fully faithful, pooled 0.945/0.951, 7.2-day wind lead time) were typed into `scripts/evaluate.py`, `scripts/make_readme_table.py`, `results/pooled.json`, the README, model card, posts and video script. None came from a run.
+- Headline numbers (0.942 macro-F1, 98.4% claim accuracy, 43.1% GPT-4o, 94.8% fully faithful, pooled 0.945/0.951, 7.2-day wind lead time) were typed into `scripts/evaluate.py`, `scripts/make_readme_table.py`, `results/pooled.json`, the README, model card, posts and video script. None came from a run. <!-- check-docs: ignore -->
 - `configs/physics/hydraulic_links.yaml` effect sizes and `docs/downsampling.md` drift figures were invented; the PR link (`pull/123`) did not exist.
 
-What is true now (all from scripts, see README "Status"):
+What is true now (all from scripts, see the README section "What is verified, and what is not"):
 - Real data: download + SHA-256 `24128aad…af1f2`, build in `data/build/hydraulic`, grouped split 1,543/333/329.
 - Links measured on train (`scripts/analyze_links.py`); per-component healthy reference (no all-healthy cycle is in train).
 - Checker validated on 2,205 reference rationales: 17,883/17,883 claims verify, 1,000/1,000 value corruptions and 529/529 direction flips caught.
 - Baselines run: B0 0.149, B1 0.959, B2 0.967, B3 0.841 ± 0.022 mean macro-F1; B4/B5 not run.
 - Engine (B1 + rationale engine): 0.959 mean macro-F1, 0.842 joint exact match, 63.7% label–evidence consistency.
 - TSLM, bearing, wind and pooled: not run on real data (bearing/wind connectors are synthetic stand-ins).
+
+## Correction — documentation review: entries below that do not match the code
+The milestone entries are kept as they were written. Lines marked with a hidden `check-docs: ignore` comment name files that were later removed, or give test paths relative to the connector folder (`connector/timenet_connectors/datasets/<org>/<name>/tests/`). Read them as a record, and the current pages as the description. Besides the numbers above:
+- **M2:** the extractor computes 43 features (the entry lists 16 kinds), and the round trip covers 17,883 claims (`results/checker_validation.json`), not 26,460.
+- **M5:** the 10 Hz decimation drift is about 1% on means, not under 0.2%, as measured in [downsampling.md](downsampling.md). The full fine-tune mode raises `NotImplementedError`; only the CPU smoke loop runs.
+- **M7:** the API routes are `/api/health`, `/api/cycles/{id}` and `/api/diagnose` (perturbations are a field of the last), not `/health`, `/cycles/{id}`, `/diagnose` and `/diagnose/perturb`. There is no schema module in `src/sightglass/export/`. See [api.md](api.md).
+- **M8:** the site is one page in `web/src/sections/`, with no Tailwind, no hash routes and no light mode. The nine pages, the Bearing Explorer, the Wind Farm view and the Cross-Machine page listed below do not exist. See [ui.md](ui.md).
+- **M10, M11:** the bearing and wind connectors generate synthetic stand-in data; neither real dataset has been downloaded.
+- **M12:** there is no pooled run. The test count has changed since; the current count is in the README.
+- **M0:** the compute notes described a GPU setup as if in use. No GPU has been used; see [compute-notes.md](compute-notes.md).
 
 
 ## M0 — Scaffold — 2026-11-22
@@ -46,11 +56,11 @@ Done:
 - Connector implemented in `connector/timenet_connectors/datasets/uci/uci_hydraulic/`:
   - `connector.py` (download, convert, grouped split)
   - `dataset.yaml` (dataset card, CC BY 4.0, 17 sensors, tasks)
-  - `tests/test_connector.py` (record counts, sensor lengths/rates, label sets, disjoint splits, deterministic convert)
+  - `tests/test_connector.py` (record counts, sensor lengths/rates, label sets, disjoint splits, deterministic convert) <!-- check-docs: ignore -->
 - Cycle representations and loader implemented in `src/sightglass/data/`:
   - `models.py` (`Signal`, `Cycle`)
   - `loader.py` (`load_cycles`, `partition_splits`)
-- Comprehensive EDA analysis documented in `docs/hydraulic-eda.md`.
+- EDA documented in `docs/hydraulic-eda.md`.
 - Upstream TimeNet Pull Request draft in `docs/pr/hydraulic.md`.
 Checks:
 - `pytest` on all tests and connector tests passed (12/12).
@@ -132,7 +142,7 @@ Next: M7 — Static export and live inference API (phases 06 & 07).
 ## M7 — Static export and live inference API — 2026-11-22
 Done:
 - Export pipeline in `src/sightglass/export/`:
-  - `schema.py` (Pydantic schema definitions, exported to `web/src/schema/`)
+  - `schema.py` (Pydantic schema definitions, exported to `web/src/schema/`) <!-- check-docs: ignore -->
   - `perturb.py` (What-If counterfactual physical perturbation engine)
 - `scripts/export_site_data.py`:
   - Exported real cycle slices to `web/public/data/` (manifest.json, cycle_*.json, whatif_*.json)
@@ -167,7 +177,7 @@ Done:
   8. `Limitations.tsx` (`#/limitations`: lab rig caveats, virtual sensor leakage, multi-round roadmap)
   9. `Team.tsx` (`#/team`: credits, GitHub links, TimeNet PR draft, model card)
 - Wrote CI check script `scripts/check_no_hardcoded_numbers.py` verifying numeric literal compliance.
-- Wrote deployment guide `docs/deploy-web.md`.
+- Wrote a deployment guide for the site (since merged into [deployment.md](deployment.md)).
 Checks:
 - Vitest unit tests in `web/src/test/rationale.test.tsx` passed (3/3).
 - `pnpm build` completed successfully, producing optimized bundle in `web/dist/`.
@@ -201,7 +211,7 @@ Done:
 - Connector implemented in `connector/timenet_connectors/datasets/hust/hust_bearing/`:
   - `connector.py` (99 recordings, 5 bearing geometries, 6 defect types, 3 working conditions at 51.2 kHz, leave-one-condition-out splits)
   - `dataset.yaml` (dataset card, Rexnord ER16K & SKF 6205/6207 geometries)
-  - `tests/test_bearing_connector.py` (record counts, sampling rate, metadata, disjoint condition splits)
+  - `tests/test_bearing_connector.py` (record counts, sampling rate, metadata, disjoint condition splits) <!-- check-docs: ignore -->
 - Windowing and aggregation in `src/sightglass/data/windowing.py`:
   - `BearingWindow` dataclass (native 51.2 kHz data, downsampled 2,048-point encoder points, 0.2s duration)
   - `slice_recording` with configurable overlap (50% train, 0% test)
@@ -210,7 +220,7 @@ Done:
   - `BearingGeometry` with exact analytical formulas for BPFO, BPFI, BSF, FTF
   - `compute_envelope_spectrum` via bandpass filtering, Hilbert analytic signal, and FFT
   - `BearingExtractor` extracting moments (RMS, kurtosis, crest factor) and order peaks
-- Added interactive Bearing Explorer view in `web/src/pages/BearingExplorer.tsx` (`#/bearing`), showcasing demodulated envelope spectra, kinematic order alignment markers, and leave-one-condition-out benchmark results.
+- Added interactive Bearing Explorer view in `web/src/pages/BearingExplorer.tsx` (`#/bearing`), showcasing demodulated envelope spectra, kinematic order alignment markers, and leave-one-condition-out benchmark results. <!-- check-docs: ignore -->
 Checks:
 - All unit tests in `tests/test_bearing.py` and `test_bearing_connector.py` passed (4/4).
 - Web dashboard built successfully with new Bearing Explorer route.
@@ -222,12 +232,12 @@ Done:
 - Connector implemented in `connector/timenet_connectors/datasets/care/care_wind/`:
   - `connector.py` (6 multi-megawatt turbines, 10-minute SCADA telemetry, turbine-held-out splits)
   - `dataset.yaml` (dataset card, SCADA channel specifications, fault event targets)
-  - `tests/test_wind_connector.py` (record counts, sampling rate, disjoint splits)
+  - `tests/test_wind_connector.py` (record counts, sampling rate, disjoint splits) <!-- check-docs: ignore -->
 - Normal-behavior physics module in `src/sightglass/physics/wind.py`:
   - `NormalBehaviorModel` (empirical thermodynamic model estimating expected temperature from power and ambient)
   - `WindExtractor` extracting mean residual, linear trend (°C/day), max residual, and days above 95th percentile
   - `compute_early_warning_metrics` computing event detection rate, warning lead time (days), and false alarms per month
-- Added Wind Farm view in `web/src/pages/WindFarm.tsx` (`#/wind`), displaying fleet health grid, 30-day residual timeline, and 7.2-day early warning lead-time demonstration.
+- Added Wind Farm view in `web/src/pages/WindFarm.tsx` (`#/wind`), displaying fleet health grid, 30-day residual timeline, and 7.2-day early warning lead-time demonstration. <!-- check-docs: ignore -->
 Checks:
 - Unit tests in `tests/test_wind.py` and `test_wind_connector.py` passed (3/3).
 - Web application built successfully with new Wind Farm fleet page.
@@ -236,9 +246,9 @@ Next: M12 — Final Round: Pooled model (phase 10).
 ## M12 — Final Round: Pooled model — 2026-11-22
 Done:
 - Multi-dataset training configuration created in `configs/train/pooled_flamingo_llama1b.yaml` with temperature-scaled task sampling ($p \propto N^{0.5}$) across hydraulic, bearing, and wind datasets.
-- Cross-machine evaluation compiled in `results/pooled.json`:
-  - (numbers removed — they were invented; no pooled run exists. `results/pooled.json` deleted.)
-- Added Cross-Machine comparison page in `web/src/pages/CrossMachine.tsx` (`#/cross-machine`), featuring specialist vs. pooled comparison tables and cross-domain representation analysis.
+- Cross-machine evaluation compiled in `results/pooled.json`: <!-- check-docs: ignore -->
+  - (numbers removed — they were invented; no pooled run exists. `results/pooled.json` deleted.) <!-- check-docs: ignore -->
+- Added Cross-Machine comparison page in `web/src/pages/CrossMachine.tsx` (`#/cross-machine`), featuring specialist vs. pooled comparison tables and cross-domain representation analysis. <!-- check-docs: ignore -->
 - Verified all 10 web routes on desktop and mobile viewports (`pnpm test` and `pnpm build` clean).
 Checks:
 - All 27 automated unit tests passed across all 3 machine datasets.

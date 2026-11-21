@@ -37,10 +37,9 @@ Explanations are evaluated by parsing structured claims and comparing them direc
   - **Value Accuracy:** % of claims where value is verified, independent of direction.
   - **Direction Accuracy:** % of claims where deviation direction matches physical truth.
   - **Hallucinated Sensor Rate:** % of cited sensors that do not physically exist on the machine.
-  - **Unparsed Claim Rate:** Fraction of unparsed numeric fragments relative to all numeric fragments.
+  - **Unparsed numbers:** numeric fragments in the text that the parser could not tie to a claim. `scripts/evaluate.py` reports their count (`unparsed_numbers`), not a rate.
   - **Fully Faithful Rationales:** % of explanations where 100% of claims are verified and at least one valid claim is made.
   - **Label-Rationale Consistency:** at least one cited feature is a kept physical link for the component and its recomputed deviation lies outside the healthy spread (|z| > 1) in the link's direction for a faulty label, or inside it (|z| ≤ 1) for a healthy label.
 
-## 4. History
-Fixed on 2026-11-22 before any metric on the real UCI #447 test split was computed. Earlier
-results in this repository came from synthetic data and a stub model and were deleted.
+## 4. When this was fixed
+Fixed on 2026-11-22, before any metric on the real UCI #447 test split was computed. What changed before that date is recorded in [progress.md](progress.md).

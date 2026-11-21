@@ -1,24 +1,35 @@
-# TimeNet Hackathon — Competition Notes
+# TimeNet Hackathon: competition notes
 
-## 1. Challenge & Submission Requirements
-- **Challenge:** TimeNet Online Hackathon (https://challenge.timenet.ai/)
-- **Objective:** Build a Temporal AI application, onboard a new domain dataset into TimeNet TimeF format, and fine-tune or train an open temporal foundation model (such as OpenTSLM).
-- **Submission Package Requirements:**
-  1. Link to opened or merged Pull Request on `OpenTSLM/TimeNet` adding the dataset connector.
-  2. Public GitHub repository (`sightglass`) with complete codebase, reproduction instructions, and clear licensing.
-  3. Deployed public dashboard showcasing interactive model diagnoses and evidence.
-  4. 2–3 minute video demonstration (captions burned-in, clear narrative).
-  5. Comprehensive `MODEL_CARD.md` detailing architecture, training data, evaluation metrics, and ethical limitations.
-  6. Public X and LinkedIn social posts documenting the project launch, progress, and results.
-  7. Official submission form submission (e.g., tally.so/r/J1qbyK).
+Notes on what the hackathon asks for, taken while planning. The status column says where this project stands against each item.
 
-## 2. Judging Criteria & Weighting
-- **Technical Excellence & Rigor:** Correct time-series handling, leak-free grouped evaluation, reproducible runs.
-- **Novelty & Differentiation:** Explanation faithfulness—verifying model-claimed numbers against physical ground truth signals rather than ungrounded hallucinated rationales.
-- **Usability & Presentation:** Interactive dashboard, clear visualizations with synchronous cursors, responsive design.
-- **Open-Source Contribution:** High-quality, clean dataset connector meeting all TimeNet standards and passing CI checks.
+## 1. Challenge and submission requirements
 
-## 3. Dataset Status & Claims
-- **Round 1 (UCI Hydraulic Test Rig - #447):** Confirmed free and unclaimed in open/closed PRs. Full CC BY 4.0 license.
-- **Round 2 (HUST Bearings):** Mendeley Data, CC BY 4.0 license. Pre-checked.
-- **Round 3 (CARE Wind Turbines):** CC BY-SA 4.0. Note: ShareAlike compatibility checked; fallback paths prepared (local user build or OPS-SAT).
+- **Challenge:** TimeNet Online Hackathon (https://challenge.timenet.ai/).
+- **Objective:** build a temporal AI application, onboard a new domain dataset into TimeNet's TimeF format, and fine-tune or train an open temporal foundation model such as OpenTSLM.
+
+| # | Requirement | Status |
+|---|---|---|
+| 1 | Link to an opened or merged pull request on `OpenTSLM/TimeNet` adding the dataset connector | **Not opened.** Draft text in [pr/hydraulic.md](pr/hydraulic.md). The connector does not yet use TimeNet's base class or TimeF format |
+| 2 | Public GitHub repository with the code, reproduction steps and a licence | This repository. MIT licence |
+| 3 | Deployed public dashboard | **Not deployed yet.** A GitHub Pages workflow publishes it once Pages is enabled: [deployment.md](deployment.md) |
+| 4 | Two to three minute video with burned-in captions | **Not recorded.** Script in [video-script.md](video-script.md) |
+| 5 | `MODEL_CARD.md` | Written, for the LightGBM engine. There is no fine-tuned model to describe yet |
+| 6 | Public posts on X and LinkedIn | **Drafts only**, in `posts/` |
+| 7 | The official submission form (tally.so/r/J1qbyK) | Not known from this repository |
+
+## 2. Judging criteria, as understood when planning
+
+- **Technical rigour:** correct time-series handling, leak-free grouped evaluation, reproducible runs.
+- **Novelty:** checking the numbers in a model's explanation against the signal, rather than trusting them.
+- **Usability and presentation:** an interactive dashboard with clear visualisations.
+- **Open-source contribution:** a connector that meets TimeNet's standards and passes its CI.
+
+## 3. Datasets considered
+
+| Round | Dataset | Licence | Status |
+|---|---|---|---|
+| 1 | UCI hydraulic test rig (#447) | CC BY 4.0 | Used. All results are on it |
+| 2 | HUST bearings (Mendeley Data) | CC BY 4.0 | Connector and physics written, running on **synthetic stand-in data** only |
+| 3 | CARE wind turbines | CC BY-SA 4.0 | Connector and physics written, running on **synthetic stand-in data** only. ShareAlike compatibility would need checking before using the real data. No fallback dataset has been prepared |
+
+Whether #447 was already claimed in TimeNet's open or closed pull requests was checked once while planning, and should be checked again before opening the pull request.
