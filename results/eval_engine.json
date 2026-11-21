@@ -1,0 +1,219 @@
+{
+  "run_id": "hydraulic_engine_grouped-test_s0_20261122",
+  "model": "LightGBM on physics features + Sightglass rationale engine",
+  "split": "grouped",
+  "n_test_cycles": 329,
+  "synthetic": false,
+  "git_sha": "ed1955c13a67bce154afe3a78c9dd4a3ddb38127",
+  "diagnosis": {
+    "mean_macro_f1": 0.9589281395907495,
+    "mean_macro_f1_ci95": [
+      0.9477869776393756,
+      0.9700032483882403
+    ],
+    "joint_exact_match": 0.8419452887537994,
+    "joint_exact_match_ci95": [
+      0.7993920972644377,
+      0.8844984802431611
+    ],
+    "components": {
+      "cooler_condition": {
+        "macro_f1": 1.0,
+        "accuracy": 1.0,
+        "confusion_matrix": [
+          [
+            132,
+            0,
+            0
+          ],
+          [
+            0,
+            72,
+            0
+          ],
+          [
+            0,
+            0,
+            125
+          ]
+        ],
+        "classes": [
+          {
+            "value": 3,
+            "name": "close to total failure"
+          },
+          {
+            "value": 20,
+            "name": "reduced efficiency"
+          },
+          {
+            "value": 100,
+            "name": "full efficiency"
+          }
+        ]
+      },
+      "valve_condition": {
+        "macro_f1": 0.9965094965094965,
+        "accuracy": 0.9969604863221885,
+        "confusion_matrix": [
+          [
+            80,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            49,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            70,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            129
+          ]
+        ],
+        "classes": [
+          {
+            "value": 73,
+            "name": "close to total failure"
+          },
+          {
+            "value": 80,
+            "name": "severe lag"
+          },
+          {
+            "value": 90,
+            "name": "small lag"
+          },
+          {
+            "value": 100,
+            "name": "optimal"
+          }
+        ]
+      },
+      "pump_leakage": {
+        "macro_f1": 0.9692363361972869,
+        "accuracy": 0.9726443768996961,
+        "confusion_matrix": [
+          [
+            113,
+            0,
+            0
+          ],
+          [
+            2,
+            73,
+            7
+          ],
+          [
+            0,
+            0,
+            134
+          ]
+        ],
+        "classes": [
+          {
+            "value": 0,
+            "name": "no leakage"
+          },
+          {
+            "value": 1,
+            "name": "weak leakage"
+          },
+          {
+            "value": 2,
+            "name": "severe leakage"
+          }
+        ]
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.8699667256562146,
+        "accuracy": 0.8723404255319149,
+        "confusion_matrix": [
+          [
+            78,
+            12,
+            0,
+            3
+          ],
+          [
+            8,
+            54,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            80,
+            9
+          ],
+          [
+            4,
+            0,
+            4,
+            75
+          ]
+        ],
+        "classes": [
+          {
+            "value": 90,
+            "name": "close to total failure"
+          },
+          {
+            "value": 100,
+            "name": "severely reduced"
+          },
+          {
+            "value": 115,
+            "name": "slightly reduced"
+          },
+          {
+            "value": 130,
+            "name": "optimal"
+          }
+        ]
+      }
+    }
+  },
+  "faithfulness": {
+    "claim_accuracy": 100.0,
+    "value_accuracy": 100.0,
+    "direction_accuracy": 100.0,
+    "hallucinated_sensor_rate": 0.0,
+    "unparsed_numbers": 0,
+    "claims_per_rationale": 8.270516717325227,
+    "fully_faithful_pct": 100.0,
+    "consistency_pct": 63.67781155015197,
+    "consistency_per_component": {
+      "cooler_condition": 96.04863221884499,
+      "valve_condition": 69.90881458966565,
+      "pump_leakage": 48.632218844984806,
+      "accumulator_pressure": 40.121580547112465
+    },
+    "total_claims": 2721,
+    "verified_claims": 2721,
+    "status_counts": {
+      "verified": 2721
+    }
+  },
+  "stable_subset": {
+    "0": {
+      "n": 290,
+      "mean_macro_f1": 0.9599892025050266
+    },
+    "1": {
+      "n": 39,
+      "mean_macro_f1": 0.9277947154471544
+    }
+  }
+}

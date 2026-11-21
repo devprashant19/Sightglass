@@ -1,0 +1,6720 @@
+[
+  {
+    "cycle_id": "hydraulic-00252",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00252: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00253",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00253: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00254",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00254: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00255",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00255: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00256",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00256: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00257",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00257: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00258",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00258: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00259",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00259: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00260",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00260: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00261",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00261: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00344",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00344: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00345",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00345: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00346",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00346: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00347",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00347: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00348",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00348: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00349",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00349: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00350",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00350: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00351",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00351: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00352",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00352: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00353",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00353: Accumulator predicted 'optimal' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00364",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00364: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00365",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00365: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00366",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00366: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00367",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00367: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00368",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00368: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00369",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00369: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00370",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00370: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00371",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00371: Accumulator predicted 'severely reduced' but the true label is 'slightly reduced'; the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00372",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00372: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00373",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00373: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00395",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00395: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00396",
+    "tags": [
+      "inconsistent",
+      "wrong_severity"
+    ],
+    "components": [
+      "valve_condition"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00396: Valve predicted 'optimal' but the true label is 'severe lag'; the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00397",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00397: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00398",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00398: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00399",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00399: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00400",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00400: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00401",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00401: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00402",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00402: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00403",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00403: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00404",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00404: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00436",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00436: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00437",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00437: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00438",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00438: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00439",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00439: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00440",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00440: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00441",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00441: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00442",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00442: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00443",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00443: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00444",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00444: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00445",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00445: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00518",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00518: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00519",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00519: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00520",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00520: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00521",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00521: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00522",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00522: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00523",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00523: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00524",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00524: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00525",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00525: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00526",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00526: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00527",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00527: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00569",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00569: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00570",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00570: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00571",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00571: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00572",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00572: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00573",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00573: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00574",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00574: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00575",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00575: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00576",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00576: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00577",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00577: the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00578",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 80,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00578: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00579",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00579: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00580",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00580: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00581",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00581: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00582",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00582: the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00583",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00583: the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00584",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00584: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00585",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00585: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00586",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00586: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00587",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00587: the cited evidence does not support the label for valve, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-00588",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00588: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00599",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00599: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00600",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00600: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00601",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00601: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00602",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00602: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00603",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00603: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00604",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00604: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00605",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00605: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00606",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00606: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00607",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00607: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00608",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00608: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00671",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00671: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00672",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00672: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00673",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00673: Pump leakage predicted 'severe leakage' but the true label is 'weak leakage'; the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00674",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00674: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00675",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00675: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00676",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00676: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00677",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00677: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00678",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00678: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00679",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00679: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00680",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00680: the cited evidence does not support the label for valve."
+  },
+  {
+    "cycle_id": "hydraulic-00681",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00681: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00691",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00691: the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00712",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00712: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00713",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00713: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00714",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00714: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00715",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00715: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00716",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00716: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00717",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00717: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00718",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00718: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00719",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00719: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00720",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00720: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00721",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 90,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-00721: the cited evidence does not support the label for valve, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00722",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00722: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00723",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00723: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00724",
+    "tags": [
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00724: Accumulator predicted 'optimal' but the true label is 'close to total failure'."
+  },
+  {
+    "cycle_id": "hydraulic-00725",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00725: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00726",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00726: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00727",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00727: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00728",
+    "tags": [
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00728: Accumulator predicted 'optimal' but the true label is 'close to total failure'."
+  },
+  {
+    "cycle_id": "hydraulic-00729",
+    "tags": [
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-00729: Accumulator predicted 'optimal' but the true label is 'close to total failure'."
+  },
+  {
+    "cycle_id": "hydraulic-00730",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00730: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00731",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 3,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-00731: Accumulator predicted 'severely reduced' but the true label is 'close to total failure'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-00932",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-00932: Accumulator predicted 'slightly reduced' but the true label is 'optimal'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01061",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01061: Accumulator predicted 'slightly reduced' but the true label is 'optimal'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01062",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01062: Accumulator predicted 'slightly reduced' but the true label is 'optimal'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01064",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01064: Accumulator predicted 'slightly reduced' but the true label is 'optimal'; the cited evidence does not support the label for accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01086",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01086: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01087",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01087: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01088",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01088: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01089",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01089: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01090",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01090: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01091",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01091: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01092",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01092: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01093",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01093: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01094",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01094: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01095",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01095: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01117",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01117: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01118",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01118: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01119",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01119: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01120",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01120: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01121",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01121: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01122",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01122: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01123",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01123: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01124",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01124: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01125",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01125: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01126",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01126: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01208",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-01208: Accumulator predicted 'close to total failure' but the true label is 'severely reduced'; the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01229",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01229: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01230",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01230: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01231",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01231: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01232",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01232: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01233",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01233: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01234",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01234: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01235",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01235: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01236",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01236: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01237",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01237: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01238",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01238: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01239",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01239: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01240",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01240: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01241",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01241: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01242",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01242: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01243",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01243: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01244",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01244: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01245",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01245: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01246",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01246: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01247",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01247: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01248",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 20,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01248: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01664",
+    "tags": [
+      "inconsistent",
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "cooler_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-01664: Accumulator predicted 'close to total failure' but the true label is 'optimal'; the cited evidence does not support the label for cooler, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01665",
+    "tags": [
+      "inconsistent",
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "cooler_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-01665: Accumulator predicted 'close to total failure' but the true label is 'optimal'; the cited evidence does not support the label for cooler, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01666",
+    "tags": [
+      "inconsistent",
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "cooler_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-01666: Accumulator predicted 'close to total failure' but the true label is 'optimal'; the cited evidence does not support the label for cooler, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01667",
+    "tags": [
+      "inconsistent",
+      "wrong_severity"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "cooler_condition",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-01667: Accumulator predicted 'close to total failure' but the true label is 'optimal'; the cited evidence does not support the label for cooler, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01669",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01669: the cited evidence does not support the label for cooler."
+  },
+  {
+    "cycle_id": "hydraulic-01671",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01671: the cited evidence does not support the label for cooler."
+  },
+  {
+    "cycle_id": "hydraulic-01675",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01675: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01676",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01676: the cited evidence does not support the label for cooler, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01677",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01677: the cited evidence does not support the label for cooler, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01678",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01678: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01679",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01679: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01680",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01680: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01681",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01681: the cited evidence does not support the label for cooler, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01682",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01682: the cited evidence does not support the label for cooler, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01683",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01683: the cited evidence does not support the label for cooler, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01684",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01684: the cited evidence does not support the label for cooler, pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01715",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01715: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01746",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01746: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01747",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01747: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01748",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01748: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01749",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01749: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01750",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01750: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01751",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01751: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01752",
+    "tags": [
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01752: Pump leakage predicted 'no leakage' but the true label is 'weak leakage'."
+  },
+  {
+    "cycle_id": "hydraulic-01753",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01753: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01754",
+    "tags": [
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "pump_leakage"
+    ],
+    "inconsistent_components": [],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 0,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01754: Pump leakage predicted 'no leakage' but the true label is 'weak leakage'."
+  },
+  {
+    "cycle_id": "hydraulic-01755",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 1,
+      "accumulator_pressure": 130
+    },
+    "summary": "hydraulic-01755: the cited evidence does not support the label for pump leakage."
+  },
+  {
+    "cycle_id": "hydraulic-01807",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01807: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01818",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01818: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01819",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01819: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01820",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01820: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01821",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01821: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01822",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01822: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01823",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01823: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01824",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01824: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01825",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01825: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01826",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01826: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01827",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 80,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01827: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01828",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01828: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01829",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01829: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01830",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01830: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01831",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01831: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01832",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01832: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01833",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01833: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01834",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01834: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01835",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01835: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01836",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01836: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01837",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01837: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01838",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01838: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01839",
+    "tags": [
+      "inconsistent",
+      "wrong_severity_adjacent"
+    ],
+    "components": [
+      "accumulator_pressure"
+    ],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01839: Accumulator predicted 'severely reduced' but the true label is 'slightly reduced'; the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01840",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01840: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01841",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01841: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01842",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "cooler_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01842: the cited evidence does not support the label for cooler, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01843",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01843: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01844",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01844: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01845",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01845: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01846",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01846: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01847",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 115
+    },
+    "summary": "hydraulic-01847: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01940",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01940: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01971",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01971: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01972",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01972: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01973",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01973: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01974",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01974: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01975",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01975: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01976",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01976: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01977",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01977: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01978",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01978: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01979",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01979: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-01980",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 100
+    },
+    "summary": "hydraulic-01980: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02073",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02073: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02074",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02074: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02075",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02075: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02076",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02076: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02077",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02077: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02078",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02078: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02079",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02079: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02080",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02080: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02081",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02081: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02082",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02082: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02083",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02083: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02094",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02094: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02095",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02095: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02096",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02096: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02097",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02097: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02098",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02098: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02099",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02099: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02100",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02100: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02101",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02101: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02102",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02102: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02103",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "valve_condition",
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 90,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02103: the cited evidence does not support the label for valve, pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02104",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02104: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02105",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02105: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02106",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02106: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02107",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02107: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02108",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02108: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02109",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02109: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02110",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02110: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02111",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02111: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02112",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02112: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02113",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 100,
+      "pump_leakage": 2,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02113: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02115",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02115: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02116",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02116: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02117",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02117: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02118",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02118: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02119",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02119: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02120",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02120: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02121",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02121: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02122",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02122: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02123",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02123: the cited evidence does not support the label for pump leakage, accumulator."
+  },
+  {
+    "cycle_id": "hydraulic-02124",
+    "tags": [
+      "inconsistent"
+    ],
+    "components": [],
+    "inconsistent_components": [
+      "pump_leakage",
+      "accumulator_pressure"
+    ],
+    "true_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "pred_labels": {
+      "cooler_condition": 100,
+      "valve_condition": 73,
+      "pump_leakage": 1,
+      "accumulator_pressure": 90
+    },
+    "summary": "hydraulic-02124: the cited evidence does not support the label for pump leakage, accumulator."
+  }
+]
