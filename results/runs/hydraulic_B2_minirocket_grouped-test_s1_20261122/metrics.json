@@ -1,0 +1,17 @@
+{
+  "macro_f1": {
+    "cooler_condition": 1.0,
+    "valve_condition": 1.0,
+    "pump_leakage": 0.9934473971605388,
+    "accumulator_pressure": 0.8663724686581153
+  },
+  "accuracy": {
+    "cooler_condition": 1.0,
+    "valve_condition": 1.0,
+    "pump_leakage": 0.993920972644377,
+    "accumulator_pressure": 0.8662613981762918
+  },
+  "mean_macro_f1": 0.9649549664546635,
+  "joint_exact_match": 0.8601823708206687,
+  "seconds": 14.2
+}
