@@ -1,0 +1,3 @@
+baseline: B3_cnn1d
+seed: 0
+split: grouped
