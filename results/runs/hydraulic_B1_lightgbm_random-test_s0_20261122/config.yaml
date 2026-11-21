@@ -1,0 +1,3 @@
+baseline: B1_lightgbm
+seed: 0
+split: random
