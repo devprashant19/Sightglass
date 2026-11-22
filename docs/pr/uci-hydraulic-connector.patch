@@ -1,0 +1,865 @@
+From 7063521b5fb01f12f9a57d73e3c7d50fc342b821 Mon Sep 17 00:00:00 2001
+From: Dev Prashant <dev.prashant1901@gmail.com>
+Date: Sun, 22 Nov 2026 04:16:54 +0530
+Subject: [PATCH] feat(connectors): add the UCI hydraulic systems condition
+ monitoring dataset
+
+Add uci/hydraulic, a connector for UCI dataset 447, "Condition monitoring
+of hydraulic systems" (ZeMA gGmbH, CC BY 4.0). The archive is pinned by
+SHA-256.
+
+Each of the 2,205 load cycles becomes one Record with 17 Signals grouped
+into seven sensor Sources. Every Signal keeps its native rate on its own
+regular axis (100 Hz, 10 Hz or 1 Hz) with no resampling. Each cycle gets
+one ClassificationTask per component (cooler, valve, internal pump
+leakage, hydraulic accumulator) with ordered, readable label sets, and
+carries the profile.txt grades and stable flag as annotations.
+
+The release has no official partition. StratifiedSplitter assigns
+80/10/10 folds with seed 42, grouped by the four-grade condition so near
+copies of a cycle never cross partitions, and stratified by the
+accumulator grade. Conversion fails if the train partition misses any
+grade of any component.
+---
+ .../datasets/uci/__init__.py                  |   4 +
+ .../datasets/uci/hydraulic/README.md          | 110 +++++
+ .../datasets/uci/hydraulic/__init__.py        |   6 +
+ .../datasets/uci/hydraulic/connector.py       | 389 ++++++++++++++++++
+ .../datasets/uci/hydraulic/dataset.yaml       |  40 ++
+ .../uci/hydraulic/tests/test_connector.py     | 240 +++++++++++
+ 6 files changed, 789 insertions(+)
+ create mode 100644 packages/timenet-connectors/src/timenet_connectors/datasets/uci/__init__.py
+ create mode 100644 packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/README.md
+ create mode 100644 packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/__init__.py
+ create mode 100644 packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/connector.py
+ create mode 100644 packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/dataset.yaml
+ create mode 100644 packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/tests/test_connector.py
+
+diff --git a/packages/timenet-connectors/src/timenet_connectors/datasets/uci/__init__.py b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/__init__.py
+new file mode 100644
+index 00000000..8e3291b8
+--- /dev/null
++++ b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/__init__.py
+@@ -0,0 +1,4 @@
++"""Connectors for datasets published by the UCI Machine Learning Repository."""
++
++# Keep this a regular package, not a namespace package. pkgutil.walk_packages finds the
++# connector packages below it only through this __init__.py.
+diff --git a/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/README.md b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/README.md
+new file mode 100644
+index 00000000..31808da5
+--- /dev/null
++++ b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/README.md
+@@ -0,0 +1,110 @@
++# Condition Monitoring of Hydraulic Systems
++
++[UCI dataset 447](https://archive.ics.uci.edu/dataset/447/condition+monitoring+of+hydraulic+systems)
++holds 2,205 load cycles of a hydraulic test rig that ZeMA gGmbH recorded. The rig has a primary
++working circuit and a secondary cooling-filtration circuit, connected through the oil tank. It
++repeats a constant load cycle of 60 seconds while the condition of four components (cooler, valve,
++pump, accumulator) is varied in grades.
++
++The connector downloads the archive from the UCI repository and checks its SHA-256. It keeps every
++value of the release. It converts each value to float32: every value in the release has at most
++five significant digits, so float32 keeps its decimal reading. Conversion holds all values in
++memory, about 385 MB.
++
++## Records and signals
++
++Each cycle becomes one Record. `record.metadata["cycle"]` is the row number of the release, which
++the release uses as the cycle number. The record has no absolute start time, because the release
++states none. All signals start at the record origin.
++
++Each sensor becomes one Signal on a regular axis at the rate the release states. Nothing is
++resampled.
++
++| Source | Signals | Rate | Values per cycle | Unit |
++| --- | --- | --- | --- | --- |
++| `Pressure` | `PS1` to `PS6` | 100 Hz | 6,000 | bar |
++| `Motor power` | `EPS1` | 100 Hz | 6,000 | W |
++| `Volume flow` | `FS1`, `FS2` | 10 Hz | 600 | l/min |
++| `Temperature` | `TS1` to `TS4` | 1 Hz | 60 | degree Celsius |
++| `Vibration` | `VS1` | 1 Hz | 60 | mm/s |
++| `Efficiency factor` | `SE` | 1 Hz | 60 | % |
++| `Virtual` | `CE` (cooling efficiency), `CP` (cooling power) | 1 Hz | 60 | %, kW |
++
++The release names `CE` and `CP` virtual sensors: they are computed from other process values.
++
++## Tasks
++
++Each cycle has four `ClassificationTask`s, one per component, in this order. Each label set is
++ordered from the healthy grade to the worst, and its `name` annotation is the component key. Each
++label's description states the grade that `profile.txt` writes.
++
++| Component key | Grade: label |
++| --- | --- |
++| `cooler_condition` (%) | 100: full efficiency, 20: reduced efficiency, 3: close to total failure |
++| `valve_condition` (%) | 100: optimal switching behavior, 90: small lag, 80: severe lag, 73: close to total failure |
++| `internal_pump_leakage` | 0: no leakage, 1: weak leakage, 2: severe leakage |
++| `hydraulic_accumulator` (bar) | 130: optimal pressure, 115: slightly reduced pressure, 100: severely reduced pressure, 90: close to total failure |
++
++The release spells the cooler label "reduced effifiency". The label corrects the spelling.
++
++Each record also carries the five values of `profile.txt` as annotations: the four grades under
++the component keys, and `stable_flag` (0: conditions were stable, 1: static conditions might not
++have been reached yet). These annotations hold the answers of the tasks. Do not pass them to a model
++as input. The tasks keep the 756 cycles with `stable_flag` 1; filter on the annotation to drop them.
++
++The connector adds no joint task over the four components. A joint label would have 144 classes.
++To use one, combine the four targets of a cycle.
++
++## Splits
++
++The release has no official partition. The connector generates train, validation, and test
++partitions with `StratifiedSplitter`: ten `StratifiedGroupKFold` folds (8 train, 1 validation,
++1 test), scikit-learn 1.9.1, seed 42. All four tasks of a cycle share its partition.
++
++- Grouped by the four-grade condition. The rig holds one condition for runs of consecutive cycles,
++  and neighboring cycles under one condition are near copies. A random split would put near copies
++  of a test cycle in train. Each of the 144 conditions stays in one partition, so a model is tested
++  on combinations of grades it has not seen.
++- Stratified by the accumulator grade. The release's documentation names the accumulator the
++  hardest of the four targets.
++- The conversion checks that the train partition holds every grade of every component, and
++  raises `TimeNetConnectorError` if it does not.
++
++The conditions hold between 10 and 230 cycles, so the achieved sizes differ from 80/10/10:
++
++| Partition | Cycles | Tasks | Conditions | Cycles with `stable_flag` 1 |
++| --- | --- | --- | --- | --- |
++| train | 1,877 | 7,508 | 114 | 728 |
++| validation | 164 | 656 | 15 | 14 |
++| test | 164 | 656 | 15 | 14 |
++
++Cycles per grade in each partition (train / validation / test):
++
++| Component | Grade | Train | Validation | Test |
++| --- | --- | --- | --- | --- |
++| cooler | 100 | 647 | 42 | 52 |
++| cooler | 20 | 650 | 62 | 20 |
++| cooler | 3 | 580 | 60 | 92 |
++| valve | 100 | 1,017 | 54 | 54 |
++| valve | 90 | 290 | 40 | 30 |
++| valve | 80 | 270 | 40 | 50 |
++| valve | 73 | 300 | 30 | 30 |
++| pump | 0 | 1,099 | 61 | 61 |
++| pump | 1 | 431 | 30 | 31 |
++| pump | 2 | 347 | 73 | 72 |
++| accumulator | 130 | 517 | 41 | 41 |
++| accumulator | 115 | 317 | 41 | 41 |
++| accumulator | 100 | 317 | 41 | 41 |
++| accumulator | 90 | 726 | 41 | 41 |
++
++These partitions are generated by TimeNet, not published by the authors of the data set.
++
++## Limitations
++
++- The validation and test partitions are small (164 cycles each), because whole conditions move
++  between partitions and the large conditions fell into train.
++- Almost all cycles with `stable_flag` 1 (728 of 756) are in train.
++- `CE` is computed from other sensors and follows the cooler grade closely. A model can read the
++  cooler grade from it. Drop the `Virtual` source to measure a model without it.
++- The grades describe degradation, so the release notes that they are steps of continuous values
++  rather than distinct categories.
+diff --git a/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/__init__.py b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/__init__.py
+new file mode 100644
+index 00000000..94f3a676
+--- /dev/null
++++ b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/__init__.py
+@@ -0,0 +1,6 @@
++"""Condition monitoring of hydraulic systems: load cycles of a test rig and four component conditions."""
++
++from timenet_connectors.datasets.uci.hydraulic.connector import (
++    CONNECTOR as CONNECTOR,
++    HydraulicConnector as HydraulicConnector,
++)
+diff --git a/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/connector.py b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/connector.py
+new file mode 100644
+index 00000000..df57e8bc
+--- /dev/null
++++ b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/connector.py
+@@ -0,0 +1,389 @@
++"""The UCI hydraulic connector: load cycles of a hydraulic test rig with four component conditions.
++
++The UCI Machine Learning Repository publishes the data set as dataset 447, "Condition monitoring of
++hydraulic systems". ZeMA gGmbH recorded it on a test rig with a primary working circuit and a
++secondary cooling-filtration circuit. The rig repeats a constant load cycle of 60 seconds, while
++the condition of four components (cooler, valve, pump, accumulator) is varied.
++
++The archive holds one tab-separated table for each of 17 sensors and ``profile.txt``. In every
++file, row ``n`` is cycle ``n``. A sensor row holds the values of one cycle at the rate of that
++sensor: 6,000 values at 100 Hz, 600 at 10 Hz, or 60 at 1 Hz. ``profile.txt`` holds five integer
++columns per cycle: the four component grades and a flag that says whether the rig had reached
++static conditions.
++
++One cycle becomes one Record. Each sensor becomes one Signal on its own regular axis, at the rate
++the release states, with no resampling. Each component becomes one ClassificationTask per cycle.
++"""
++
++from collections.abc import Hashable, Mapping, Sequence
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pyarrow as pa
++from pyarrow import csv
++
++from timenet.connectors import BaseConnector
++from timenet.dataset import Record, RegularAxis, Signal, Source, TimeFDataset
++from timenet.errors import TimeNetConnectorError
++from timenet.types import Annotation, ClassificationTask, Label, LabelSet, Split, TimeSeriesSpec, ureg
++from timenet_connectors.download import ensure_archive
++from timenet_connectors.splitting import Splitter, StratifiedSplitter
++
++
++HYDRAULIC_URL = "https://archive.ics.uci.edu/static/public/447/condition+monitoring+of+hydraulic+systems.zip"
++HYDRAULIC_SHA256 = "24128aad2ee45eea7e6b63ebbd9992cdf25d0483a2cebefbfc13bc69079af1f2"
++PROFILE_FILE = "profile.txt"
++CYCLE_SECONDS = 60
++"""Every load cycle lasts 60 seconds, so a sensor row holds 60 seconds of values at its rate."""
++
++_AXES = {rate: RegularAxis.from_rate_hz(rate) for rate in (1, 10, 100)}
++
++
++@dataclass(frozen=True)
++class Sensor:
++    """One sensor of the rig: its table in the archive and what its values measure."""
++
++    name: str
++    """The name the release gives the sensor. Its table is ``<name>.txt``."""
++    spec: TimeSeriesSpec
++    rate_hz: int
++
++    @property
++    def time_axis(self) -> RegularAxis:
++        """The regular axis of the sensor, at the rate the release states."""
++        return _AXES[self.rate_hz]
++
++    @property
++    def values_per_cycle(self) -> int:
++        """The number of values in one row of the table."""
++        return self.rate_hz * CYCLE_SECONDS
++
++    @property
++    def file_name(self) -> str:
++        """The name of the table of the sensor in the archive."""
++        return f"{self.name}.txt"
++
++
++# The physical quantities and units of the attribute table in the release's description.txt.
++_PRESSURE = TimeSeriesSpec(spec_type="pressure", name="Pressure", unit_value=ureg.bar)
++_MOTOR_POWER = TimeSeriesSpec(spec_type="motor_power", name="Motor power", unit_value=ureg.watt)
++_VOLUME_FLOW = TimeSeriesSpec(spec_type="volume_flow", name="Volume flow", unit_value=ureg.liter / ureg.minute)
++_TEMPERATURE = TimeSeriesSpec(spec_type="temperature", name="Temperature", unit_value=ureg.degC)
++_VIBRATION = TimeSeriesSpec(spec_type="vibration", name="Vibration", unit_value=ureg.millimeter / ureg.second)
++_COOLING_EFFICIENCY = TimeSeriesSpec(
++    spec_type="cooling_efficiency", name="Cooling efficiency (virtual)", unit_value=ureg.percent
++)
++_COOLING_POWER = TimeSeriesSpec(spec_type="cooling_power", name="Cooling power (virtual)", unit_value=ureg.kilowatt)
++_EFFICIENCY_FACTOR = TimeSeriesSpec(spec_type="efficiency_factor", name="Efficiency factor", unit_value=ureg.percent)
++
++SOURCES: Mapping[str, tuple[Sensor, ...]] = {
++    "Pressure": tuple(Sensor(f"PS{number}", _PRESSURE, 100) for number in range(1, 7)),
++    "Motor power": (Sensor("EPS1", _MOTOR_POWER, 100),),
++    "Volume flow": (Sensor("FS1", _VOLUME_FLOW, 10), Sensor("FS2", _VOLUME_FLOW, 10)),
++    "Temperature": tuple(Sensor(f"TS{number}", _TEMPERATURE, 1) for number in range(1, 5)),
++    "Vibration": (Sensor("VS1", _VIBRATION, 1),),
++    "Efficiency factor": (Sensor("SE", _EFFICIENCY_FACTOR, 1),),
++    # The release marks these two as virtual: they are computed from other process values.
++    "Virtual": (Sensor("CE", _COOLING_EFFICIENCY, 1), Sensor("CP", _COOLING_POWER, 1)),
++}
++"""The Sources of a Record, by sensor group, and the Sensors of each."""
++SENSORS: tuple[Sensor, ...] = tuple(sensor for sensors in SOURCES.values() for sensor in sensors)
++
++
++@dataclass(frozen=True)
++class Component:
++    """One component whose condition ``profile.txt`` states, and the task that asks for it."""
++
++    key: str
++    """The annotation key of the grade, and the name of the label set."""
++    description: str
++    column: int
++    """The zero-based column of ``profile.txt``."""
++    unit: str | None
++    """The unit of the grade, as a unit name of the shared registry."""
++    grades: Mapping[int, str]
++    """The label of each grade the release writes, from the healthy grade to the worst."""
++    label_set: LabelSet
++
++    def annotation(self, grade: int) -> Annotation:
++        """The record annotation that holds the grade the release writes."""
++        return Annotation(self.key, value=grade, unit=self.unit, description=self.description)
++
++    def task(self, record: Record, grade: int, *, split: Split) -> ClassificationTask:
++        """The task that asks for the condition of the component in one cycle."""
++        return ClassificationTask(inputs=(record,), targets=self.grades[grade], label_set=self.label_set, split=split)
++
++
++def _component(  # ruff: ignore[too-many-arguments] -- keep the facts of a component explicit.
++    key: str, description: str, *, column: int, unit: str | None, symbol: str, grades: Mapping[int, str]
++) -> Component:
++    """Describe one component, with labels ordered from the healthy grade to the worst.
++
++    Returns:
++        The component and its ordered label set. Each label describes the grade it stands for.
++    """
++    labels = [Label(name=label, description=f"{description} {grade}{symbol}.") for grade, label in grades.items()]
++    label_set = LabelSet(labels, ordered=True, annotations=[Annotation("name", value=key)])
++    return Component(key, description, column, unit, grades, label_set)
++
++
++# The grades and their meanings, as the release's documentation.txt lists them. The release spells
++# the cooler's grade 20 "reduced effifiency"; the label corrects the spelling.
++COOLER = _component(
++    "cooler_condition",
++    "Cooler condition",
++    column=0,
++    unit="percent",
++    symbol=" %",
++    grades={100: "full efficiency", 20: "reduced efficiency", 3: "close to total failure"},
++)
++VALVE = _component(
++    "valve_condition",
++    "Valve condition",
++    column=1,
++    unit="percent",
++    symbol=" %",
++    grades={100: "optimal switching behavior", 90: "small lag", 80: "severe lag", 73: "close to total failure"},
++)
++PUMP = _component(
++    "internal_pump_leakage",
++    "Internal pump leakage",
++    column=2,
++    unit=None,
++    symbol="",
++    grades={0: "no leakage", 1: "weak leakage", 2: "severe leakage"},
++)
++ACCUMULATOR = _component(
++    "hydraulic_accumulator",
++    "Hydraulic accumulator pressure",
++    column=3,
++    unit="bar",
++    symbol=" bar",
++    grades={
++        130: "optimal pressure",
++        115: "slightly reduced pressure",
++        100: "severely reduced pressure",
++        90: "close to total failure",
++    },
++)
++COMPONENTS = (COOLER, VALVE, PUMP, ACCUMULATOR)
++
++STABLE_FLAG_COLUMN = 4
++STABLE_FLAGS = {0: "conditions were stable", 1: "static conditions might not have been reached yet"}
++_STABLE_FLAG_DESCRIPTION = "Stable flag. " + "; ".join(f"{flag}: {meaning}" for flag, meaning in STABLE_FLAGS.items())
++
++
++@dataclass(frozen=True)
++class HydraulicCycle:
++    """One load cycle: its row number and the five values ``profile.txt`` states for it."""
++
++    number: int
++    """The one-based row number, which the release uses as the cycle number."""
++    grades: tuple[int, int, int, int]
++    """The cooler, valve, pump, and accumulator grades, in the column order of ``profile.txt``."""
++    stable_flag: int
++
++    @property
++    def row(self) -> int:
++        """The zero-based row of the cycle in every table."""
++        return self.number - 1
++
++    def grade(self, component: Component) -> int:
++        """The grade of one component in this cycle."""
++        return self.grades[component.column]
++
++
++def get_condition(cycle: HydraulicCycle) -> Hashable:
++    """Group the cycles that share all four grades.
++
++    The rig holds one condition for runs of consecutive cycles, and neighboring cycles under one
++    condition are close to copies of each other. All cycles of a condition stay in one partition.
++
++    Returns:
++        The cooler, valve, pump, and accumulator grades of the cycle.
++    """
++    return cycle.grades
++
++
++def get_accumulator_grade(cycle: HydraulicCycle) -> Hashable:
++    """Balance the accumulator grades, the hardest of the four targets, across partitions."""
++    return cycle.grade(ACCUMULATOR)
++
++
++def _read_table(path: Path, *, columns: int, value_type: pa.DataType) -> np.ndarray:
++    """Read a headerless tab-separated table with a fixed number of columns.
++
++    Returns:
++        The values, one array row per table row.
++
++    Raises:
++        TimeNetConnectorError: If the file is missing, a row does not hold ``columns`` values, or a
++            cell is empty or not a number.
++    """
++    if not path.is_file():
++        raise TimeNetConnectorError(f"the release holds no {path.name}")
++    names = [f"c{column}" for column in range(columns)]
++    try:
++        table = csv.read_csv(
++            path,
++            read_options=csv.ReadOptions(column_names=names),
++            parse_options=csv.ParseOptions(delimiter="\t"),
++            convert_options=csv.ConvertOptions(column_types=dict.fromkeys(names, value_type), null_values=[""]),
++        )
++    except pa.ArrowInvalid as exc:
++        raise TimeNetConnectorError(f"{path.name} is not a table of {columns} numbers per row: {exc}") from exc
++    if any(column.null_count for column in table.columns):
++        raise TimeNetConnectorError(f"{path.name} has an empty cell")
++    return np.column_stack([column.to_numpy() for column in table.columns])
++
++
++@dataclass(frozen=True)
++class HydraulicSource:
++    """The directory that holds the extracted tables of the release."""
++
++    root: Path
++
++    def read_cycles(self) -> list[HydraulicCycle]:
++        """Read ``profile.txt``, one cycle per row.
++
++        Returns:
++            The cycles, in row order.
++
++        Raises:
++            TimeNetConnectorError: If the file is missing or malformed, or states a value the
++                release does not document.
++        """
++        table = _read_table(self.root / PROFILE_FILE, columns=5, value_type=pa.int32())
++        cycles = []
++        for number, values in enumerate(table.tolist(), start=1):
++            for component in COMPONENTS:
++                if values[component.column] not in component.grades:
++                    raise TimeNetConnectorError(
++                        f"{PROFILE_FILE} row {number}: {component.key} {values[component.column]} is not one of "
++                        f"{sorted(component.grades)}"
++                    )
++            if values[STABLE_FLAG_COLUMN] not in STABLE_FLAGS:
++                raise TimeNetConnectorError(
++                    f"{PROFILE_FILE} row {number}: stable flag {values[STABLE_FLAG_COLUMN]} is not one of "
++                    f"{sorted(STABLE_FLAGS)}"
++                )
++            cooler, valve, pump, accumulator, stable_flag = values
++            cycles.append(HydraulicCycle(number, (cooler, valve, pump, accumulator), stable_flag))
++        return cycles
++
++    def read_sensor(self, sensor: Sensor, *, cycles: int) -> np.ndarray:
++        """Read the table of one sensor as float32 values, one row per cycle.
++
++        Every value in the release has at most five significant digits, so float32 holds each one
++        without changing its decimal reading.
++
++        Returns:
++            The ``(cycles, values_per_cycle)`` array of the sensor.
++
++        Raises:
++            TimeNetConnectorError: If the file is missing or malformed, its row count differs from
++                the cycle count of ``profile.txt``, or it holds a value that is not finite.
++        """
++        values = _read_table(self.root / sensor.file_name, columns=sensor.values_per_cycle, value_type=pa.float32())
++        if values.shape[0] != cycles:
++            raise TimeNetConnectorError(
++                f"{sensor.file_name} holds {values.shape[0]} rows, but {PROFILE_FILE} holds {cycles} cycles"
++            )
++        if not np.isfinite(values).all():
++            raise TimeNetConnectorError(f"{sensor.file_name} holds a value that is not finite")
++        return values
++
++
++def _check_train_coverage(train: Sequence[HydraulicCycle]) -> None:
++    """Make sure the training partition holds every grade of every component.
++
++    Raises:
++        TimeNetConnectorError: If a grade has no training cycle.
++    """
++    for component in COMPONENTS:
++        missing = set(component.grades) - {cycle.grade(component) for cycle in train}
++        if missing:
++            raise TimeNetConnectorError(f"the train split holds no cycle with {component.key} {sorted(missing)}")
++
++
++def _make_record(cycle: HydraulicCycle, tables: Mapping[str, np.ndarray]) -> Record:
++    """Create the Record of one cycle, with one Source per sensor group.
++
++    Returns:
++        The Record, not yet added to a dataset.
++    """
++    sources = [
++        Source(
++            group,
++            signals=[
++                Signal.from_values(
++                    tables[sensor.name][cycle.row], spec=sensor.spec, name=sensor.name, time_axis=sensor.time_axis
++                )
++                for sensor in sensors
++            ],
++        )
++        for group, sensors in SOURCES.items()
++    ]
++    annotations = [component.annotation(cycle.grade(component)) for component in COMPONENTS]
++    annotations.append(Annotation("stable_flag", value=cycle.stable_flag, description=_STABLE_FLAG_DESCRIPTION))
++    return Record(sources=sources, annotations=annotations, metadata={"cycle": cycle.number})
++
++
++class HydraulicConnector(BaseConnector[HydraulicSource]):
++    """Connector for UCI dataset 447, "Condition monitoring of hydraulic systems"."""
++
++    def __init__(self) -> None:
++        super().__init__()
++        self.splitter: Splitter[HydraulicCycle] = StratifiedSplitter(
++            train_folds=8,
++            validation_folds=1,
++            test_folds=1,
++            stratify_by=get_accumulator_grade,
++            # Consecutive cycles under one condition are near copies, so a random split would put
++            # near copies of a test cycle in train. Each condition stays in one partition.
++            group_by=get_condition,
++            seed=42,
++        )
++
++    async def download_async(self, cache_dir: Path) -> HydraulicSource:  # ruff: ignore[no-self-use]
++        """Download and extract the release archive once.
++
++        Args:
++            cache_dir: The directory that holds the extracted tables.
++
++        Returns:
++            A handle to the extracted tables.
++        """
++        root = await ensure_archive(HYDRAULIC_URL, cache_dir, filename="hydraulic.zip", sha256=HYDRAULIC_SHA256)
++        return HydraulicSource(root=root)
++
++    def convert(self, source: HydraulicSource) -> TimeFDataset:
++        """Create one Record per cycle and one ClassificationTask per cycle and component.
++
++        Args:
++            source: The extracted tables from :meth:`download_async`.
++
++        Returns:
++            The populated dataset.
++
++        Raises:
++            TimeNetConnectorError: If ``profile.txt`` holds no cycle.
++        """
++        cycles = source.read_cycles()
++        if not cycles:
++            raise TimeNetConnectorError(f"{PROFILE_FILE} holds no cycle")
++        tables = {sensor.name: source.read_sensor(sensor, cycles=len(cycles)) for sensor in SENSORS}
++        splits = self.splitter.split(cycles)
++        _check_train_coverage(splits[Split.TRAIN])
++        split_of = {cycle.number: split for split, members in splits.items() for cycle in members}
++        dataset = TimeFDataset(metadata=self.metadata())
++        for cycle in cycles:
++            record = dataset.add_record(_make_record(cycle, tables))
++            dataset.add_tasks(
++                component.task(record, cycle.grade(component), split=split_of[cycle.number]) for component in COMPONENTS
++            )
++        return dataset
++
++
++CONNECTOR = HydraulicConnector
+diff --git a/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/dataset.yaml b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/dataset.yaml
+new file mode 100644
+index 00000000..8d8f0320
+--- /dev/null
++++ b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/dataset.yaml
+@@ -0,0 +1,40 @@
++# yaml-language-server: $schema=https://docs.timenet.ai/schemas/dataset-card-v1.schema.json
++# Dataset Card for the uci/hydraulic connector: the single source for this dataset's metadata.
++# The connector loads it via DatasetMetadata.from_yaml(); the builder compiles it plus the schema
++# derived from the data into manifest.json.
++#
++# Signals are archival raw: every sensor keeps the rate and the unit that the release states, with
++# no resampling. The release has no official partition. The connector generates one; see
++# README.md for the split counts and the class coverage of each partition.
++yaml_schema_version: 1
++dataset_id: uci/hydraulic
++dataset_version: 1.0.0
++name: Condition Monitoring of Hydraulic Systems
++description: >-
++  2,205 load cycles of 60 s from a hydraulic test rig, each with 17 sensor signals at their
++  native rates: six pressures and the motor power at 100 Hz, two volume flows at 10 Hz, and four
++  temperatures, a vibration, the efficiency factor and two virtual cooling values at 1 Hz. Each
++  cycle has one classification task for each of four components: cooler (3 grades), valve (4),
++  internal pump leakage (3) and hydraulic accumulator (4). A stable flag marks the cycles where
++  static conditions might not have been reached yet. Generated 80/10/10
++  train/validation/test partitions use ten StratifiedGroupKFold folds with scikit-learn 1.9.1
++  and seed 42, grouped by the four-grade condition and stratified by the accumulator grade. These
++  are TimeNet-generated partitions, not official source splits; achieved sizes are 1,877 / 164 /
++  164 cycles because conditions stay whole.
++license: CC-BY-4.0
++license_url: https://creativecommons.org/licenses/by/4.0/legalcode
++source_url: https://archive.ics.uci.edu/dataset/447/condition+monitoring+of+hydraulic+systems
++citation: >-
++  Helwig, N., Pignanelli, E., Schuetze, A. (2015). Condition Monitoring of a Complex Hydraulic
++  System Using Multivariate Statistics. In Proc. I2MTC-2015, IEEE International Instrumentation
++  and Measurement Technology Conference, Pisa, Italy. https://doi.org/10.1109/I2MTC.2015.7151267
++domains:
++  - industrial
++tags:
++  - condition-monitoring
++  - fault-diagnosis
++  - hydraulics
++  - multivariate
++  - multi-rate
++  - classification
++  - uci
+diff --git a/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/tests/test_connector.py b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/tests/test_connector.py
+new file mode 100644
+index 00000000..09793d8d
+--- /dev/null
++++ b/packages/timenet-connectors/src/timenet_connectors/datasets/uci/hydraulic/tests/test_connector.py
+@@ -0,0 +1,240 @@
++from collections import Counter
++from collections.abc import Sequence
++import itertools
++from pathlib import Path
++
++import numpy as np
++import pytest
++
++from timenet.dataset import RegularAxis, TimeFDataset
++from timenet.errors import TimeFValidationError, TimeNetConnectorError
++from timenet.reader import TimeFReader
++from timenet.registry import open_local_version
++from timenet.testing import assert_datasets_equal
++from timenet.types import ClassificationTask, Split, read_value
++from timenet_connectors.datasets.uci.hydraulic.connector import (
++    ACCUMULATOR,
++    COMPONENTS,
++    COOLER,
++    PROFILE_FILE,
++    SENSORS,
++    SOURCES,
++    HydraulicConnector,
++    HydraulicCycle,
++    HydraulicSource,
++)
++from timenet_connectors.splitting import DatasetSplits, Splitter
++
++
++# Synthetic tables in the shape of the release, written by the tests, so the repo ships no dataset
++# bytes. The first value of each row is the cycle number, so a row that lands on the wrong record
++# fails. The other values end in 0.1, which has no exact binary form, so a float64 cast shows.
++_TAIL = {
++    sensor.name: "\t".join(f"{index % 97 + offset}.1" for index in range(1, sensor.values_per_cycle))
++    for offset, sensor in enumerate(SENSORS)
++}
++_CONDITIONS = list(itertools.product(*(component.grades for component in COMPONENTS)))
++# Every condition once, and the first three a second time, so a condition can hold several cycles.
++_PROFILE = [(*condition, number % 2) for number, condition in enumerate(_CONDITIONS + _CONDITIONS[:3])]
++
++
++def _write_release(directory: Path, profile: Sequence[Sequence[int]], **overrides: str) -> HydraulicSource:
++    directory.mkdir(parents=True, exist_ok=True)
++    (directory / PROFILE_FILE).write_text("".join("\t".join(map(str, row)) + "\n" for row in profile))
++    for sensor in SENSORS:
++        text = "".join(f"{number}\t{_TAIL[sensor.name]}\n" for number in range(1, len(profile) + 1))
++        (directory / sensor.file_name).write_text(overrides.get(sensor.name, text))
++    return HydraulicSource(root=directory)
++
++
++@pytest.fixture(scope="module")
++def source(tmp_path_factory) -> HydraulicSource:
++    return _write_release(tmp_path_factory.mktemp("release"), _PROFILE)
++
++
++@pytest.fixture(scope="module")
++def dataset(source) -> TimeFDataset:
++    return HydraulicConnector().convert(source)
++
++
++def test_metadata():
++    metadata = HydraulicConnector().metadata()
++    assert metadata.dataset_id == "uci/hydraulic"
++    assert str(metadata.license) == "CC-BY-4.0"
++    assert str(metadata.dataset_version) == "1.0.0"
++
++
++def test_each_cycle_becomes_a_record_of_native_rate_signals(dataset):
++    records = dataset.records
++    assert len(records) == len(_PROFILE)
++    for number, record in enumerate(records, start=1):
++        assert record.metadata == {"cycle": number}
++        assert sorted(source.name for source in record.sources) == sorted(SOURCES)
++        for source in record.sources:
++            assert [signal.name for signal in source.signals] == [sensor.name for sensor in SOURCES[source.name]]
++        signals = {signal.name: signal for signal in record.signals}
++        assert len(signals) == len(SENSORS)
++        for sensor in SENSORS:
++            signal = signals[sensor.name]
++            assert signal.spec == sensor.spec
++            assert signal.time_axis == RegularAxis.from_rate_hz(sensor.rate_hz)
++            assert signal.n_values == sensor.rate_hz * 60
++            expected = np.array([number, *_TAIL[sensor.name].split("\t")], dtype=np.float32)
++            np.testing.assert_array_equal(signal.to_numpy(), expected)
++
++
++def test_signals_keep_the_rates_and_units_of_the_release(dataset):
++    signals = {signal.name: signal for signal in dataset.records[0].signals}
++    rates = {name: len(signal.to_numpy()) // 60 for name, signal in signals.items()}
++    assert rates == {
++        **dict.fromkeys(["PS1", "PS2", "PS3", "PS4", "PS5", "PS6", "EPS1"], 100),
++        **dict.fromkeys(["FS1", "FS2"], 10),
++        **dict.fromkeys(["TS1", "TS2", "TS3", "TS4", "VS1", "CE", "CP", "SE"], 1),
++    }
++    units = {name: str(signal.spec.unit_value) for name, signal in signals.items()}
++    assert units["PS1"] == "bar"
++    assert units["EPS1"] == "watt"
++    assert units["FS1"] == "liter / minute"
++    assert units["TS1"] == "degree_Celsius"
++    assert units["VS1"] == "millimeter / second"
++    assert units["CE"] == units["SE"] == "percent"
++    assert units["CP"] == "kilowatt"
++
++
++def test_each_cycle_has_one_classification_task_per_component(dataset):
++    for record, row in zip(dataset.records, _PROFILE, strict=True):
++        tasks = dataset.tasks_for(record)
++        assert [type(task) for task in tasks] == [ClassificationTask] * len(COMPONENTS)
++        assert len({task.split for task in tasks}) == 1
++        for task, component in zip(tasks, COMPONENTS, strict=True):
++            assert task.label_set == component.label_set
++            assert task.targets is not None
++            assert read_value(task.targets[0]) == component.grades[row[component.column]]
++            assert task.prompt is None
++
++
++def test_label_sets_are_ordered_from_healthy_to_worst():
++    assert COOLER.label_set.names == ("full efficiency", "reduced efficiency", "close to total failure")
++    assert COOLER.label_set.ordered
++    assert [label.description for label in ACCUMULATOR.label_set.labels] == [
++        "Hydraulic accumulator pressure 130 bar.",
++        "Hydraulic accumulator pressure 115 bar.",
++        "Hydraulic accumulator pressure 100 bar.",
++        "Hydraulic accumulator pressure 90 bar.",
++    ]
++
++
++def test_record_annotations_hold_the_profile_values(dataset):
++    for record, row in zip(dataset.records, _PROFILE, strict=True):
++        values = {annotation.key: read_value(annotation.value) for annotation in record.annotations}
++        expected = {component.key: row[component.column] for component in COMPONENTS}
++        assert values == {**expected, "stable_flag": row[4]}
++
++
++def test_split_keeps_each_condition_whole_and_trains_on_every_grade(dataset):
++    split_of_condition: dict[tuple[int, ...], set[Split]] = {}
++    for record, row in zip(dataset.records, _PROFILE, strict=True):
++        (task, *_) = dataset.tasks_for(record)
++        assert task.split is not None
++        split_of_condition.setdefault(tuple(row[:4]), set()).add(task.split)
++    assert all(len(splits) == 1 for splits in split_of_condition.values())
++    assert {split for splits in split_of_condition.values() for split in splits} == set(Split)
++    train = [
++        row for record, row in zip(dataset.records, _PROFILE, strict=True) if _split(dataset, record) == Split.TRAIN
++    ]
++    for component in COMPONENTS:
++        assert {row[component.column] for row in train} == set(component.grades)
++
++
++def test_split_is_reproducible(source):
++    cycles = source.read_cycles()
++    first = HydraulicConnector().splitter.split(cycles)
++    second = HydraulicConnector().splitter.split(cycles)
++    assert {split: [cycle.number for cycle in first[split]] for split in first} == {
++        split: [cycle.number for cycle in second[split]] for split in second
++    }
++    assert sum(first.counts.values()) == len(_PROFILE)
++
++
++def _split(dataset: TimeFDataset, record) -> Split | None:
++    return dataset.tasks_for(record)[0].split
++
++
++_ROWS_OF_THREE = _PROFILE[:3]
++_GOOD_PS1 = "".join(f"{number}\t{_TAIL['PS1']}\n" for number in range(1, 4))
++
++
++@pytest.mark.parametrize(
++    ("profile", "overrides", "message"),
++    [
++        ([(100, 100, 0, 130, 0), (50, 100, 0, 130, 0)], {}, r"profile\.txt row 2: cooler_condition 50 is not one of"),
++        ([(100, 100, 0, 130, 2)], {}, r"profile\.txt row 1: stable flag 2 is not one of"),
++        (_ROWS_OF_THREE, {"PS1": _GOOD_PS1.rsplit("\t", 1)[0] + "\n"}, r"PS1\.txt is not a table of 6000 numbers"),
++        (_ROWS_OF_THREE, {"TS1": "".join(f"x\t{_TAIL['TS1']}\n" for _ in range(3))}, r"TS1\.txt is not a table"),
++        (_ROWS_OF_THREE, {"FS1": "".join(f"\t{_TAIL['FS1']}\n" for _ in range(3))}, r"FS1\.txt has an empty cell"),
++        (
++            _ROWS_OF_THREE,
++            {"VS1": "".join(f"nan\t{_TAIL['VS1']}\n" for _ in range(3))},
++            r"VS1\.txt holds a value that is not finite",
++        ),
++        (
++            _ROWS_OF_THREE,
++            {"PS1": _GOOD_PS1.split("\n", 1)[1]},
++            r"PS1\.txt holds 2 rows, but profile\.txt holds 3 cycles",
++        ),
++    ],
++    ids=[
++        "an unknown grade",
++        "an unknown stable flag",
++        "one value too few",
++        "a value that is not a number",
++        "an empty cell",
++        "a value that is not finite",
++        "a missing cycle",
++    ],
++)
++def test_a_malformed_release_raises(tmp_path, profile, overrides, message):
++    source = _write_release(tmp_path, profile, **overrides)
++    with pytest.raises(TimeNetConnectorError, match=message):
++        HydraulicConnector().convert(source)
++
++
++def test_a_missing_table_raises(tmp_path):
++    source = _write_release(tmp_path, _ROWS_OF_THREE)
++    (tmp_path / "CP.txt").unlink()
++    with pytest.raises(TimeNetConnectorError, match=r"the release holds no CP\.txt"):
++        HydraulicConnector().convert(source)
++
++
++def test_conversion_rejects_too_few_conditions(tmp_path):
++    source = _write_release(tmp_path, _ROWS_OF_THREE)
++    with pytest.raises(TimeFValidationError, match=r"10 folds require at least 10 groups; found 3"):
++        HydraulicConnector().convert(source)
++
++
++class _EverythingInTest(Splitter[HydraulicCycle]):
++    def split(self, samples: Sequence[HydraulicCycle]) -> DatasetSplits[HydraulicCycle]:
++        return DatasetSplits({Split.TRAIN: [], Split.TEST: samples})
++
++
++def test_conversion_rejects_a_train_split_without_every_grade(source):
++    connector = HydraulicConnector()
++    connector.splitter = _EverythingInTest()
++    with pytest.raises(TimeNetConnectorError, match=r"the train split holds no cycle with cooler_condition"):
++        connector.convert(source)
++
++
++def test_stratification_balances_the_accumulator_grades(dataset):
++    counts = Counter(
++        (_split(dataset, record), row[ACCUMULATOR.column])
++        for record, row in zip(dataset.records, _PROFILE, strict=True)
++    )
++    for split in Split:
++        assert {grade for (part, grade) in counts if part == split} == set(ACCUMULATOR.grades)
++
++
++def test_the_dataset_round_trips_through_storage(tmp_path, dataset):
++    version_dir = dataset.write(path=tmp_path / "registry")
++    with TimeFReader(open_local_version(version_dir)) as reader:
++        reader.verify()
++        assert_datasets_equal(dataset, reader.read())
+-- 
+2.49.0.windows.1
+
