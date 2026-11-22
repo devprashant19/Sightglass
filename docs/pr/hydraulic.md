@@ -199,7 +199,7 @@ archive.
 **About the commit hook.** The commit was made with `SKIP=ty-check` (not `--no-verify`; every other
 hook ran and passed). On this Windows machine `ty check` fails on the 5 pre-existing errors listed above,
 in a test file this PR does not touch; `ty check --python-platform linux .` passes on the whole tree, and
-the new files are `ty`-clean in `make test-connectors`. CI on Linux runs the hook as usual.
+the new files are `ty`-clean in TimeNet's `test-connectors` target. CI on Linux runs the hook as usual.
 
 ## Used by
 
