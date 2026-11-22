@@ -8,6 +8,14 @@ feat(connectors): add the UCI hydraulic systems condition monitoring dataset
 
 ## Body
 
+## Summary
+
+- Adds `uci/hydraulic`: UCI #447, 2,205 sixty-second cycles of a hydraulic test rig (CC BY 4.0), download pinned by SHA-256.
+- One Record per cycle, 17 Signals on their native regular axes (100 Hz, 10 Hz, 1 Hz), no resampling.
+- Four ordered `ClassificationTask`s per cycle (cooler, valve, pump, accumulator): 8,820 tasks.
+- Split grouped by operating condition (144 conditions kept whole) and stratified by the accumulator grade, so test cycles come from conditions never seen in training.
+- 20 offline tests; built from the real download and read back through the SDK. No new dependencies.
+
 ## What this adds
 
 A connector for `uci/hydraulic`, UCI dataset 447,
@@ -184,6 +192,10 @@ cycles per split {'train': 1877, 'test': 164, 'validation': 164}
 
 The first values match the first row of `PS1.txt`, `EPS1.txt`, `FS1.txt` and `TS1.txt` in the
 archive.
+
+## Used by
+
+[Sightglass](https://github.com/devprashant19/Sightglass) uses this dataset to diagnose the four components and to check every number in a model's explanation against the raw signal, including a small time-series language model trained on it. Live demo: https://devprashant19.github.io/Sightglass/ · film: https://youtu.be/TbPQ_ZcrHc4. Its own split is grouped the same way (by the four-grade condition), with different fold sizes.
 
 ## Known limitations
 
