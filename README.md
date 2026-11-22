@@ -9,6 +9,8 @@ Sightglass reads one 60-second cycle of the UCI #447 test rig's 17 sensors, name
 
 The diagnosis shown by default is LightGBM on 43 physics features, with an explanation written by rules from the same features, so its claims verify by construction. Beside it sits a small **time-series language model trained here** ([docs/tslm.md](docs/tslm.md)): sensor windows as soft prompts to SmolLM2-135M, writing its own diagnosis and evidence from the raw signals. The same checker grades every number it writes. Almost all of its numbers match the signal; its diagnoses are much weaker than the classifier's; and the site shows both. The larger OpenTSLM-Flamingo model has its code and configs and has not been trained. Nothing here has seen a real plant.
 
+Built by **Team Insiders** for the [TimeNet Hackathon](https://challenge.timenet.ai/), Round 1.
+
 **▶ [Watch the film](https://youtu.be/TbPQ_ZcrHc4)** (5:39) · **[Try the live demo](https://devprashant19.github.io/Sightglass/?cycle=hydraulic-00365&run)**
 
 **Start here:** [See it in a minute](#the-fastest-way-to-see-it) · [Results](#results) · [What is verified](#what-is-verified-and-what-is-not) · [Run it](#run-it) · [How it works](ARCHITECTURE.md) · [Evaluate it](TESTING.md) · [All the docs](docs/README.md)
