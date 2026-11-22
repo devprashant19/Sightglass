@@ -97,9 +97,18 @@ class SoftPromptTSLM(nn.Module):
         return torch.cat([series.to(prompt.dtype), prompt], dim=1)
 
     def forward(
-        self, patches: dict[str, torch.Tensor], target_ids: torch.Tensor, target_mask: torch.Tensor
+        self,
+        patches: dict[str, torch.Tensor],
+        target_ids: torch.Tensor,
+        target_mask: torch.Tensor,
+        target_weight: torch.Tensor | None = None,
     ) -> torch.Tensor:
-        """Mean cross-entropy over the target tokens only."""
+        """Cross-entropy over the target tokens only.
+
+        With ``target_weight`` (same shape as ``target_ids``), each token's loss is scaled by its
+        weight, and the sum is divided by the number of target tokens, so weights above 1 add
+        emphasis without changing the scale of the other tokens.
+        """
         prefix = self._prefix(patches)
         tgt = self.lm.get_input_embeddings()(target_ids)
         embeds = torch.cat([prefix, tgt], dim=1)
@@ -107,10 +116,20 @@ class SoftPromptTSLM(nn.Module):
         attn = torch.cat(
             [torch.ones(b, p, dtype=target_mask.dtype, device=target_mask.device), target_mask], 1
         )
-        ignore = torch.full((b, p), -100, dtype=torch.long, device=target_ids.device)
-        labels = torch.cat([ignore, target_ids.masked_fill(target_mask == 0, -100)], dim=1)
-        loss: torch.Tensor = self.lm(inputs_embeds=embeds, attention_mask=attn, labels=labels).loss
-        return loss
+        if target_weight is None:
+            ignore = torch.full((b, p), -100, dtype=torch.long, device=target_ids.device)
+            labels = torch.cat([ignore, target_ids.masked_fill(target_mask == 0, -100)], dim=1)
+            loss: torch.Tensor = self.lm(
+                inputs_embeds=embeds, attention_mask=attn, labels=labels
+            ).loss
+            return loss
+        logits = self.lm(inputs_embeds=embeds, attention_mask=attn).logits
+        # Position p-1+i predicts target token i.
+        pred = logits[:, p - 1 : p - 1 + target_ids.shape[1], :].float()
+        ce = nn.functional.cross_entropy(pred.transpose(1, 2), target_ids, reduction="none")
+        m = target_mask.float()
+        weighted: torch.Tensor = (ce * target_weight * m).sum() / m.sum().clamp(min=1.0)
+        return weighted
 
     @torch.no_grad()
     def generate(self, patches: dict[str, torch.Tensor], max_new_tokens: int = 320) -> torch.Tensor:

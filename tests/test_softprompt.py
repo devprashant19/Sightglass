@@ -66,3 +66,20 @@ def test_loss_ignores_padding_and_backpropagates_into_encoder() -> None:
     ids2 = ids.clone()
     ids2[1, 3] = 20
     assert torch.allclose(model(patches, ids2, mask), loss)
+
+
+def test_unit_weights_give_the_plain_loss_and_weights_add_emphasis() -> None:
+    cs = _cycles(2)
+    lengths = patch_lengths(cs[0])
+    model = _tiny_model(lengths)
+    norm = fit_norm(cs)
+    per = [cycle_patches(c, norm, lengths) for c in cs]
+    patches = {s: torch.from_numpy(np.stack([p[s] for p in per])) for s in lengths}
+    ids = torch.tensor([[10, 11, 12, 1], [10, 11, 1, 1]])
+    mask = torch.tensor([[1, 1, 1, 1], [1, 1, 1, 0]])
+    plain = model(patches, ids, mask)
+    ones = model(patches, ids, mask, torch.ones(2, 4))
+    assert torch.allclose(plain, ones, atol=1e-5)
+    heavy = torch.ones(2, 4)
+    heavy[:, 1] = 5.0
+    assert model(patches, ids, mask, heavy) > plain

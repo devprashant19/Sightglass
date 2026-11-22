@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 import time
 from pathlib import Path
 from typing import Any
@@ -63,6 +64,7 @@ class TrainCfg(BaseModel):
     max_new_tokens: int
     gen_batch_size: int
     checkpoint_dir: str
+    label_weight: float = 1.0  # loss weight on the level names ("Valve: small lag.")
 
 
 def load_cfg(path: Path = CONFIG) -> TrainCfg:
@@ -105,6 +107,18 @@ def encode_targets(tok: Any, texts: list[str]) -> tuple[torch.Tensor, torch.Tens
     return out, mask
 
 
+def label_weights(tok: Any, texts: list[str], weight: float, n: int) -> torch.Tensor:
+    """Per-token weights: ``weight`` on the tokens of each line's level name, 1 elsewhere."""
+    out = torch.ones((len(texts), n))
+    for i, t in enumerate(texts):
+        spans = [m.span(1) for m in re.finditer(r"(?m)^[^:\n]+:\s*([^.\n]+)\.", t)]
+        enc = tok(t, add_special_tokens=False, return_offsets_mapping=True)
+        for j, (a, b) in enumerate(enc["offset_mapping"]):
+            if any(a < e and s < b for s, e in spans):
+                out[i, j] = weight
+    return out
+
+
 def rationale_texts() -> dict[str, str]:
     with open(RATIONALES, encoding="utf-8") as f:
         return {r["cycle_id"]: r["text"] for r in map(json.loads, f)}
@@ -141,6 +155,11 @@ def train(cfg: TrainCfg) -> None:
     Ptr, Pva = stack_patches(tr, norm, lengths), stack_patches(va, norm, lengths)
     Ttr, Mtr = encode_targets(tok, [texts[c.id] for c in tr])
     Tva, Mva = encode_targets(tok, [texts[c.id] for c in va])
+    Wtr = (
+        label_weights(tok, [texts[c.id] for c in tr], cfg.label_weight, Ttr.shape[1])
+        if cfg.label_weight != 1.0
+        else None
+    )
     logger.info(f"{len(tr)} train / {len(va)} val cycles, {len(lengths)} sensors, device {dev}")
 
     opt = torch.optim.AdamW(
@@ -175,9 +194,10 @@ def train(cfg: TrainCfg) -> None:
         for bi, i in enumerate(range(0, len(order), cfg.batch_size)):
             idx = order[i : i + cfg.batch_size]
             with torch.autocast(dev.type, dtype=torch.float16, enabled=dev.type == "cuda"):
-                loss = model(to_dev(Ptr, idx, dev), Ttr[idx].to(dev), Mtr[idx].to(dev))
+                w = None if Wtr is None else Wtr[idx].to(dev)
+                loss = model(to_dev(Ptr, idx, dev), Ttr[idx].to(dev), Mtr[idx].to(dev), w)
             scaler.scale(loss / cfg.grad_accum).backward()
-            running.append(float(loss))
+            running.append(float(loss.detach()))
             if (bi + 1) % cfg.grad_accum == 0:
                 scaler.unscale_(opt)
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
