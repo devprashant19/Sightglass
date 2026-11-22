@@ -1,4 +1,4 @@
-.PHONY: setup data links rationales baselines engine train eval export readme site web api test lint all clean
+.PHONY: setup data links rationales baselines engine train tslm tslm-val tslm-test eval export readme site web api test lint all clean
 
 PYTHON ?= python
 PYTEST ?= pytest
@@ -34,6 +34,17 @@ engine:
 train:
 	@echo "=== Launching OpenTSLM fine-tuning (smoke or full config) ==="
 	$(PYTHON) scripts/train.py --config configs/train/smoke_cpu.yaml --seed 0
+
+tslm:
+	@echo "=== Training the soft-prompt TSLM (needs requirements-tslm.txt; uses a CUDA GPU if present) ==="
+	$(PYTHON) scripts/train_tslm.py train
+
+tslm-val:
+	$(PYTHON) scripts/train_tslm.py evaluate --split val
+
+tslm-test:
+	@echo "=== Test split, once, after every choice was made on val ==="
+	$(PYTHON) scripts/train_tslm.py evaluate --split test
 
 eval:
 	@echo "=== Evaluating model predictions and computing faithfulness ==="

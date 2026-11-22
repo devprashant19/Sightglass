@@ -1,0 +1,15 @@
+# B6: soft-prompt TSLM. Sensor windows at native rate -> soft tokens -> SmolLM2-135M.
+# Every choice here is made on the validation split; the test split is read once, at the end.
+run_name: softprompt_smollm135m
+backbone: HuggingFaceTB/SmolLM2-135M        # Apache-2.0
+backbone_revision: 93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+seed: 0
+epochs: 4
+batch_size: 4
+grad_accum: 2
+lr_encoder: 1.0e-3
+lr_lm: 1.0e-4
+warmup_steps: 30
+max_new_tokens: 320
+gen_batch_size: 16
+checkpoint_dir: checkpoints/softprompt_smollm135m
