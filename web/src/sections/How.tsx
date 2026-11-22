@@ -96,13 +96,13 @@ function RadarDiagram({ vals }: { vals: number[] }) {
   );
 }
 
-function StagesDiagram() {
+function StagesDiagram({ done = false }: { done?: boolean }) {
   const st = ['CONNECTOR', 'PHYSICS', 'CHECKER', 'TSLM'];
   return (
     <>
       {st.map((s, i) => {
         const h = 50 + i * 45;
-        const pending = i === 3;
+        const pending = i === 3 && !done;
         return (
           <g key={s}>
             <motion.rect x={70 + i * 120} width="70" fill={pending ? 'url(#hatch)' : i === 2 ? 'var(--violet)' : 'var(--track)'} stroke={pending ? 'var(--coral)' : 'var(--line-2)'} strokeDasharray={pending ? '4 3' : undefined}
@@ -132,12 +132,13 @@ function Diagram({ children }: { children: ReactNode }) {
 export function HowItWorks() {
   const { summary } = useStore();
   const pc = summary?.engine.per_component;
+  const lmDone = summary?.tslm.status === 'done';
   const radar = [...COMPONENTS.map((c) => pc?.[c]?.macro_f1 ?? 0.5), (summary?.engine.claim_accuracy ?? 50) / 100];
   const steps = [
     { eb: 'Compute, don’t describe', t: 'One signal, two outputs', p: 'Physics features come straight from the cycle at its native rate: means, ripple, rise time, power per unit of flow. The same features feed the verdict and the evidence, so an explanation can only cite what was measured.', g: <SplitDiagram /> },
     { eb: 'Read it back', t: 'The checker trusts nothing it is told.', p: 'Every explanation is parsed back into claims (sensor, quantity, value, unit, direction). Each claim is recomputed from the raw signal with the same extractor and must land within a tolerance fixed before any test result was seen.', g: <LoopDiagram /> },
     { eb: 'Held-out cycles', t: 'Scored on cycles it never saw', p: 'The split keeps whole operating conditions apart, so a test cycle is never a near-copy of a training one. The shape shows the engine’s macro-F1 on each part and its claim accuracy on the test set.', g: <RadarDiagram vals={radar} /> },
-    { eb: 'Ship it in stages', t: 'From a TimeNet build to a language model', p: 'The connector, physics extractors and checker are built and tested. The OpenTSLM fine-tune that writes the explanations in its own words is the next stage, and it will be judged by the same checker.', g: <StagesDiagram /> },
+    { eb: 'Ship it in stages', t: 'From a TimeNet build to a language model', p: lmDone ? 'Connector, physics extractors and checker came first. Then a time-series language model was trained to read the raw signals and write the diagnosis and its evidence in its own words, and the same checker grades every number it writes.' : 'The connector, physics extractors and checker are built and tested. The language model that writes the explanations in its own words is the next stage, and it will be judged by the same checker.', g: <StagesDiagram done={lmDone} /> },
   ];
   return (
     <section className="sec" id="how" aria-labelledby="how-h">
@@ -164,12 +165,12 @@ export function Proof() {
   const [ref, seen] = useInViewOnce<HTMLDivElement>(0.3);
   const [col, setCol] = useState(0);
   const [barsRef, barsSeen] = useInViewOnce<HTMLDivElement>(0.3);
-  const d = summary?.dataset, ch = summary?.checker, en = summary?.engine;
+  const d = summary?.dataset, ch = summary?.checker, en = summary?.engine, lm = summary?.tslm;
   const ladder = [
     { k: 'Connected', t: 'A real TimeNet build', p: d ? `${manifest?.source?.name ?? 'UCI #447'}: ${int(d.cycles)} cycles and ${d.sensors} sensors, downloaded and checked against a pinned SHA-256.` : '…' },
     { k: 'Grounded', t: 'Evidence from the signal', p: ch ? `${pct100(ch.roundtrip_pct)} of ${int(ch.n_rationales)} reference explanations survive a parse-and-recompute round trip.` : '…' },
     { k: 'Checked', t: 'Corruption is caught', p: ch ? `Change one number by 20% and the checker flags it: ${pct100(ch.corruption_caught_pct)} of ${int(ch.n_corrupted)} corrupted explanations caught.` : '…' },
-    { k: 'Trained', t: 'Language model: next', p: summary ? `OpenTSLM fine-tune ${summary.tslm.status === 'done' ? 'complete' : 'pending'}${summary.tslm.reason ? `: ${summary.tslm.reason}` : ''}.` : '…' },
+    { k: 'Trained', t: lm?.status === 'done' ? 'A language model, graded' : 'Language model: next', p: !summary ? '…' : lm?.status === 'done' ? `A time-series language model reads the raw signals and writes its own evidence: ${pct100(lm.claim_accuracy)} of its ${int(lm.total_claims)} test claims verify against the signal.` : `Language model ${lm?.status ?? 'pending'}${lm?.reason ? `: ${lm.reason}` : ''}.` },
   ];
   const parts = COMPONENTS.map((c) => [COMP[c].short, en?.per_component?.[c]?.macro_f1 ?? 0] as const);
   return (
@@ -247,7 +248,10 @@ export function ResultsSection() {
   const rows: BaselineRow[] = summary ? [
     { id: 'engine', label: 'Sightglass engine (physics features + rationale engine)', explains: true, status: 'done', mean_macro_f1: en!.mean_macro_f1, joint_exact_match: en!.joint_exact_match, claim_accuracy: en!.claim_accuracy },
     ...summary.baselines.filter((b) => b.id !== 'engine'),
-    { id: 'tslm', label: 'Sightglass TSLM (OpenTSLM-Flamingo fine-tune)', explains: true, status: summary.tslm.status === 'done' ? 'done' : 'pending', reason: summary.tslm.reason },
+    summary.tslm.status === 'done'
+      ? { id: 'tslm', label: `Sightglass TSLM (soft-prompt ${(summary.tslm.backbone ?? '').split('/').pop()?.split('@')[0] ?? ''}, writes its own evidence)`, explains: true, status: 'done' as const, mean_macro_f1: summary.tslm.mean_macro_f1, joint_exact_match: summary.tslm.joint_exact_match, claim_accuracy: summary.tslm.claim_accuracy }
+      : { id: 'tslm', label: 'Sightglass TSLM', explains: true, status: 'pending' as const, reason: summary.tslm.reason },
+    ...(summary.opentslm ? [{ id: 'opentslm', label: summary.opentslm.label ?? 'OpenTSLM-Flamingo fine-tune', explains: true, status: summary.opentslm.status === 'done' ? 'done' as const : 'pending' as const, reason: summary.opentslm.reason }] : []),
     ...(summary.baselines.some((b) => /gpt/i.test(b.id)) ? [] : [{ id: 'gpt4o', label: 'GPT-4o reading plots (zero-shot)', explains: true, status: summary.gpt4o.status === 'done' ? 'done' as const : 'not_run' as const, reason: summary.gpt4o.reason }]),
   ] : [];
   const best = Math.max(...rows.filter((r) => r.status === 'done').map((r) => r.mean_macro_f1 ?? 0));

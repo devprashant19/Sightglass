@@ -27,6 +27,7 @@ from sightglass.utils.runs import get_git_sha
 
 logger = get_logger("export_site_data")
 SCHEMA = 2
+TSLM_NAME = "Sightglass TSLM (soft-prompt SmolLM2-135M)"
 CITATION = (
     'N. Helwig, E. Pignanelli, A. Schütze, "Condition Monitoring of a Complex Hydraulic System '
     'Using Multivariate Statistics", Proc. I2MTC-2015, Pisa, Italy, 2015. '
@@ -81,7 +82,9 @@ def labels_json(lb: dict[str, int]) -> dict[str, Any]:
     return {k: {"value": int(lb[k]), "name": COMPONENT_NAMES[k][int(lb[k])]} for k in COMPONENTS}
 
 
-def cycle_file(engine: Engine, c: Cycle, mock: bool) -> tuple[dict[str, Any], dict[str, Any]]:
+def cycle_file(
+    engine: Engine, c: Cycle, mock: bool, tslm_text: str | None = None
+) -> tuple[dict[str, Any], dict[str, Any]]:
     d = engine.diagnose(c)
     feats = d.pop("_features")
     d.pop("latency_ms", None)
@@ -135,6 +138,13 @@ def cycle_file(engine: Engine, c: Cycle, mock: bool) -> tuple[dict[str, Any], di
         "healthy": all(c.labels[k] == HEALTHY_LEVELS[k] for k in COMPONENTS),
         "n_healthy": int(sum(c.labels[k] == HEALTHY_LEVELS[k] for k in COMPONENTS)),
     }
+    if tslm_text is not None:
+        # The TSLM's own text, re-checked here by the engine's checker (not copied verdicts).
+        t = engine.check_rationale(c, tslm_text, TSLM_NAME)
+        doc["tslm_prediction"] = t
+        item["tslm_correct"] = int(sum(t["labels"][k]["value"] == c.labels[k] for k in COMPONENTS))
+        item["tslm_total_claims"] = len(t["claims"])
+        item["tslm_verified_claims"] = sum(cl["status"] == "verified" for cl in t["claims"])
     return doc, item
 
 
@@ -166,12 +176,19 @@ def whatif(engine: Engine, c: Cycle, mock: bool) -> dict[str, Any]:
     }
 
 
-def export(dest: Path, engine: Engine, cycles: list[Cycle], mock: bool, n_whatif: int) -> None:
+def export(
+    dest: Path,
+    engine: Engine,
+    cycles: list[Cycle],
+    mock: bool,
+    n_whatif: int,
+    tslm_texts: dict[str, str] | None = None,
+) -> None:
     clean(dest)
     hyd = dest / "hydraulic"
     items = []
     for c in cycles:
-        doc, item = cycle_file(engine, c, mock)
+        doc, item = cycle_file(engine, c, mock, (tslm_texts or {}).get(c.id))
         dump(hyd / "cycles" / f"{c.id}.json", doc)
         items.append(item)
     dump(
@@ -227,7 +244,12 @@ def main() -> None:
 
     test = load_cycles("hydraulic", split="test")
     out = Path(args.out)
-    export(out, engine, test, mock=False, n_whatif=6)
+    tslm_file = R / "tslm_test_rationales.jsonl"
+    tslm_texts = None
+    if summary["tslm"]["status"] == "done" and tslm_file.is_file():
+        with open(tslm_file, encoding="utf-8") as f:
+            tslm_texts = {r["cycle_id"]: r["rationale"] for r in map(json.loads, f)}
+    export(out, engine, test, mock=False, n_whatif=6, tslm_texts=tslm_texts)
 
     now = datetime.now(UTC).isoformat(timespec="seconds")
     sha = get_git_sha()
@@ -244,9 +266,15 @@ def main() -> None:
                 {"id": "engine", "name": MODEL_NAME, "status": "done"},
                 {
                     "id": "tslm",
-                    "name": "Sightglass TSLM (OpenTSLM-Flamingo)",
+                    "name": TSLM_NAME,
                     "status": summary["tslm"]["status"],
-                    "reason": summary["tslm"]["reason"],
+                    "reason": summary["tslm"].get("reason"),
+                },
+                {
+                    "id": "opentslm",
+                    "name": "OpenTSLM-Flamingo fine-tune",
+                    "status": summary["opentslm"]["status"],
+                    "reason": summary["opentslm"]["reason"],
                 },
             ],
             "datasets": [

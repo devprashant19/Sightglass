@@ -668,3 +668,11 @@ html.modal-open { overflow: hidden; }
 }
 .rm-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 2em; align-items: start; }
 @media (max-width: 767px) { .rm-grid { grid-template-columns: minmax(0, 1fr); gap: 1.2em; } }
+
+/* Engine / language-model switch in the explorer results */
+.who-toggle { display: flex; flex-wrap: wrap; align-items: center; gap: .5em; margin: 1.5em 5em 0; }
+.who-toggle button { font: inherit; font-size: .82em; letter-spacing: .04em; text-transform: uppercase; padding: .55em 1em; border-radius: .375em; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text); cursor: pointer; }
+.who-toggle button[aria-pressed="true"] { background: var(--violet-2); border-color: var(--violet-2); color: #fff; }
+.who-toggle .who-note { flex: 1 1 18em; opacity: .75; margin-left: .5em; }
+@media (max-width: 991px) { .who-toggle { margin-inline: 2.5em; } }
+@media (max-width: 600px) { .who-toggle { margin-inline: 1em; } .who-toggle .who-note { margin-left: 0; } }

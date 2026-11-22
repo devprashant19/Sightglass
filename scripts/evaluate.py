@@ -31,6 +31,42 @@ def bootstrap(fn: Any, n: int, resamples: int = 1000, seed: int = 0) -> list[flo
     return [float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))]
 
 
+def tslm_summary() -> dict[str, Any]:
+    """The soft-prompt TSLM's test result (scripts/train_tslm.py evaluate --split test)."""
+    p = R / "tslm_test.json"
+    if not p.is_file():
+        return {
+            "status": "pending",
+            "reason": "Train with scripts/train_tslm.py, choose on val, then evaluate on test.",
+        }
+    t = json.loads(p.read_text(encoding="utf-8"))
+    d, fa = t["diagnosis"], t["faithfulness"]
+    return {
+        "status": "done",
+        "model": t["model"],
+        "backbone": t["backbone"],
+        "run_id": t["run_id"],
+        "device": t["device"],
+        "n_test_cycles": t["n_cycles"],
+        "mean_macro_f1": d["mean_macro_f1"],
+        "joint_exact_match": d["joint_exact_match"],
+        "per_component": d["per_component"],
+        "format_ok_pct": d["format_ok_pct"],
+        "claim_accuracy": fa["claim_accuracy"],
+        "value_accuracy": fa["value_accuracy"],
+        "direction_accuracy": fa["direction_accuracy"],
+        "hallucinated_sensor_rate": fa["hallucinated_sensor_rate"],
+        "fully_faithful_pct": fa["fully_faithful_pct"],
+        "consistency_pct": fa["consistency_pct"],
+        "claims_per_rationale": fa["claims_per_rationale"],
+        "total_claims": fa["total_claims"],
+        "verified_claims": fa["status_counts"].get("verified", 0),
+        "status_counts": fa["status_counts"],
+        "note": "The model writes every number itself from the raw series; the checker "
+        "recomputes each one. Unlike the engine, nothing here verifies by construction.",
+    }
+
+
 def failure_summary(
     c_id: str,
     truth: dict[str, int],
@@ -298,7 +334,9 @@ def write_summary(ev: dict[str, Any]) -> None:
             "n_direction_flipped": checker.get("n_direction_flipped"),
             "tolerance_rel": checker.get("tolerance_rel"),
         },
-        "tslm": {
+        "tslm": tslm_summary(),
+        "opentslm": {
+            "label": "OpenTSLM-Flamingo fine-tune (Llama-3.2 1B)",
             "status": "pending",
             "reason": "OpenTSLM-Flamingo fine-tuning needs a GPU with about 20 GB for "
             "Llama-3.2 1B; it has not been run. Its outputs will go through the "

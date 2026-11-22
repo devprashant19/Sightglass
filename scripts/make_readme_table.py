@@ -49,10 +49,23 @@ def table() -> str:
             f"(by construction) |"
         )
     t = s.get("tslm", {})
-    lines.append(
-        f"| Sightglass TSLM (OpenTSLM-Flamingo) | {t.get('status', 'pending')} | | | | | | "
-        f"{t.get('reason', '')} |"
-    )
+    if t.get("status") == "done":
+        pc = " | ".join(f"{t['per_component'][k]['macro_f1']:.3f}" for k in comps)
+        lines.append(
+            f"| **Sightglass TSLM** (soft-prompt SmolLM2-135M, writes its own evidence) | "
+            f"{t['mean_macro_f1']:.3f} | {pc} | {t['joint_exact_match']:.3f} | "
+            f"{t['verified_claims']}/{t['total_claims']} ({t['claim_accuracy']:.1f}%) |"
+        )
+    else:
+        lines.append(
+            f"| Sightglass TSLM | {t.get('status', 'pending')} | | | | | | {t.get('reason', '')} |"
+        )
+    o = s.get("opentslm", {})
+    if o:
+        lines.append(
+            f"| OpenTSLM-Flamingo fine-tune | {o.get('status', 'pending')} | | | | | | "
+            f"{o.get('reason', '')} |"
+        )
     c = s.get("checker", {})
     if c:
         lines += [

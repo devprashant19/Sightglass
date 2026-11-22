@@ -18,7 +18,7 @@ export interface Manifest {
   models?: string[];
 }
 
-export interface NotRun { status: 'pending' | 'not_run' | 'done'; reason?: string }
+export interface NotRun { status: 'pending' | 'not_run' | 'done'; reason?: string; label?: string }
 
 export interface BaselineRow {
   id: string;
@@ -30,6 +30,26 @@ export interface BaselineRow {
   joint_exact_match?: number | null;
   per_component?: Partial<Record<Component, number>>;
   claim_accuracy?: number | null;
+}
+
+/** The trained soft-prompt TSLM on the test split (results/tslm_test.json via evaluate.py). */
+export interface TslmResult {
+  model: string;
+  backbone: string;
+  n_test_cycles: number;
+  mean_macro_f1: number;
+  joint_exact_match: number;
+  per_component: Partial<Record<Component, { macro_f1: number; accuracy: number }>>;
+  format_ok_pct: number;
+  claim_accuracy: number;
+  value_accuracy: number;
+  direction_accuracy: number;
+  fully_faithful_pct: number;
+  consistency_pct: number;
+  claims_per_rationale: number;
+  total_claims: number;
+  verified_claims: number;
+  status_counts: Partial<Record<ClaimStatus, number>>;
 }
 
 export interface Summary {
@@ -55,7 +75,8 @@ export interface Summary {
     note?: string;
   };
   checker: { roundtrip_pct: number; n_rationales: number; corruption_caught_pct: number; n_corrupted: number; tolerance_rel?: number };
-  tslm: NotRun;
+  tslm: NotRun & Partial<TslmResult>;
+  opentslm?: NotRun;
   gpt4o: NotRun;
   baselines: BaselineRow[];
 }
@@ -71,6 +92,9 @@ export interface IndexItem {
   verified_claims: number;
   is_faithful: boolean;
   healthy: boolean;
+  tslm_correct?: number;
+  tslm_total_claims?: number;
+  tslm_verified_claims?: number;
 }
 export interface DatasetIndex { schema_version: number; mock: boolean; cycles: IndexItem[] }
 
@@ -110,6 +134,8 @@ export interface Cycle {
   meta: { cycle_index: number; stable_flag: number };
   true_labels: Record<Component, Label>;
   prediction: Prediction;
+  /** The language model's own rationale for this cycle, re-checked by the engine's checker. Labels may be null when a line names no level. */
+  tslm_prediction?: Prediction;
   signals: Record<string, Signal>;
   features?: Record<string, { value: number; unit: string; z?: number | null; pct?: number | null }>;
   reference?: Record<string, { mean: number; std: number }>;

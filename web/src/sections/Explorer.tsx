@@ -143,8 +143,12 @@ function Tick({ ok, delay, label }: { ok: boolean; delay: number; label: string 
   );
 }
 
-function Results({ cycle, p, source }: { cycle: Cycle; p: Prediction; source: 'live' | 'precomputed' | null }) {
+function Results({ cycle, p: engineP, source }: { cycle: Cycle; p: Prediction; source: 'live' | 'precomputed' | null }) {
   const [hot, setHot] = useState<number | null>(null);
+  const [who, setWho] = useState<'engine' | 'tslm'>('engine');
+  const lm = cycle.tslm_prediction;
+  const isLm = who === 'tslm' && !!lm;
+  const p = isLm && lm ? lm : engineP;
   const [showAll, setShowAll] = useState(false);
   const [copied, setCopied] = useState(false);
   const paras = paragraphsOf(p);
@@ -162,7 +166,14 @@ function Results({ cycle, p, source }: { cycle: Cycle; p: Prediction; source: 'l
   };
   return (
     <>
-      {source === 'precomputed' && (
+      {lm && (
+        <div className="who-toggle" role="group" aria-label="Whose explanation to show">
+          <button type="button" aria-pressed={!isLm} onClick={() => { setWho('engine'); setHot(null); }}>Engine</button>
+          <button type="button" aria-pressed={isLm} onClick={() => { setWho('tslm'); setHot(null); }}>Language model</button>
+          <span className="t-small who-note">{isLm ? 'Written word by word by the trained time-series language model from the raw signals. Nothing in it is computed for it: every number is the model’s own, and the checker recomputes each one.' : 'Labels from LightGBM, evidence computed from the signal by the rationale engine. Switch to see the same cycle explained by the language model.'}</span>
+        </div>
+      )}
+      {source === 'precomputed' && !isLm && (
         <div className="replay-banner" role="note">
           Precomputed result from the static export: the live engine is not running here, so this is the same pipeline run ahead of time on this cycle. Start it locally with <code className="t-code">make api</code> to diagnose live.
         </div>
@@ -171,7 +182,7 @@ function Results({ cycle, p, source }: { cycle: Cycle; p: Prediction; source: 'l
         <div><div className="t-mono">Parts diagnosed correctly</div><div className={`t-h2 ${correct === 4 ? 'ok' : 'bad'}`}><Odometer value={`${correct}/4`} play /></div><div className="demo-sub">against the rig's recorded condition</div></div>
         <div><div className="t-mono">Claims verified</div><div className={`t-h2 ${verified === p.claims.length ? 'ok' : 'bad'}`}><Odometer value={`${verified}/${p.claims.length}`} play /></div><div className="demo-sub">each recomputed from this cycle's signal</div></div>
         <div><div className="t-mono">Cycle</div><div className="t-h2"><Odometer value={cycleNo(cycle.id)} play /></div><div className="demo-sub">{cycle.meta.stable_flag === 0 ? 'stable operating conditions' : 'conditions not yet stable'}</div></div>
-        <div><div className="t-mono">Engine</div><div className="t-h4">{source === 'live' ? 'Live' : 'Precomputed'}</div><div className="demo-sub">{p.model}{p.latency_ms != null ? ` · ${Math.round(p.latency_ms)} ms` : ''}</div></div>
+        <div><div className="t-mono">{isLm ? 'Model' : 'Engine'}</div><div className="t-h4">{isLm ? 'Language model' : source === 'live' ? 'Live' : 'Precomputed'}</div><div className="demo-sub">{p.model}{p.latency_ms != null ? ` · ${Math.round(p.latency_ms)} ms` : ''}</div></div>
       </div>
       <ol className="steps dx-steps">
         {COMPONENTS.map((comp, k) => {
@@ -186,7 +197,7 @@ function Results({ cycle, p, source }: { cycle: Cycle; p: Prediction; source: 'l
               <span className="step-n t-code">{String(k + 1).padStart(2, '0')}</span>
               <div className="step-desc"><div>{COMP[comp].title}</div><div className="t-code step-meta">{cl.length} claims · {cl.filter((c) => c.claim.status === 'verified').length} verified · healthy is {short(comp, HEALTHY[comp])}</div>
                 {p.consistency?.[comp] != null && <div className={`t-code step-meta cons-flag ${p.consistency[comp] ? 'ok' : 'bad'}`}>{p.consistency[comp] ? 'evidence supports this label' : 'evidence does not clearly support this label'}</div>}</div>
-              <div className="step-col"><div className="t-mono">Sightglass said</div>{pl && <Verdict label={pl} comp={comp} delay={d + 0.25} />}</div>
+              <div className="step-col"><div className="t-mono">{isLm ? 'Model said' : 'Sightglass said'}</div>{pl && pl.value != null ? <Verdict label={pl} comp={comp} delay={d + 0.25} /> : <span className="verdict deny">UNREADABLE<em>no level named</em></span>}</div>
               <div className="step-col"><div className="t-mono">Rig recorded</div>{tl && <Verdict label={tl} comp={comp} delay={d + 0.4} kind="truth" />}</div>
               <Tick ok={match} delay={d + 0.6} label={match ? 'Diagnosis matches the recorded condition' : 'Diagnosis does not match the recorded condition'} />
               {para && <div className="dx-para"><ParaText p={p} para={para} hot={hot} setHot={setHot} /></div>}
@@ -223,7 +234,7 @@ function Results({ cycle, p, source }: { cycle: Cycle; p: Prediction; source: 'l
         <div>
           <div className="t-mono demo-foot-h">How this answer was made</div>
           <div className="fp"><span className="t-mono">Diagnosis</span><code className="t-code">{p.model}</code></div>
-          <div className="fp"><span className="t-mono">Evidence</span><code className="t-code">computed from cycle {cycleNo(cycle.id)}'s own signals, then checked by the faithfulness checker</code></div>
+          <div className="fp"><span className="t-mono">Evidence</span><code className="t-code">{isLm ? `written by the model from cycle ${cycleNo(cycle.id)}'s raw signals, then checked by the faithfulness checker` : `computed from cycle ${cycleNo(cycle.id)}'s own signals, then checked by the faithfulness checker`}</code></div>
           <div className="fp"><span className="t-mono">Consistency</span><code className="t-code">{p.consistency ? `${Object.values(p.consistency).filter(Boolean).length}/${Object.keys(p.consistency).length} paragraphs support their label` : 'not reported'}</code></div>
           <Button label={copied ? 'Link copied' : 'Copy a link to this cycle'} variant="ghost" onClick={share} />
         </div>
