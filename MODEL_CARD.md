@@ -15,7 +15,7 @@ metrics:
 
 # Model card — Sightglass engine (hydraulic)
 
-What is released today is the **Sightglass engine**, not a language model. The Sightglass TSLM (OpenTSLM-Flamingo fine-tune) is pending; this card will gain a section for it when a real run exists.
+This card covers the **Sightglass engine**. The small time-series language model trained alongside it (soft prompts into SmolLM2-135M) is described in [docs/tslm.md](docs/tslm.md), with its test result in `results/tslm_test.json` and the README table. The OpenTSLM-Flamingo fine-tune has not been run.
 
 ## Model details
 
@@ -52,5 +52,5 @@ Checker validation (`results/checker_validation.json`): 17,883 of 17,883 referen
 - Virtual sensors (CE, CP, SE) are derived from other sensors; CE alone separates the cooler classes. Removing them changes B1's mean macro-F1 by +0.002.
 - Accumulator: one physics link survives the stratified check (PS2 ripple); lowest accuracy and consistency.
 - What-if runs show learned shortcuts: warming TS1–TS4 by 2 °C changes the accumulator verdict on healthy cycles.
-- No language model has been evaluated: the TSLM and the two language-model baselines were not run, so nothing here measures how faithful a language model's explanations are.
+- One small language model has been graded by the checker ([docs/tslm.md](docs/tslm.md)); the two language-model baselines and OpenTSLM-Flamingo were not run.
 - Random splits inflate scores (+0.039 mean macro-F1 for B1); only grouped-split numbers are reported as results.

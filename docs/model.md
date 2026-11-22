@@ -54,8 +54,8 @@ From `results/eval_engine.json` and `results/failures.json`:
 
 ## Cost
 
-Everything above runs on a laptop CPU. The one live diagnosis measured took about 60 ms through the API. The TSLM fine-tune needs a GPU with about 20 GB for Llama-3.2 1B, and was not run.
+Everything above runs on a laptop CPU. The one live diagnosis measured took about 60 ms through the API. The OpenTSLM-Flamingo fine-tune needs a GPU with about 20 GB for Llama-3.2 1B, and was not run; the smaller TSLM that was trained is in [tslm.md](tslm.md).
 
-## The TSLM that is not trained
+## The OpenTSLM-Flamingo fine-tune that is not trained
 
 `src/sightglass/tslm/` holds the prompt builder (100 Hz sensors decimated to 10 Hz), a model wrapper and a training loop, with configs in `configs/train/`. On the CPU, `make train` runs a smoke loop over 64 cycles that proves loading, normalisation and checkpointing, and writes losses only (`results/runs/hydraulic_smoke_cpu_flamingo_s0_20261122/metrics.json`). **The full mode raises `NotImplementedError`:** OpenTSLM's curriculum trainer is not wired in. When it is, its output goes through the same parser and checker as the engine's. [`docs/downsampling.md`](downsampling.md) measures what the 10 Hz input loses.

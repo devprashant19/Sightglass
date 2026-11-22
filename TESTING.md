@@ -115,7 +115,7 @@ Every committed result was regenerated from nothing in a fresh clone, on Windows
 | Compare results | `python scripts/compare_with_committed.py results` | `REPRODUCED 11/11 headline numbers` | <1 s |
 | Export | `python scripts/export_site_data.py` | 329 cycles, 6 what-if grids | 21 s |
 | Compare export | `python scripts/compare_with_committed.py export` | `EXPORT IDENTICAL 343/343 files` | 17 s |
-| Tests | `python -m pytest -q` | `39 passed`, none skipped: the API and real-data tests ran | 23 s |
+| Tests | `python -m pytest -q` | `39 passed` at the time of this run, none skipped: the API and real-data tests ran (46 now, with the language-model tests and the TSLM extra installed) | 23 s |
 | Lint | ruff, ruff format, mypy as in CI | clean | 38 s |
 | Website | `npm ci`, `npm run typecheck`, `npm test`, `npm run build` in `web/` | 3 tests, production build | 35 s |
 
@@ -145,8 +145,8 @@ Not reproduced here: Linux and macOS, so the exact numbers are shown only with t
 
 ## Known limits, stated up front
 
-- **The diagnosis is not a language model.** It is LightGBM on physics features with a rule-based explainer. The OpenTSLM fine-tune has code and configs, needs a GPU with about 20 GB, and has not been trained.
-- **The language-model baselines were not run.** So there is no comparison yet of how faithful a language model's explanations are, which is the comparison this project exists to make.
+- **The default diagnosis is not a language model.** It is LightGBM on physics features with a rule-based explainer. A small language model is trained and graded beside it ([docs/tslm.md](docs/tslm.md)); its weights are not committed, and retraining on another GPU will not give byte-identical text, so the fresh-clone run re-checks its committed texts rather than retraining it. OpenTSLM-Flamingo, which needs a GPU with about 20 GB, has not been trained.
+- **The language-model baselines were not run** (tokenized-text LLM, GPT-4o on plots).
 - **One laboratory rig.** Fault levels were set on purpose. Nothing here has seen a real plant.
 - **Bearings and wind turbines** have connectors and physics code that run only on synthetic stand-ins.
 

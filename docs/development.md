@@ -30,7 +30,7 @@ If you change a dependency, regenerate the lock, rerun the pipeline, and commit 
 
 `make all` runs steps 1 to 8, then the linters and the tests. The raw download and the build take about 1 GB of disk between them. Step 4 is the slowest: the CNN baseline took about a minute per seed on a laptop CPU (`seconds` in `results/baselines.json`).
 
-`make train` is separate: it runs the CPU smoke loop of the TSLM, which writes losses only. The full fine-tune is not wired in. See [`docs/model.md`](model.md#the-tslm-that-is-not-trained).
+`make train` is separate: it runs the CPU smoke loop of the OpenTSLM-Flamingo wrapper, which writes losses only; its full fine-tune is not wired in. The trained language model is `make tslm` ([`docs/tslm.md`](tslm.md)). See [`docs/model.md`](model.md#the-opentslm-flamingo-fine-tune-that-is-not-trained).
 
 ## Layout
 

@@ -1,8 +1,12 @@
-# Title
+# TimeNet pull request: uci/hydraulic
+
+The pull request body for OpenTSLM/TimeNet, kept here for reference; the code is in [uci-hydraulic-connector.patch](uci-hydraulic-connector.patch). The make targets it names are TimeNet's, run in a TimeNet checkout, not targets of this repository.
+
+## Title
 
 feat(connectors): add the UCI hydraulic systems condition monitoring dataset
 
-# Body
+## Body
 
 ## What this adds
 
@@ -125,19 +129,19 @@ back to the umlaut if you prefer; CI on Linux is not affected.
 
 ## How it was tested
 
-Windows 11, Python 3.13.15 venv from `make sync`, GNU Make 3.82.90 (`mingw32-make`), base `979a0ae8`.
+Windows 11, Python 3.13.15 venv from TimeNet's `sync` target, GNU Make 3.82.90 (`mingw32-make`), base `979a0ae8`.
 
 | Command | Result |
 | --- | --- |
-| `make sync` | pass (needed `UV_LINK_MODE=copy`: hardlinks fail between the uv cache and this disk) |
-| `make check` | ruff format and ruff check pass; `ty check` reports 5 errors, all in `packages/timenet/tests/reader/test_reader.py` (`signal.alarm`, `os.fork`, `os.WNOHANG`, `signal.SIGKILL` do not exist on Windows). The same 5 appear on the unmodified base. `ty check --python-platform linux .` and `ty check --python-version 3.11 --python-platform linux .` both pass. |
-| `make check-ci` | the same 5 ty errors; on this Windows checkout `end-of-file-fixer` and `mixed-line-ending` also rewrite most tracked files (`core.autocrlf=true`, and the `packages/timenet/README.md` symlink is a plain file). Both are unrelated to this change. On the new files every hook passes. |
-| `make test-connectors` | pass: all 14 connectors; `uci/hydraulic` 20 passed and `ty` clean |
-| `make test-unit` | 1,716 passed, 1 skipped, 13 failed, 3 errors, all in `test_cache.py`, `test_cli.py` and `test_config.py` (symlinks, the home folder and POSIX paths on Windows). The same 16 fail on the unmodified base. None of them touches the new connector. |
-| `make test` | not completed here. The core suite writes several GB of temporary files, and the test machine ran out of disk space: a first run with all workers failed with `No space left on device`. A second run with `PYTEST_WORKERS=2` was stopped at about 90 % when 2 GB were left, with 2,659 passed, 37 failed and 30 errors so far, none from `No space left on device`. `make test` ignores `datasets/*`, so the only tests in it that load the new connector are in `packages/timenet-connectors/tests`, run separately below. Please rely on CI for the full run. |
-| `make license-check` | pass |
+| TimeNet's `sync` target | pass (needed `UV_LINK_MODE=copy`: hardlinks fail between the uv cache and this disk) |
+| TimeNet's `check` target | ruff format and ruff check pass; `ty check` reports 5 errors, all in `packages/timenet/tests/reader/test_reader.py` (`signal.alarm`, `os.fork`, `os.WNOHANG`, `signal.SIGKILL` do not exist on Windows). The same 5 appear on the unmodified base. `ty check --python-platform linux .` and `ty check --python-version 3.11 --python-platform linux .` both pass. |
+| TimeNet's `check-ci` target | the same 5 ty errors; on this Windows checkout `end-of-file-fixer` and `mixed-line-ending` also rewrite most tracked files (`core.autocrlf=true`, and the `packages/timenet/README.md` symlink is a plain file). Both are unrelated to this change. On the new files every hook passes. |
+| TimeNet's `test-connectors` target | pass: all 14 connectors; `uci/hydraulic` 20 passed and `ty` clean |
+| TimeNet's `test-unit` target | 1,716 passed, 1 skipped, 13 failed, 3 errors, all in `test_cache.py`, `test_cli.py` and `test_config.py` (symlinks, the home folder and POSIX paths on Windows). The same 16 fail on the unmodified base. None of them touches the new connector. |
+| TimeNet's `test` target | not completed here. The core suite writes several GB of temporary files, and the test machine ran out of disk space: a first run with all workers failed with `No space left on device`. A second run with `PYTEST_WORKERS=2` was stopped at about 90 % when 2 GB were left, with 2,659 passed, 37 failed and 30 errors so far, none from `No space left on device`. TimeNet's `test` target ignores `datasets/*`, so the only tests in it that load the new connector are in `packages/timenet-connectors/tests`, run separately below. Please rely on CI for the full run. |
+| TimeNet's `license-check` target | pass |
 
-`uv run pytest packages/timenet-connectors/tests` (part of `make test`): 302 passed, 3 failed. The
+`uv run pytest packages/timenet-connectors/tests` (part of TimeNet's `test` target): 302 passed, 3 failed. The
 3 are in `test_build_env.py` and `test_build_cli.py` and compare POSIX paths
 (`'\\fake\\reqs.txt' == '/fake/reqs.txt'`). They fail the same way on the unmodified base.
 `test_cards.py` and `test_discovery.py`, which cover every connector card, pass.

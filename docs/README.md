@@ -23,6 +23,7 @@ The pages fall into four groups. **Reference pages** describe the system as it i
 | 8 | [security.md](security.md) | What does the API validate and limit, what does it deliberately not protect, and what would need doing before exposing it? |
 | 9 | [decisions.md](decisions.md) | Why is it shaped this way, beyond the decisions in the README? |
 | 10 | [../MODEL_CARD.md](../MODEL_CARD.md) | The release record of the engine, in model-card form |
+| 11 | [tslm.md](tslm.md) | How was the time-series language model built, trained and graded, and what does its result mean? |
 
 ## Method notes
 
