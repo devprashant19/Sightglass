@@ -119,6 +119,8 @@ Every committed result was regenerated from nothing in a fresh clone, on Windows
 | Lint | ruff, ruff format, mypy as in CI | clean | 38 s |
 | Website | `npm ci`, `npm run typecheck`, `npm test`, `npm run build` in `web/` | 3 tests, production build | 35 s |
 
+**Run again after the language model was added.** A second fresh clone, of the branch that adds the TSLM, its results and the re-export, reproduced the same `11/11` headline numbers and `343/343` exported files (the export now carries each test cycle's language-model rationale, re-checked by the engine's checker from the committed texts). With `requirements-tslm.txt` installed, the test step ran `46 passed`, none skipped.
+
 **The pinned versions matter.** An earlier fresh clone that resolved the newest numpy and scipy instead of `requirements-lock.txt` moved the engine's mean macro-F1 from 0.9589 to 0.9604, and one link's p-value in the third digit. MiniRocket, the 1D-CNN and the majority baseline still matched exactly. Retraining in the original environment reproduces every number byte for byte, so the pipeline itself is deterministic; small numeric differences in the features move LightGBM's split points.
 
 The comparison only counts a file the pipeline rewrote after the clone was made, so an untouched committed copy cannot pass as reproduced. That check was itself seen to fail: on a clone where the pipeline had not run, it reported `NOT REGENERATED`.
