@@ -1,0 +1,22 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": 0.6007685223160012,
+      "val_loss": 0.1887979543692357
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.14690965373512996,
+      "val_loss": 0.20128804982245505
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.10675686113343337,
+      "val_loss": 0.19948869786999962
+    }
+  ],
+  "best_val_loss": 0.1887979543692357,
+  "seconds": 11072,
+  "device": "NVIDIA GeForce GTX 1650"
+}

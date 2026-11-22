@@ -1,0 +1,27 @@
+{
+  "rule": "mean of validation label macro-F1 and validation claim accuracy (fraction)",
+  "candidates": [
+    {
+      "checkpoint": "epoch0",
+      "val_loss": 0.1887979543692357,
+      "mean_macro_f1": 0.3373060960951586,
+      "claim_accuracy": 67.47881355932203,
+      "score": 0.5060471158441895
+    },
+    {
+      "checkpoint": "epoch1",
+      "val_loss": 0.20128804982245505,
+      "mean_macro_f1": 0.45317198422051563,
+      "claim_accuracy": 91.11189801699717,
+      "score": 0.6821454821952437
+    },
+    {
+      "checkpoint": "epoch2",
+      "val_loss": 0.19948869786999962,
+      "mean_macro_f1": 0.6086213455638954,
+      "claim_accuracy": 91.85435435435436,
+      "score": 0.7635824445537195
+    }
+  ],
+  "selected": "epoch2"
+}

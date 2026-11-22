@@ -1,0 +1,57 @@
+{
+  "run_id": "hydraulic_softprompt-tslm_grouped-val_epoch2_s0_20261122",
+  "model": "B6_softprompt_tslm",
+  "backbone": "HuggingFaceTB/SmolLM2-135M@93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+  "split": "val",
+  "n_cycles": 333,
+  "git_sha": "d31f4f995f3257d8820d555c616bfccc65e6085e",
+  "checkpoint_epoch": 2,
+  "checkpoint_val_loss": 0.19948869786999962,
+  "generation_seconds": 543,
+  "device": "NVIDIA GeForce GTX 1650",
+  "diagnosis": {
+    "mean_macro_f1": 0.6086213455638954,
+    "joint_exact_match": 0.02702702702702703,
+    "per_component": {
+      "cooler_condition": {
+        "macro_f1": 0.9189655172413792,
+        "accuracy": 0.93993993993994
+      },
+      "valve_condition": {
+        "macro_f1": 0.6488870949140815,
+        "accuracy": 0.8348348348348348
+      },
+      "pump_leakage": {
+        "macro_f1": 0.7370777370777372,
+        "accuracy": 0.9429429429429429
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.12955503302238328,
+        "accuracy": 0.10510510510510511
+      }
+    },
+    "format_ok_pct": 100.0
+  },
+  "faithfulness": {
+    "claim_accuracy": 91.85435435435436,
+    "value_accuracy": 98.23573573573573,
+    "direction_accuracy": 91.85435435435436,
+    "hallucinated_sensor_rate": 0.0,
+    "unparsed_numbers": 0,
+    "claims_per_rationale": 8.0,
+    "fully_faithful_pct": 61.26126126126126,
+    "consistency_pct": 76.87687687687688,
+    "consistency_per_component": {
+      "cooler_condition": 97.8978978978979,
+      "valve_condition": 90.39039039039038,
+      "pump_leakage": 90.09009009009009,
+      "accumulator_pressure": 29.129129129129126
+    },
+    "total_claims": 2664,
+    "status_counts": {
+      "verified": 2447,
+      "wrong_direction": 170,
+      "wrong_value": 47
+    }
+  }
+}

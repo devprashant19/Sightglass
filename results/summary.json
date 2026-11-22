@@ -1,6 +1,6 @@
 {
   "generated_by": "scripts/evaluate.py",
-  "git_sha": "ed1955c13a67bce154afe3a78c9dd4a3ddb38127",
+  "git_sha": "f42416afd34e292d04382f532c15e63937267b50",
   "synthetic": false,
   "dataset": {
     "cycles": 2205,
@@ -117,6 +117,51 @@
     "tolerance_rel": 0.05
   },
   "tslm": {
+    "status": "done",
+    "model": "B6_softprompt_tslm",
+    "backbone": "HuggingFaceTB/SmolLM2-135M@93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+    "run_id": "hydraulic_softprompt-tslm_grouped-test_s0_20261122",
+    "device": "NVIDIA GeForce GTX 1650",
+    "n_test_cycles": 329,
+    "mean_macro_f1": 0.6176598290570705,
+    "joint_exact_match": 0.1094224924012158,
+    "per_component": {
+      "cooler_condition": {
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      "valve_condition": {
+        "macro_f1": 0.5913607790153312,
+        "accuracy": 0.662613981762918
+      },
+      "pump_leakage": {
+        "macro_f1": 0.5681620957450342,
+        "accuracy": 0.5714285714285714
+      },
+      "accumulator_pressure": {
+        "macro_f1": 0.3111164414679167,
+        "accuracy": 0.3191489361702128
+      }
+    },
+    "format_ok_pct": 100.0,
+    "claim_accuracy": 94.86615328199487,
+    "value_accuracy": 99.11991199119912,
+    "direction_accuracy": 94.86615328199487,
+    "hallucinated_sensor_rate": 0.0,
+    "fully_faithful_pct": 68.69300911854103,
+    "consistency_pct": 64.58966565349544,
+    "claims_per_rationale": 8.288753799392097,
+    "total_claims": 2727,
+    "verified_claims": 2587,
+    "status_counts": {
+      "verified": 2587,
+      "wrong_direction": 116,
+      "wrong_value": 24
+    },
+    "note": "The model writes every number itself from the raw series; the checker recomputes each one. Unlike the engine, nothing here verifies by construction."
+  },
+  "opentslm": {
+    "label": "OpenTSLM-Flamingo fine-tune (Llama-3.2 1B)",
     "status": "pending",
     "reason": "OpenTSLM-Flamingo fine-tuning needs a GPU with about 20 GB for Llama-3.2 1B; it has not been run. Its outputs will go through the same checker."
   },

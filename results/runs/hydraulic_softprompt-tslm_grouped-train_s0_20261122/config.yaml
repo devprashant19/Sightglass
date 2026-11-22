@@ -1,0 +1,14 @@
+run_name: softprompt_smollm135m
+backbone: HuggingFaceTB/SmolLM2-135M
+backbone_revision: 93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+seed: 0
+epochs: 3
+batch_size: 4
+grad_accum: 2
+lr_encoder: 0.001
+lr_lm: 5.0e-05
+warmup_steps: 30
+max_new_tokens: 320
+gen_batch_size: 16
+checkpoint_dir: checkpoints/softprompt_smollm135m
+label_weight: 4.0
