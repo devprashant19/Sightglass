@@ -58,6 +58,9 @@ No `requirements.txt`: the connector reads the tables with pyarrow and numpy, wh
 
 - Values are float32. Every value in the release has at most five significant digits (checked on
   all 17 files), so float32 keeps each decimal value.
+- Each table is parsed once in `convert` and the signals are built with `Signal.from_values`, the
+  same pattern as `chengsenwang/tsqa`, `opentslm/har-cot` and `opentslm/sleep-cot`; the 17 tables
+  are text, so one parse per table is much cheaper than a lazy loader re-reading a row per signal.
 - Record annotations: the four grades (`cooler_condition`, `valve_condition`,
   `internal_pump_leakage`, `hydraulic_accumulator`, with units) and `stable_flag`.
 - `TimeNetConnectorError` for a missing table, a row with the wrong number of values, an empty or
@@ -146,7 +149,7 @@ Windows 11, Python 3.13.15 venv from TimeNet's `sync` target, GNU Make 3.82.90 (
 | TimeNet's `check-ci` target | the same 5 ty errors; on this Windows checkout `end-of-file-fixer` and `mixed-line-ending` also rewrite most tracked files (`core.autocrlf=true`, and the `packages/timenet/README.md` symlink is a plain file). Both are unrelated to this change. On the new files every hook passes. |
 | TimeNet's `test-connectors` target | pass: all 14 connectors; `uci/hydraulic` 20 passed and `ty` clean |
 | TimeNet's `test-unit` target | 1,716 passed, 1 skipped, 13 failed, 3 errors, all in `test_cache.py`, `test_cli.py` and `test_config.py` (symlinks, the home folder and POSIX paths on Windows). The same 16 fail on the unmodified base. None of them touches the new connector. |
-| TimeNet's `test` target | not completed here. The core suite writes several GB of temporary files, and the test machine ran out of disk space: a first run with all workers failed with `No space left on device`. A second run with `PYTEST_WORKERS=2` was stopped at about 90 % when 2 GB were left, with 2,659 passed, 37 failed and 30 errors so far, none from `No space left on device`. TimeNet's `test` target ignores `datasets/*`, so the only tests in it that load the new connector are in `packages/timenet-connectors/tests`, run separately below. Please rely on CI for the full run. |
+| TimeNet's `test` target | completed with its temporary files on a larger disk: 2,912 passed, 40 failed, 30 errors, 5 skipped, 2 xfailed (identical on a second run). All 70 are in core TimeNet tests that exercise symlinks, the home folder, POSIX paths and a mocked S3 server on Windows; none loads the new connector. On the unmodified base (`979a0ae8`) the same suite gives 2,905 passed, 45 failed, 32 errors, and every one of the 70 fails there too, so this PR adds none. |
 | TimeNet's `license-check` target | pass |
 
 `uv run pytest packages/timenet-connectors/tests` (part of TimeNet's `test` target): 302 passed, 3 failed. The
@@ -192,6 +195,11 @@ cycles per split {'train': 1877, 'test': 164, 'validation': 164}
 
 The first values match the first row of `PS1.txt`, `EPS1.txt`, `FS1.txt` and `TS1.txt` in the
 archive.
+
+**About the commit hook.** The commit was made with `SKIP=ty-check` (not `--no-verify`; every other
+hook ran and passed). On this Windows machine `ty check` fails on the 5 pre-existing errors listed above,
+in a test file this PR does not touch; `ty check --python-platform linux .` passes on the whole tree, and
+the new files are `ty`-clean in `make test-connectors`. CI on Linux runs the hook as usual.
 
 ## Used by
 
