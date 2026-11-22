@@ -28,6 +28,7 @@ from sightglass.export.perturb import apply_all
 from sightglass.physics.base import Feature, HealthyReference
 from sightglass.physics.hydraulic import HydraulicExtractor
 from sightglass.rationales.builder import COMPONENT_NAMES, COMPONENTS, build_joint_rationale
+from sightglass.rationales.parse import parse_diagnosis
 
 MODEL_NAME = "LightGBM on physics features + Sightglass rationale engine"
 LINKS_PATH = "configs/physics/hydraulic_links.yaml"
@@ -161,6 +162,54 @@ class Engine:
             "perturbations": c.meta.get("perturbations", []),
             "latency_ms": round((time.perf_counter() - t0) * 1000, 1),
             "_features": feats,
+        }
+
+    def check_rationale(self, cycle: Cycle, text: str, model: str) -> dict[str, Any]:
+        """Check a rationale another model wrote, in the dashboard's ``prediction`` shape.
+
+        The labels are read from the text (``None`` when a line is missing or names no level),
+        and every claim is checked with this engine's extractor, reference and tolerances.
+        """
+        parsed = parse_diagnosis(text)
+        feats = self.extractor.extract(cycle)
+        claims, unparsed = parse_claims(text)
+        verdicts = verify(claims, cycle, self.extractor, self.ref, self.cfg, features=feats)
+
+        def comp_of(span: tuple[int, int]) -> str:
+            for k, (a, b) in parsed.paragraphs.items():
+                if a <= span[0] < b:
+                    return k
+            return ""
+
+        by_comp: dict[str, list[Verdict]] = {k: [] for k in COMPONENTS}
+        out_claims = []
+        for v in verdicts:
+            comp = comp_of(v.claim.span)
+            by_comp.setdefault(comp, []).append(v)
+            out_claims.append(claim_json(v, comp, self.ref))
+        names: dict[str, str | None] = {}
+        consistency: dict[str, bool] = {}
+        for k in COMPONENTS:
+            lab = parsed.labels[k]
+            names[k] = None if lab is None else COMPONENT_NAMES[k][lab]
+            consistency[k] = lab is not None and self.checker.check(k, lab, by_comp.get(k, []))
+        return {
+            "model": model,
+            "labels": {k: {"value": parsed.labels[k], "name": names[k]} for k in COMPONENTS},
+            "rationale": text,
+            "paragraphs": [
+                {
+                    "component": k,
+                    "label_value": parsed.labels[k],
+                    "label_name": names[k],
+                    "text": text[a:b],
+                    "span": [a, b],
+                }
+                for k, (a, b) in sorted(parsed.paragraphs.items(), key=lambda kv: kv[1][0])
+            ],
+            "claims": out_claims,
+            "unparsed_numbers": unparsed,
+            "consistency": consistency,
         }
 
 
