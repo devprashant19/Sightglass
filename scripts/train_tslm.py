@@ -47,6 +47,7 @@ logger = get_logger("train_tslm")
 CONFIG = Path("configs/train/softprompt_smollm135m.yaml")
 RATIONALES = Path("data/rationales/hydraulic.jsonl")
 MODEL_NAME = "B6_softprompt_tslm"
+SELECTED = "selected.pt"
 
 
 class TrainCfg(BaseModel):
@@ -215,28 +216,39 @@ def train(cfg: TrainCfg) -> None:
         rec = {"epoch": epoch, "train_loss": float(np.mean(running)), "val_loss": val}
         history.append(rec)
         logger.info(f"epoch {epoch}: train {rec['train_loss']:.4f}, val {val:.4f}")
-        if val < best:
-            best = val
-            torch.save(
-                {
-                    "model_state": model.state_dict(),
-                    "norm": norm,
-                    "lengths": lengths,
-                    "epoch": epoch,
-                    "val_loss": val,
-                    "config": cfg.model_dump(),
-                },
-                ckpt / "best.pt",
-            )
+        best = min(best, val)
+        # Every epoch is kept; `select` chooses one on the validation split (see the docstring).
+        torch.save(
+            {
+                "model_state": model.state_dict(),
+                "norm": norm,
+                "lengths": lengths,
+                "epoch": epoch,
+                "val_loss": val,
+                "config": cfg.model_dump(),
+            },
+            ckpt / f"epoch{epoch}.pt",
+        )
     meta = {"history": history, "best_val_loss": best, "seconds": round(time.time() - t0)}
     meta["device"] = torch.cuda.get_device_name(0) if dev.type == "cuda" else "cpu"
     (run_dir / "metrics.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     (ckpt / "train_history.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
 
-def evaluate(cfg: TrainCfg, split: str) -> None:
+def evaluate(cfg: TrainCfg, split: str, checkpoint: str = SELECTED) -> None:
+    """Generate and check rationales for a split.
+
+    The selected checkpoint writes results/tslm_<split>.json; any other checkpoint (an epoch,
+    scored on val for selection) writes results/tslm_<split>_<name>.json.
+    """
+    if split == "test" and checkpoint != SELECTED:
+        raise SystemExit("The test split is read once, with the selected checkpoint only.")
+    path = Path(cfg.checkpoint_dir) / checkpoint
+    if not path.is_file():
+        raise SystemExit(f"{path} not found (train, score each epoch on val, then select).")
+    tag = "" if checkpoint == SELECTED else "_" + Path(checkpoint).stem
     dev = device()
-    state = torch.load(Path(cfg.checkpoint_dir) / "best.pt", map_location="cpu", weights_only=False)
+    state = torch.load(path, map_location="cpu", weights_only=False)
     model, tok = build_model(cfg, state["lengths"])
     model.load_state_dict(state["model_state"], strict=False)
     model.to(dev).eval()
@@ -253,12 +265,12 @@ def evaluate(cfg: TrainCfg, split: str) -> None:
         logger.info(f"generated {len(texts)}/{len(cycles)} ({time.time() - t0:.0f}s)")
     gen_seconds = time.time() - t0
 
-    run_id = make_run_id("hydraulic", "softprompt-tslm", f"grouped-{split}", cfg.seed)
+    run_id = make_run_id("hydraulic", "softprompt-tslm", f"grouped-{split}{tag}", cfg.seed)
     run_dir = init_run(run_id, {**cfg.model_dump(), "split": split, "epoch": state["epoch"]})
     rows = []
     with (
         open(run_dir / "predictions.jsonl", "w", encoding="utf-8") as f,
-        open(Path("results", f"tslm_{split}_rationales.jsonl"), "w", encoding="utf-8") as g,
+        open(Path("results", f"tslm_{split}{tag}_rationales.jsonl"), "w", encoding="utf-8") as g,
     ):
         for c, text in zip(cycles, texts, strict=True):
             pred = engine.check_rationale(c, text, MODEL_NAME)
@@ -295,8 +307,8 @@ def evaluate(cfg: TrainCfg, split: str) -> None:
         "split": split,
         "n_cycles": n,
         "git_sha": get_git_sha(),
-        "trained_epochs_best": state["epoch"],
-        "best_val_loss": state["val_loss"],
+        "checkpoint_epoch": state["epoch"],
+        "checkpoint_val_loss": state["val_loss"],
         "generation_seconds": round(gen_seconds),
         "device": torch.cuda.get_device_name(0) if dev.type == "cuda" else "cpu",
         "diagnosis": {
@@ -320,7 +332,7 @@ def evaluate(cfg: TrainCfg, split: str) -> None:
         },
     }
     (run_dir / "metrics.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
-    Path("results", f"tslm_{split}.json").write_text(
+    Path("results", f"tslm_{split}{tag}.json").write_text(
         json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     d, fa = result["diagnosis"], result["faithfulness"]
@@ -331,17 +343,62 @@ def evaluate(cfg: TrainCfg, split: str) -> None:
     )
 
 
+def selection_score(r: dict[str, Any]) -> float:
+    """The pre-declared rule: mean of label macro-F1 and the share of verified claims, on val."""
+    return 0.5 * (r["diagnosis"]["mean_macro_f1"] + r["faithfulness"]["claim_accuracy"] / 100.0)
+
+
+def select(cfg: TrainCfg) -> None:
+    """Pick the epoch with the best validation score; copy it to the selected checkpoint."""
+    import shutil
+
+    scored = []
+    for f in sorted(Path("results").glob("tslm_val_epoch*.json")):
+        r = json.loads(f.read_text(encoding="utf-8"))
+        scored.append((selection_score(r), f.stem.removeprefix("tslm_val_"), r))
+    if not scored:
+        raise SystemExit("Score each epoch first: evaluate --split val --checkpoint epochN.pt")
+    best = max(scored, key=lambda x: x[0])
+    ck = Path(cfg.checkpoint_dir)
+    shutil.copyfile(ck / f"{best[1]}.pt", ck / SELECTED)
+    shutil.copyfile(Path("results", f"tslm_val_{best[1]}.json"), Path("results", "tslm_val.json"))
+    shutil.copyfile(
+        Path("results", f"tslm_val_{best[1]}_rationales.jsonl"),
+        Path("results", "tslm_val_rationales.jsonl"),
+    )
+    out = {
+        "rule": "mean of validation label macro-F1 and validation claim accuracy (fraction)",
+        "candidates": [
+            {
+                "checkpoint": name,
+                "val_loss": r["checkpoint_val_loss"],
+                "mean_macro_f1": r["diagnosis"]["mean_macro_f1"],
+                "claim_accuracy": r["faithfulness"]["claim_accuracy"],
+                "score": sc,
+            }
+            for sc, name, r in scored
+        ],
+        "selected": best[1],
+    }
+    sel = Path("results", "tslm_selection.json")
+    sel.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    logger.info(f"selected {best[1]} (score {best[0]:.4f})")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("command", choices=["train", "evaluate"])
+    ap.add_argument("command", choices=["train", "evaluate", "select"])
+    ap.add_argument("--checkpoint", default=SELECTED, help="file in checkpoint_dir (val only)")
     ap.add_argument("--split", choices=["val", "test"], default="val")
     ap.add_argument("--config", type=Path, default=CONFIG)
     a = ap.parse_args()
     cfg = load_cfg(a.config)
     if a.command == "train":
         train(cfg)
+    elif a.command == "select":
+        select(cfg)
     else:
-        evaluate(cfg, a.split)
+        evaluate(cfg, a.split, a.checkpoint)
 
 
 if __name__ == "__main__":

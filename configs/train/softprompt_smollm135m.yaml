@@ -1,15 +1,17 @@
 # B6: soft-prompt TSLM. Sensor windows at native rate -> soft tokens -> SmolLM2-135M.
 # Every choice here is made on the validation split; the test split is read once, at the end.
+# Each epoch is saved, scored on val, and `select` keeps the best by mean(label macro-F1, claim accuracy).
 run_name: softprompt_smollm135m
 backbone: HuggingFaceTB/SmolLM2-135M        # Apache-2.0
 backbone_revision: 93efa2f097d58c2a74874c7e644dbc9b0cee75a2
 seed: 0
-epochs: 4
+epochs: 3
 batch_size: 4
 grad_accum: 2
 lr_encoder: 1.0e-3
-lr_lm: 1.0e-4
+lr_lm: 5.0e-5
 warmup_steps: 30
 max_new_tokens: 320
 gen_batch_size: 16
 checkpoint_dir: checkpoints/softprompt_smollm135m
+label_weight: 4.0          # loss weight on each part's level name (the valve was always "optimal" without it)

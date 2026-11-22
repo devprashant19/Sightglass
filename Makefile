@@ -40,7 +40,8 @@ tslm:
 	$(PYTHON) scripts/train_tslm.py train
 
 tslm-val:
-	$(PYTHON) scripts/train_tslm.py evaluate --split val
+	for n in 0 1 2; do $(PYTHON) scripts/train_tslm.py evaluate --split val --checkpoint epoch$$n.pt; done
+	$(PYTHON) scripts/train_tslm.py select
 
 tslm-test:
 	@echo "=== Test split, once, after every choice was made on val ==="
